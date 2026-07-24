@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 9 Computing Technology: Enterprise Information Systems – Designing for User Experience" />
+  <title>Year 9 Enterprise Information Systems | AppSheet Project</title>
+  <style>
+    :root {
+      --red: #a6192e;
+      --red-dark: #741020;
+      --red-soft: #f7e8eb;
+      --ink: #1f2937;
+      --muted: #5f6b7a;
+      --paper: #ffffff;
+      --bg: #f3f5f7;
+      --line: #d9dee5;
+      --green: #147d64;
+      --green-soft: #e4f5ef;
+      --amber: #9a6500;
+      --amber-soft: #fff4d6;
+      --blue: #2457a6;
+      --blue-soft: #e8f0ff;
+      --shadow: 0 10px 30px rgba(20, 30, 45, .08);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+
+    .skip-link {
+      position: fixed;
+      left: 12px;
+      top: -60px;
+      padding: 10px 14px;
+      background: #000;
+      color: #fff;
+      z-index: 9999;
+      border-radius: 8px;
+    }
+    .skip-link:focus { top: 12px; }
+
+    header {
+      background: linear-gradient(135deg, var(--red-dark), var(--red));
+      color: white;
+      padding: 30px 24px 24px;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 1.1;
+    }
+
+    header p { margin: 0; max-width: 760px; opacity: .95; }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 750;
+      transition: .18s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-light { background: white; color: var(--red-dark); }
+    .btn-ghost { background: rgba(255,255,255,.14); color: white; border: 1px solid rgba(255,255,255,.35); }
+    .btn-primary { background: var(--red); color: white; }
+    .btn-secondary { background: var(--ink); color: white; }
+    .btn-small { padding: 7px 12px; font-size: .9rem; }
+
+    .progress-shell {
+      max-width: 1200px;
+      margin: -1px auto 0;
+      padding: 0 24px;
+      transform: translateY(16px);
+    }
+
+    .progress-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .progress-track {
+      height: 14px;
+      border-radius: 999px;
+      background: #e8ebef;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--red), #db3855);
+      transition: width .3s ease;
+    }
+
+    .layout {
+      max-width: 1200px;
+      margin: 42px auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    aside {
+      position: sticky;
+      top: 16px;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      max-height: calc(100vh - 32px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-title {
+      padding: 16px 18px 10px;
+      font-weight: 850;
+      color: var(--red-dark);
+    }
+
+    .nav-controls {
+      padding: 0 14px 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .lesson-nav {
+      overflow: auto;
+      padding: 0 10px 12px;
+    }
+
+    .week-label {
+      margin: 14px 8px 6px;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .nav-link {
+      width: 100%;
+      text-align: left;
+      border: 0;
+      border-radius: 10px;
+      padding: 9px 10px;
+      background: transparent;
+      color: var(--ink);
+      margin: 2px 0;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .nav-link:hover,
+    .nav-link.active { background: var(--red-soft); color: var(--red-dark); }
+
+    .nav-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #cbd2da;
+      flex: 0 0 auto;
+    }
+    .nav-link.done .nav-dot { background: var(--green); }
+
+    main { min-width: 0; }
+
+    .panel {
+      display: none;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(18px, 3vw, 34px);
+      animation: fade .2s ease;
+    }
+    .panel.active { display: block; }
+
+    @keyframes fade {
+      from { opacity: .3; transform: translateY(4px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-weight: 850;
+      color: var(--red-dark);
+      background: var(--red-soft);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: .82rem;
+    }
+
+    h2 { font-size: clamp(1.6rem, 3vw, 2.35rem); margin: 12px 0 8px; line-height: 1.15; }
+    h3 { margin-top: 28px; line-height: 1.25; }
+    h4 { margin-bottom: 6px; }
+    p { margin-top: 8px; }
+
+    .lesson-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 22px;
+    }
+    .tag {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #eef1f4;
+      color: #3c4652;
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .callout {
+      border-left: 5px solid var(--blue);
+      background: var(--blue-soft);
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin: 18px 0;
+    }
+    .callout.project { border-color: var(--red); background: var(--red-soft); }
+    .callout.success { border-color: var(--green); background: var(--green-soft); }
+    .callout.warn { border-color: var(--amber); background: var(--amber-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: #fff;
+    }
+    .card h4 { margin-top: 0; }
+
+    .activity {
+      border: 2px solid #e8d8dc;
+      border-radius: 14px;
+      padding: 18px;
+      margin: 24px 0;
+      background: #fffbfc;
+    }
+    .activity h3 { margin-top: 0; color: var(--red-dark); }
+
+    textarea, input[type="text"], input[type="number"], select {
+      width: 100%;
+      border: 1px solid #bfc7d1;
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: white;
+      color: var(--ink);
+    }
+
+    textarea { min-height: 105px; resize: vertical; }
+    textarea:focus, input:focus, select:focus, button:focus-visible {
+      outline: 3px solid rgba(36,87,166,.25);
+      outline-offset: 2px;
+    }
+
+    .field { margin: 14px 0; }
+    .field label { font-weight: 760; display: block; margin-bottom: 5px; }
+
+    .checklist label {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 9px 0;
+      border-bottom: 1px solid #edf0f3;
+    }
+    .checklist label:last-child { border-bottom: 0; }
+    input[type="checkbox"], input[type="radio"] { transform: scale(1.15); margin-top: 5px; }
+
+    .quiz-question {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px 0;
+    }
+    .quiz-question legend { font-weight: 800; padding: 0 5px; }
+    .quiz-question label { display: block; padding: 5px 0; }
+
+    .feedback {
+      min-height: 28px;
+      margin-top: 10px;
+      font-weight: 800;
+    }
+    .correct { color: var(--green); }
+    .incorrect { color: #b42318; }
+
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      min-width: 640px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f1f3f5; }
+
+    .sortable-demo th button {
+      border: 0;
+      background: transparent;
+      font-weight: 850;
+      padding: 0;
+      color: var(--blue);
+    }
+
+    .flow-builder {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .flow-step {
+      padding: 12px;
+      border: 1px dashed #9aa5b1;
+      border-radius: 12px;
+      background: white;
+    }
+
+
+    .lesson-sequence {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 26px;
+    }
+    .sequence-step {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: #fbfcfd;
+    }
+    .sequence-step h4 {
+      margin: 0 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--red-dark);
+    }
+    .time-chip {
+      display: inline-block;
+      min-width: 58px;
+      text-align: center;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: .78rem;
+      font-weight: 850;
+      color: white;
+      background: var(--red);
+    }
+    .mini-task {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-left: 4px solid var(--green);
+      background: var(--green-soft);
+      border-radius: 8px;
+    }
+
+    .lesson-footer {
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .complete-label {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      font-weight: 850;
+      background: var(--green-soft);
+      padding: 9px 13px;
+      border-radius: 999px;
+    }
+
+    .hidden { display: none !important; }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .metric {
+      border-radius: 14px;
+      padding: 16px;
+      background: #f5f7f9;
+      border: 1px solid var(--line);
+    }
+    .metric strong { display: block; font-size: 1.7rem; color: var(--red-dark); }
+
+    .bar-chart {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 50px;
+      gap: 10px;
+      align-items: center;
+    }
+    .bar-track { height: 22px; background: #e7eaee; border-radius: 999px; overflow: hidden; }
+    .bar { height: 100%; background: var(--red); width: 0; transition: width .4s ease; }
+
+    .glossary dt { font-weight: 850; color: var(--red-dark); margin-top: 10px; }
+    .glossary dd { margin-left: 0; }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: white;
+    }
+    summary { font-weight: 800; cursor: pointer; }
+
+    footer.site-footer {
+      text-align: center;
+      padding: 28px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 850px) {
+      .header-inner { grid-template-columns: 1fr; }
+      .header-actions { justify-content: flex-start; }
+      .layout { grid-template-columns: 1fr; }
+      aside { position: static; max-height: none; }
+      .lesson-nav { max-height: 310px; }
+    }
+
+    @media print {
+      aside, .header-actions, .progress-shell, .lesson-footer button, .btn, .skip-link { display: none !important; }
+      body { background: white; }
+      header { color: black; background: white; border-bottom: 2px solid black; }
+      .layout { display: block; margin: 0; padding: 0; }
+      .panel { display: block !important; box-shadow: none; border-bottom: 2px solid #aaa; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to lesson content</a>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <p><strong>Year 9 Computing Technology</strong></p>
+      <h1>Enterprise Information Systems: Designing for User Experience</h1>
+      <p>Six weeks · 18 lessons · Google Sheets + Google AppSheet database assessment project</p>
+    </div>
+    <div class="header-actions">
+      <a class="btn btn-light" href="9CT_Assessment_Task_3.pdf" target="_blank" rel="noopener">Open assessment task</a>
+      <button class="btn btn-ghost" id="printBtn">Print / save notes</button>
+    </div>
+  </div>
+</header>
+
+<div class="progress-shell">
+  <div class="progress-card">
+    <div>
+      <strong id="progressText">0 of 18 lessons complete</strong>
+      <div class="progress-track" aria-label="Unit completion">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+    <button class="btn btn-small btn-secondary" id="resetBtn">Reset my progress</button>
+  </div>
+</div>
+
+<div class="layout">
+  <aside aria-label="Lesson navigation">
+    <div class="nav-title">Lesson navigator</div>
+    <div class="nav-controls">
+      <button class="btn btn-small btn-primary" id="prevBtn">← Previous</button>
+      <button class="btn btn-small btn-primary" id="nextBtn">Next →</button>
+    </div>
+    <nav class="lesson-nav" id="lessonNav"></nav>
+  </aside>
+
+  <main id="main">
+    <!-- LESSON 1 -->
+    <section class="panel active" data-lesson="1">
+      <span class="eyebrow">Week 1 · Lesson 1</span>
+      <h2>UI, UX and enterprise information systems</h2>
+      <div class="lesson-meta"><span class="tag">UI purpose</span><span class="tag">UX impact</span><span class="tag">Project launch</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: interface memory test</h4><p>Without opening an app, sketch or describe the home screen of an app you use often. Label at least five interface elements, such as menu, search, icon, form, navigation bar or feedback message.</p><div class="field"><label for="l1-starter">Which elements were easiest to remember, and why?</label><textarea id="l1-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Read the UI and UX explanations below. For each example, decide whether it is mainly about appearance, interaction, efficiency, accessibility or trust.</p><div class="mini-task"><strong>Think-pair-share:</strong> Can a product have a strong UI but poor UX? Give one example and explain.</div></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Independent activity</h4><p>Complete the “Spot the difference” activity and compare two apps that perform a similar task. Identify one design choice that improves UX and one that makes the task harder.</p><div class="field"><label for="l1-compare">Comparison notes</label><textarea id="l1-compare" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Assessment connection</h4><p>Choose one possible project scenario and list the three most important tasks a user must be able to complete successfully.</p><div class="field"><label for="l1-projecttasks">Three essential user tasks</label><textarea id="l1-projecttasks" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l1-exit">Complete this sentence: “A successful interface is not only attractive; it must also…”</label><input id="l1-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>A <strong>user interface (UI)</strong> is the part of a digital product that a person sees and uses. It includes screens, menus, buttons, forms, icons, labels and navigation.</p>
+      <p><strong>User experience (UX)</strong> is the overall experience a person has while using the product. A product can look attractive but still deliver poor UX if it is confusing, slow or inaccessible.</p>
+
+      <div class="cards">
+        <div class="card"><h4>UI asks</h4><p>What does the user see, touch, click, type or hear?</p></div>
+        <div class="card"><h4>UX asks</h4><p>Can the user complete the task easily, confidently and efficiently?</p></div>
+        <div class="card"><h4>Enterprise system</h4><p>A system that helps an organisation collect, store, process and communicate information.</p></div>
+      </div>
+
+      <div class="callout project"><strong>Assessment connection:</strong> Your group will create a real database app that lets users add, search, edit and view structured data. You will choose from the project scenarios in the assessment task.</div>
+
+      <div class="activity">
+        <h3>Activity: Spot the difference</h3>
+        <div class="field">
+          <label for="l1-ui">Describe one UI feature in an app you use.</label>
+          <textarea id="l1-ui" data-save placeholder="Example: The search icon is always in the top-right corner."></textarea>
+        </div>
+        <div class="field">
+          <label for="l1-ux">Explain how that feature affects UX.</label>
+          <textarea id="l1-ux" data-save placeholder="Example: It makes products quicker to find because users know where to look."></textarea>
+        </div>
+      </div>
+
+      <div class="activity">
+        <h3>Quick check</h3>
+        <fieldset class="quiz-question">
+          <legend>Which statement best describes UX?</legend>
+          <label><input type="radio" name="q1" value="a"> The colours and fonts used on a screen</label>
+          <label><input type="radio" name="q1" value="b"> The complete experience a user has while completing a task</label>
+          <label><input type="radio" name="q1" value="c"> The data stored in a spreadsheet</label>
+        </fieldset>
+        <button class="btn btn-primary quiz-btn" data-quiz="q1" data-answer="b">Check answer</button>
+        <div class="feedback" aria-live="polite"></div>
+      </div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 2 -->
+    <section class="panel" data-lesson="2">
+      <span class="eyebrow">Week 1 · Lesson 2</span>
+      <h2>Inputs, processes, storage, transmission and outputs</h2>
+      <div class="lesson-meta"><span class="tag">Systems thinking</span><span class="tag">Data flow</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: system detective</h4><p>Think about ordering food online. Write one example of an input, process, storage location, transmission and output.</p><div class="field"><label for="l2-starter">Your five-part example</label><textarea id="l2-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Study the five system components below. Then trace what happens after a user presses “Submit” on a form. Include validation, transmission to cloud services, storage and confirmation.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Scenario mapping</h4><p>Complete the transaction activity for your chosen project. Add at least two processes, not just one. Examples include checking a required field, calculating a total, sorting records or updating a status.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Challenge</h4><p>Explain what could go wrong at each stage of the data flow and how the system should respond.</p><div class="field"><label for="l2-errors">Possible errors and responses</label><textarea id="l2-errors" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l2-exit">Which stage is most important for protecting user data, and why?</label><input id="l2-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>Every information system can be examined as a flow of data.</p>
+      <div class="cards">
+        <div class="card"><h4>Input</h4><p>Data entered or collected, such as a form response, image, barcode or date.</p></div>
+        <div class="card"><h4>Process</h4><p>What the system does to the data, such as calculating, validating or filtering.</p></div>
+        <div class="card"><h4>Storage</h4><p>Where data is kept, such as Google Sheets or cloud storage.</p></div>
+        <div class="card"><h4>Transmission</h4><p>How data moves between the user, AppSheet, Google services and other users.</p></div>
+        <div class="card"><h4>Output</h4><p>Information displayed or produced, such as a chart, confirmation or dashboard.</p></div>
+      </div>
+
+      <div class="activity">
+        <h3>Activity: Trace one transaction</h3>
+        <p>Choose one assessment scenario and explain its data flow.</p>
+        <div class="field"><label for="l2-scenario">Scenario</label>
+          <select id="l2-scenario" data-save>
+            <option value="">Select one</option><option>Collector Hub</option><option>Canteen Click & Collect</option><option>Sport Team Tracker</option><option>Study Quest</option><option>Entertainment Booking App</option>
+          </select>
+        </div>
+        <div class="field"><label for="l2-input">Input</label><input id="l2-input" type="text" data-save></div>
+        <div class="field"><label for="l2-process">Process</label><input id="l2-process" type="text" data-save></div>
+        <div class="field"><label for="l2-storage">Storage</label><input id="l2-storage" type="text" data-save></div>
+        <div class="field"><label for="l2-output">Output</label><input id="l2-output" type="text" data-save></div>
+      </div>
+      <div class="callout project"><strong>Project checkpoint:</strong> Save this data-flow explanation for the “types of data” and “how data is stored, transmitted and managed” section of your documentation.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 3 -->
+    <section class="panel" data-lesson="3">
+      <span class="eyebrow">Week 1 · Lesson 3</span>
+      <h2>Defining the problem, users and use cases</h2>
+      <div class="lesson-meta"><span class="tag">Problem definition</span><span class="tag">User roles</span><span class="tag">Use cases</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: problem or solution?</h4><p>Classify each statement as a problem or a solution: “Students forget due dates”; “Create a study planner”; “Canteen staff cannot see order status”; “Add a dashboard.”</p><div class="field"><label for="l3-starter">What makes a problem statement different from a feature idea?</label><textarea id="l3-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Use the problem statement formula below. Strong problem definitions identify a real user, a current difficulty and the effect of that difficulty.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> User-role workshop</h4><p>Create a mini persona for one primary user. Include their goal, experience level, device, accessibility needs and biggest frustration.</p><div class="field"><label for="l3-persona">Primary user persona</label><textarea id="l3-persona" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Use-case refinement</h4><p>Rewrite your use case so it includes a clear user, action and reason. Add one success condition.</p><div class="field"><label for="l3-success">Success condition</label><input id="l3-success" type="text" data-save></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l3-exit">What evidence would prove your app solves the problem?</label><input id="l3-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>A strong project starts with a specific problem, not simply an app idea. Your problem statement should identify the users, their need and the improvement the proposed system will create.</p>
+      <div class="callout"><strong>Problem statement formula:</strong> [User group] needs a way to [complete a task] because [current problem]. Our system will [proposed improvement].</div>
+      <p>A <strong>use case</strong> is a short description of how a particular user interacts with a system to achieve a goal.</p>
+
+      <div class="activity">
+        <h3>Assessment builder: define your project</h3>
+        <div class="field"><label for="l3-problem">Problem statement</label><textarea id="l3-problem" data-save></textarea></div>
+        <div class="field"><label for="l3-users">Key user roles and responsibilities</label><textarea id="l3-users" data-save placeholder="Example: Student — creates and updates study tasks. Teacher — views progress summaries."></textarea></div>
+        <div class="field"><label for="l3-usecase">One important use case</label><textarea id="l3-usecase" data-save placeholder="As a..., I want to..., so that..."></textarea></div>
+      </div>
+
+      <div class="activity">
+        <h3>Quality check</h3>
+        <div class="checklist">
+          <label><input type="checkbox" data-save> My problem is specific and real.</label>
+          <label><input type="checkbox" data-save> I identified more than one user role where appropriate.</label>
+          <label><input type="checkbox" data-save> Each role has clear responsibilities.</label>
+          <label><input type="checkbox" data-save> My proposed system connects directly to the problem.</label>
+        </div>
+      </div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 4 -->
+    <section class="panel" data-lesson="4">
+      <span class="eyebrow">Week 2 · Lesson 4</span>
+      <h2>Functional and non-functional requirements</h2>
+      <div class="lesson-meta"><span class="tag">Requirements</span><span class="tag">Success criteria</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: requirement sort</h4><p>Decide whether each is functional or non-functional: “users can add records”; “screens load quickly”; “users can filter by status”; “labels are easy to understand.”</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Turn vague ideas into measurable requirements. Replace “easy to use” with a testable statement, such as “A first-time user can add a record in under two minutes without help.”</p><div class="field"><label for="l4-rewrite">Rewrite one vague requirement as a measurable requirement</label><textarea id="l4-rewrite" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Requirements drafting</h4><p>Complete the functional and non-functional requirement activity. Include requirements for data, navigation, accessibility, privacy and performance.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Peer quality check</h4><p>Ask a partner to highlight requirements that are unclear, impossible to test or not connected to the project problem. Revise at least two.</p><div class="field"><label for="l4-revision">Requirements revised after feedback</label><textarea id="l4-revision" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l4-exit">Why must requirements be written before development begins?</label><input id="l4-exit" type="text" data-save></div></div>
+      </div>
+
+      <p><strong>Functional requirements</strong> describe what the system must do. <strong>Non-functional requirements</strong> describe how well it should operate or the qualities it should have.</p>
+      <div class="cards">
+        <div class="card"><h4>Functional examples</h4><p>Add a booking; edit an item; search records; calculate an order total; display a dashboard.</p></div>
+        <div class="card"><h4>Non-functional examples</h4><p>Easy to navigate; readable; secure; accessible; reliable; quick to load; visually consistent.</p></div>
+      </div>
+
+      <div class="activity">
+        <h3>Activity: Sort the requirements</h3>
+        <div class="field"><label for="l4-func">Write four functional requirements using “The app must…”</label><textarea id="l4-func" data-save></textarea></div>
+        <div class="field"><label for="l4-nonfunc">Write four non-functional requirements using measurable language</label><textarea id="l4-nonfunc" data-save placeholder="Example: A first-time user should be able to add a record without teacher help."></textarea></div>
+      </div>
+
+      <div class="activity">
+        <h3>Quick check</h3>
+        <fieldset class="quiz-question">
+          <legend>“The app must allow users to filter tasks by priority” is:</legend>
+          <label><input type="radio" name="q4" value="a"> Functional</label>
+          <label><input type="radio" name="q4" value="b"> Non-functional</label>
+        </fieldset>
+        <button class="btn btn-primary quiz-btn" data-quiz="q4" data-answer="a">Check answer</button>
+        <div class="feedback" aria-live="polite"></div>
+      </div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 5 -->
+    <section class="panel" data-lesson="5">
+      <span class="eyebrow">Week 2 · Lesson 5</span>
+      <h2>Test cases: inputs and expected outputs</h2>
+      <div class="lesson-meta"><span class="tag">Testing</span><span class="tag">Validation</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: predict the failure</h4><p>A quantity field accepts “minus five”, a date field accepts letters and a required name field is blank. What should the system do in each case?</p><div class="field"><label for="l5-starter">Expected system responses</label><textarea id="l5-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Compare normal, boundary and invalid tests. A strong test case is specific enough that another person can repeat it and judge whether it passed.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Test-case design</h4><p>Complete the three project test cases below. Add a fourth test for accessibility or navigation.</p><div class="field"><label for="l5-access">Accessibility or navigation test</label><textarea id="l5-access" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Test-data planning</h4><p>Create a small set of mock records that includes normal, duplicate, missing and unusual values.</p><div class="field"><label for="l5-data">Mock test data plan</label><textarea id="l5-data" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l5-exit">Why is testing only normal data not enough?</label><input id="l5-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>A test case states the feature being tested, the input or action, the expected result and the actual result. Good testing includes normal, boundary and invalid data.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Test type</th><th>Example</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td>Normal</td><td>Enter a valid booking date.</td><td>Confirms normal use works.</td></tr>
+            <tr><td>Boundary</td><td>Enter the largest allowed quantity.</td><td>Tests the edge of an accepted range.</td></tr>
+            <tr><td>Invalid</td><td>Leave a required field blank.</td><td>Confirms validation blocks bad data.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="activity">
+        <h3>Build three project test cases</h3>
+        <div class="field"><label for="l5-normal">Normal test</label><textarea id="l5-normal" data-save placeholder="Feature | Input/action | Expected output"></textarea></div>
+        <div class="field"><label for="l5-boundary">Boundary test</label><textarea id="l5-boundary" data-save></textarea></div>
+        <div class="field"><label for="l5-invalid">Invalid test</label><textarea id="l5-invalid" data-save></textarea></div>
+      </div>
+      <div class="callout project"><strong>Project checkpoint:</strong> These test cases become the start of your testing table. You will add actual outcomes, bugs, fixes and retesting evidence in Week 5.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 6 -->
+    <section class="panel" data-lesson="6">
+      <span class="eyebrow">Week 2 · Lesson 6</span>
+      <h2>Social, ethical and legal responsibilities</h2>
+      <div class="lesson-meta"><span class="tag">Privacy</span><span class="tag">Ethics</span><span class="tag">Terms of use</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: data decision</h4><p>Would your app genuinely need a user’s full name, date of birth, email, photograph and location? Mark each as necessary, optional or unnecessary for your scenario.</p><div class="field"><label for="l6-starter">Data minimisation decisions</label><textarea id="l6-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Read the social, ethical and legal responsibilities below. Distinguish between what is legal, what is ethical and what builds user trust.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Terms and privacy investigation</h4><p>Complete the policy detective activity. Identify one clause that protects the organisation and one clause that affects the user.</p><div class="field"><label for="l6-clauses">Two clauses and their effects</label><textarea id="l6-clauses" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Project ethics statement</h4><p>Write a short statement explaining how your app will collect data responsibly, avoid harm and protect privacy.</p><div class="field"><label for="l6-ethics">Project ethics statement</label><textarea id="l6-ethics" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l6-exit">What is one piece of data your app should not collect?</label><input id="l6-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>Design choices can affect individuals and communities. Responsible designers consider privacy, consent, fairness, accessibility, copyright, data ownership and cybersecurity.</p>
+      <div class="cards">
+        <div class="card"><h4>Privacy</h4><p>Collect only data that is genuinely needed. Avoid unnecessary personally identifying information.</p></div>
+        <div class="card"><h4>Consent</h4><p>Users should understand what is collected and why.</p></div>
+        <div class="card"><h4>Fairness</h4><p>Features and language should not exclude or disadvantage groups.</p></div>
+        <div class="card"><h4>Ownership</h4><p>Identify who owns the data and who may access, edit, share or delete it.</p></div>
+      </div>
+      <details><summary>What are terms of use and EULAs?</summary><p>Terms of use explain the rules for using a service. An End User Licence Agreement explains how software may be used. These documents may describe data collection, account rules, ownership of uploaded content, limits of liability and reasons an account can be suspended.</p></details>
+
+      <div class="activity">
+        <h3>Policy detective</h3>
+        <p>Open the terms or privacy information for a digital service approved by your teacher. Summarise rather than copy.</p>
+        <div class="field"><label for="l6-collect">What data does the service collect?</label><textarea id="l6-collect" data-save></textarea></div>
+        <div class="field"><label for="l6-use">How may the data be used or shared?</label><textarea id="l6-use" data-save></textarea></div>
+        <div class="field"><label for="l6-attitude">How could these rules affect users’ attitudes or trust?</label><textarea id="l6-attitude" data-save></textarea></div>
+      </div>
+      <div class="callout project"><strong>Project checkpoint:</strong> Specify the data your app collects, who owns it, who should have access and how it will be protected.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 7 -->
+    <section class="panel" data-lesson="7">
+      <span class="eyebrow">Week 3 · Lesson 7</span>
+      <h2>Inclusive communication and accessibility</h2>
+      <div class="lesson-meta"><span class="tag">Accessibility</span><span class="tag">Diverse audiences</span><span class="tag">Communication</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: accessibility barrier</h4><p>Imagine a user has low vision, limited English, colour-vision deficiency or limited hand movement. Identify one barrier each user might face in a poorly designed app.</p><div class="field"><label for="l7-starter">Four possible barriers</label><textarea id="l7-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Review readable, perceivable, operable and respectful design. Notice that accessibility is not an extra feature added at the end; it shapes labels, layout, colour, navigation and testing.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Redesign challenge</h4><p>Choose a confusing form or screen. Describe how you would improve labels, field order, instructions, error messages and colour use.</p><div class="field"><label for="l7-redesign">Redesign notes</label><textarea id="l7-redesign" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Audience review</h4><p>Explain how your app communicates effectively with two different audience groups.</p><div class="field"><label for="l7-audience">Audience 1 and Audience 2</label><textarea id="l7-audience" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l7-exit">Which accessibility change would have the greatest impact on your app?</label><input id="l7-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>Communication choices influence whether an audience can understand, trust and use a product. Designers should consider people of different ages, genders, cultures, language backgrounds and abilities.</p>
+      <div class="cards">
+        <div class="card"><h4>Readable</h4><p>Clear labels, plain language, sufficient text size and useful spacing.</p></div>
+        <div class="card"><h4>Perceivable</h4><p>Do not rely on colour alone. Add text, icons, patterns or labels.</p></div>
+        <div class="card"><h4>Operable</h4><p>Logical navigation, large touch targets and predictable controls.</p></div>
+        <div class="card"><h4>Respectful</h4><p>Avoid stereotypes and seek feedback from the people represented.</p></div>
+      </div>
+      <div class="callout">When designing for Aboriginal and Torres Strait Islander Peoples, avoid treating cultures as one single group. Use respectful language, recognise diversity between communities and do not use cultural images, stories or knowledge without permission.</div>
+
+      <div class="activity">
+        <h3>Accessibility audit</h3>
+        <div class="checklist">
+          <label><input type="checkbox" data-save> Labels explain each field clearly.</label>
+          <label><input type="checkbox" data-save> Colour is not the only method used to communicate status.</label>
+          <label><input type="checkbox" data-save> Navigation is consistent and predictable.</label>
+          <label><input type="checkbox" data-save> Language is concise and understandable.</label>
+          <label><input type="checkbox" data-save> Images have a useful purpose and respectful representation.</label>
+        </div>
+        <div class="field"><label for="l7-change">One accessibility change I will apply to my AppSheet design</label><textarea id="l7-change" data-save></textarea></div>
+      </div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 8 -->
+    <section class="panel" data-lesson="8">
+      <span class="eyebrow">Week 3 · Lesson 8</span>
+      <h2>Compression, file formats and media choices</h2>
+      <div class="lesson-meta"><span class="tag">Lossy</span><span class="tag">Lossless</span><span class="tag">Performance</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: format match</h4><p>Match these files to a suitable format: logo with transparency, photograph, document bundle, spoken audio.</p><div class="field"><label for="l8-starter">Your matches</label><input id="l8-starter" type="text" data-save></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Compare lossy and lossless compression. Consider quality, speed, storage, transmission and whether the original information must be recovered exactly.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> File-size investigation</h4><p>Choose one image and compare its size before and after resizing or compression. Record dimensions, file size and visible quality.</p><div class="field"><label for="l8-investigation">Before and after results</label><textarea id="l8-investigation" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Project media plan</h4><p>List the media your app will use and choose suitable formats for each.</p><div class="field"><label for="l8-plan">Media and format choices</label><textarea id="l8-plan" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l8-exit">When would lossless compression be more important than a very small file size?</label><input id="l8-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>Compression reduces file size. Smaller files usually load and transmit faster, but the chosen method affects quality.</p>
+      <div class="cards">
+        <div class="card"><h4>Lossless compression</h4><p>No information is permanently removed. The original can be reconstructed. Useful when accuracy matters.</p></div>
+        <div class="card"><h4>Lossy compression</h4><p>Some information is permanently removed to create a smaller file. Useful for photographs, audio or video when a small quality reduction is acceptable.</p></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Format</th><th>Typical use</th><th>Compression idea</th></tr></thead>
+          <tbody><tr><td>PNG</td><td>Icons, diagrams, transparency</td><td>Lossless</td></tr><tr><td>JPEG</td><td>Photographs</td><td>Lossy</td></tr><tr><td>ZIP</td><td>Bundling files</td><td>Lossless</td></tr><tr><td>MP3</td><td>Audio</td><td>Lossy</td></tr></tbody>
+        </table>
+      </div>
+      <div class="activity">
+        <h3>Image decision</h3>
+        <fieldset class="quiz-question">
+          <legend>Your Collector Hub has product photographs. Which is generally the most suitable web format?</legend>
+          <label><input type="radio" name="q8" value="a"> JPEG</label>
+          <label><input type="radio" name="q8" value="b"> Uncompressed bitmap</label>
+          <label><input type="radio" name="q8" value="c"> Plain text</label>
+        </fieldset>
+        <button class="btn btn-primary quiz-btn" data-quiz="q8" data-answer="a">Check answer</button>
+        <div class="feedback" aria-live="polite"></div>
+      </div>
+      <div class="callout project"><strong>Project connection:</strong> Resize and compress images before adding them to your database. Large image files can slow loading and increase storage use.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 9 -->
+    <section class="panel" data-lesson="9">
+      <span class="eyebrow">Week 3 · Lesson 9</span>
+      <h2>Research existing systems and evaluate UI design</h2>
+      <div class="lesson-meta"><span class="tag">Comparative research</span><span class="tag">Evaluation techniques</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: first impression</h4><p>Open a teacher-approved system similar to your project. In 30 seconds, identify its main purpose, target user and most prominent action.</p><div class="field"><label for="l9-starter">First-impression notes</label><textarea id="l9-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided evaluation</h4><p>Use consistency, feedback, clear language, error prevention and user control as evaluation criteria. Avoid comments based only on personal taste.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Comparative analysis</h4><p>Complete the comparison notes below. Include evidence, such as screen names, features or task steps.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Modification decision</h4><p>Choose one existing design pattern you would reuse and one you would modify. Explain why each suits or does not suit your users.</p><div class="field"><label for="l9-modify">Reuse and modification decisions</label><textarea id="l9-modify" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l9-exit">What is the strongest design idea you found today?</label><input id="l9-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>Research helps you avoid repeating weak designs and identify useful conventions. Evaluate at least two similar products by examining features, strengths, weaknesses and suitability for users.</p>
+      <div class="cards">
+        <div class="card"><h4>Heuristic review</h4><p>Check consistency, feedback, clear language, error prevention and user control.</p></div>
+        <div class="card"><h4>User observation</h4><p>Watch a user attempt a task and note hesitation, errors and questions.</p></div>
+        <div class="card"><h4>Think-aloud testing</h4><p>The user explains what they expect while completing a task.</p></div>
+        <div class="card"><h4>Survey or interview</h4><p>Collect opinions and suggestions from representative users.</p></div>
+      </div>
+
+      <div class="activity">
+        <h3>Comparison notes</h3>
+        <div class="field"><label for="l9-app1">System 1: features, strengths and weaknesses</label><textarea id="l9-app1" data-save></textarea></div>
+        <div class="field"><label for="l9-app2">System 2: features, strengths and weaknesses</label><textarea id="l9-app2" data-save></textarea></div>
+        <div class="field"><label for="l9-influence">Three ways this research will influence your design</label><textarea id="l9-influence" data-save></textarea></div>
+      </div>
+      <div class="callout project"><strong>Assessment checkpoint:</strong> Your documentation must compare at least two existing apps or systems and explain how the research informed your design.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 10 -->
+    <section class="panel" data-lesson="10">
+      <span class="eyebrow">Week 4 · Lesson 10</span>
+      <h2>Information architecture, wireframes and user flow</h2>
+      <div class="lesson-meta"><span class="tag">Wireframes</span><span class="tag">Flowcharts</span><span class="tag">Navigation</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: navigation map</h4><p>List the screens a user would need to complete one main task in your app. Put them in the most logical order.</p><div class="field"><label for="l10-starter">Screen sequence</label><textarea id="l10-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Review information architecture, wireframes and flowcharts. Strong structures group related information, use clear labels and reduce unnecessary steps.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Wireframe development</h4><p>Create three paper or digital wireframes. Each should label navigation, fields, actions, headings and feedback messages. Use the screen planner below to describe them.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Flow check</h4><p>Count how many taps or clicks the user needs for one important task. Remove or combine unnecessary steps where possible.</p><div class="field"><label for="l10-efficiency">Original steps, revised steps and reason</label><textarea id="l10-efficiency" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l10-exit">What is one navigation decision you changed today?</label><input id="l10-exit" type="text" data-save></div></div>
+      </div>
+
+      <p><strong>Information architecture</strong> is how information is organised, labelled and connected so users can find what they need.</p>
+      <p>A <strong>wireframe</strong> is a low-detail plan of a screen. A <strong>flowchart</strong> shows the sequence and decisions involved in completing a task.</p>
+      <div class="activity">
+        <h3>Plan three AppSheet screens</h3>
+        <div class="field"><label for="l10-screen1">Screen 1: purpose, content and user actions</label><textarea id="l10-screen1" data-save></textarea></div>
+        <div class="field"><label for="l10-screen2">Screen 2: purpose, content and user actions</label><textarea id="l10-screen2" data-save></textarea></div>
+        <div class="field"><label for="l10-screen3">Screen 3: purpose, content and user actions</label><textarea id="l10-screen3" data-save></textarea></div>
+      </div>
+
+      <div class="activity">
+        <h3>Flowchart builder</h3>
+        <p>Draft the main task as a sequence. Include at least one decision where suitable.</p>
+        <div class="flow-builder">
+          <div class="flow-step"><label>Start<input type="text" data-save placeholder="User opens..."></label></div>
+          <div class="flow-step"><label>Action 1<input type="text" data-save></label></div>
+          <div class="flow-step"><label>Decision<input type="text" data-save placeholder="Is the data valid?"></label></div>
+          <div class="flow-step"><label>Yes path<input type="text" data-save></label></div>
+          <div class="flow-step"><label>No path<input type="text" data-save></label></div>
+          <div class="flow-step"><label>End<input type="text" data-save></label></div>
+        </div>
+      </div>
+      <div class="callout project"><strong>Assessment checkpoint:</strong> Produce wireframes for at least three screens and a flowchart showing one important user task.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 11 -->
+    <section class="panel" data-lesson="11">
+      <span class="eyebrow">Week 4 · Lesson 11</span>
+      <h2>Structured data: tables, entities, attributes and keys</h2>
+      <div class="lesson-meta"><span class="tag">Database design</span><span class="tag">Entities</span><span class="tag">Keys</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: entity hunt</h4><p>For a school library system, identify three entities and three attributes for each entity.</p><div class="field"><label for="l11-starter">Entities and attributes</label><textarea id="l11-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided modelling</h4><p>Review entity, attribute, record and primary key. Notice that a key must be unique, stable and not depend on a person’s name.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Three-table design</h4><p>Complete the table structure activity. Check that each field stores one value and each table represents one main entity or event.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Relationship reasoning</h4><p>Describe the relationship between two tables using “one-to-many” where appropriate.</p><div class="field"><label for="l11-relationship">Relationship explanation</label><textarea id="l11-relationship" data-save placeholder="One user can create many orders; each order belongs to one user."></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l11-exit">Why should a primary key not be a person’s name?</label><input id="l11-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>An <strong>entity</strong> is something the system stores information about. An <strong>attribute</strong> is a property of that entity. A record is one instance of an entity.</p>
+      <div class="cards">
+        <div class="card"><h4>Entity</h4><p>Player</p></div>
+        <div class="card"><h4>Attributes</h4><p>PlayerID, name, position, email</p></div>
+        <div class="card"><h4>Record</h4><p>One row describing one player</p></div>
+        <div class="card"><h4>Primary key</h4><p>A unique value that identifies each record</p></div>
+      </div>
+      <p>Your assessment requires at least <strong>three connected tables</strong>. Connections are normally created using a key in one table and a reference field in another.</p>
+
+      <div class="activity">
+        <h3>Design your table structure</h3>
+        <div class="field"><label for="l11-table1">Table 1: name, key and fields</label><textarea id="l11-table1" data-save></textarea></div>
+        <div class="field"><label for="l11-table2">Table 2: name, key and fields</label><textarea id="l11-table2" data-save></textarea></div>
+        <div class="field"><label for="l11-table3">Table 3: name, key and fields</label><textarea id="l11-table3" data-save></textarea></div>
+        <div class="field"><label for="l11-links">How are the tables connected?</label><textarea id="l11-links" data-save></textarea></div>
+      </div>
+      <div class="callout warn"><strong>Avoid:</strong> using names as keys, combining multiple values in one cell, inconsistent headings, blank heading cells or multiple tables on one sheet tab.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 12 -->
+    <section class="panel" data-lesson="12">
+      <span class="eyebrow">Week 4 · Lesson 12</span>
+      <h2>Data types, validation and data quality</h2>
+      <div class="lesson-meta"><span class="tag">Data types</span><span class="tag">Validation</span><span class="tag">Invalid data</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: choose the type</h4><p>Select a suitable data type for: email address, completed status, photograph, due date, price, category and linked user.</p><div class="field"><label for="l12-starter">Data type choices</label><textarea id="l12-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Study the data-type table below. Discuss the limitations of each type. For example, text cannot be reliably averaged, and a free-text category can create inconsistent spellings.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Field audit</h4><p>Review every planned field in your three tables. Assign a data type, decide whether it is required and identify any validation.</p><div class="field"><label for="l12-audit">Field audit notes</label><textarea id="l12-audit" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Invalid-data scenario</h4><p>Explain how one invalid value could affect calculations, filters, charts or user decisions.</p><div class="field"><label for="l12-consequence">Impact chain</label><textarea id="l12-consequence" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l12-exit">Which field in your project needs the strongest validation?</label><input id="l12-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>Choosing the correct data type allows AppSheet to display suitable controls, validate entries and perform calculations.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Data type</th><th>Example</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>Text</td><td>Item name</td><td>Stores words or mixed characters.</td></tr>
+            <tr><td>Number / Price</td><td>Quantity, cost</td><td>Supports calculations.</td></tr>
+            <tr><td>Date / DateTime</td><td>Due date</td><td>Supports calendar views and comparisons.</td></tr>
+            <tr><td>Yes/No</td><td>Completed?</td><td>Creates a clear binary choice.</td></tr>
+            <tr><td>Enum</td><td>Priority: Low, Medium, High</td><td>Reduces inconsistent entries.</td></tr>
+            <tr><td>Ref</td><td>Order links to UserID</td><td>Connects related tables.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="activity">
+        <h3>Validation planner</h3>
+        <div class="field"><label for="l12-rule1">Field and validation rule 1</label><input id="l12-rule1" type="text" data-save placeholder="Quantity must be greater than 0"></div>
+        <div class="field"><label for="l12-rule2">Field and validation rule 2</label><input id="l12-rule2" type="text" data-save placeholder="Status must be selected from a dropdown"></div>
+        <div class="field"><label for="l12-impact">What could happen if invalid data enters your system?</label><textarea id="l12-impact" data-save></textarea></div>
+      </div>
+      <div class="callout project"><strong>Minimum requirement:</strong> Include appropriate data types and at least one validation rule or dropdown to reduce data-entry mistakes.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 13 -->
+    <section class="panel" data-lesson="13">
+      <span class="eyebrow">Week 5 · Lesson 13</span>
+      <h2>Build the Google Sheets database</h2>
+      <div class="lesson-meta"><span class="tag">Google Sheets</span><span class="tag">Connected tables</span><span class="tag">Formulas</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: spreadsheet quality check</h4><p>Identify five problems in a badly structured spreadsheet: merged headings, blank rows, inconsistent dates, duplicate IDs, several values in one cell.</p><div class="field"><label for="l13-starter">Why does each problem matter?</label><textarea id="l13-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Build setup</h4><p>Create the Google Sheet and table tabs. Add headings, key fields and at least five realistic mock records per table.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Spreadsheet skill practice</h4><p>Use at least two of the following with your data: filter, sort, conditional formatting, aggregate formula, lookup or pivot table.</p><div class="field"><label for="l13-practice">Tools used and what they revealed</label><textarea id="l13-practice" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Data cleaning</h4><p>Check for duplicates, missing values, inconsistent categories and incorrect types. Record at least two corrections.</p><div class="field"><label for="l13-clean">Corrections made</label><textarea id="l13-clean" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l13-exit">What spreadsheet choice will make AppSheet easier to configure?</label><input id="l13-exit" type="text" data-save></div></div>
+      </div>
+
+      <h3>Build checklist</h3>
+      <div class="checklist">
+        <label><input type="checkbox" data-save> Create one Google Sheet file.</label>
+        <label><input type="checkbox" data-save> Create at least three sheet tabs, one for each table.</label>
+        <label><input type="checkbox" data-save> Give every column a clear heading in row 1.</label>
+        <label><input type="checkbox" data-save> Add a unique key column to every table.</label>
+        <label><input type="checkbox" data-save> Add realistic mock data without unnecessary PII.</label>
+        <label><input type="checkbox" data-save> Check that dates, numbers, email addresses and categories are consistent.</label>
+      </div>
+
+      <h3>Spreadsheet analysis skills</h3>
+      <p>Use spreadsheet tools to check and summarise your data before or alongside AppSheet:</p>
+      <div class="cards">
+        <div class="card"><h4>Aggregate functions</h4><p>SUM, AVERAGE, COUNT, COUNTIF, SUMIF.</p></div>
+        <div class="card"><h4>Lookup functions</h4><p>XLOOKUP or VLOOKUP can return related information from another table.</p></div>
+        <div class="card"><h4>Filter and sort</h4><p>Locate records, inspect categories and identify missing or unusual values.</p></div>
+        <div class="card"><h4>Pivot table</h4><p>Group and aggregate larger datasets to reveal patterns.</p></div>
+      </div>
+
+      <div class="activity">
+        <h3>Formula planning</h3>
+        <div class="field"><label for="l13-summary">What summary could your project calculate?</label><textarea id="l13-summary" data-save placeholder="Example: Total number of tasks by subject or total daily canteen revenue."></textarea></div>
+        <div class="field"><label for="l13-formula">Which formula, pivot table or lookup could help?</label><textarea id="l13-formula" data-save></textarea></div>
+      </div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 14 -->
+    <section class="panel" data-lesson="14">
+      <span class="eyebrow">Week 5 · Lesson 14</span>
+      <h2>Create the AppSheet app and views</h2>
+      <div class="lesson-meta"><span class="tag">AppSheet</span><span class="tag">Views</span><span class="tag">Forms</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: choose the view</h4><p>Match these needs to a view: browse photographs, enter a booking, view due dates, compare totals, inspect full details.</p><div class="field"><label for="l14-starter">View matches</label><input id="l14-starter" type="text" data-save></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided build</h4><p>Connect AppSheet to the Google Sheet. Check keys, references and automatically detected data types before changing appearance.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Core app development</h4><p>Create at least four purposeful views, one form and one way to search or filter. Name views using words your users will understand.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Usability check</h4><p>Ask a peer to locate a record and add a new record without instructions. Record where they hesitate.</p><div class="field"><label for="l14-observe">Observation and immediate improvement</label><textarea id="l14-observe" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l14-exit">Which view is most important to your primary user?</label><input id="l14-exit" type="text" data-save></div></div>
+      </div>
+
+      <ol>
+        <li>Open AppSheet through your school-approved Google account.</li>
+        <li>Create a new app from your Google Sheets data.</li>
+        <li>Check that every table has the correct key and data types.</li>
+        <li>Create views that match user tasks rather than adding views without purpose.</li>
+        <li>Test adding, editing, searching and viewing records.</li>
+      </ol>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>View</th><th>Useful for</th></tr></thead>
+          <tbody>
+            <tr><td>Table</td><td>Scanning many records and columns.</td></tr>
+            <tr><td>Deck</td><td>Readable summaries with key details.</td></tr>
+            <tr><td>Gallery</td><td>Image-focused collections.</td></tr>
+            <tr><td>Calendar</td><td>Bookings, events and due dates.</td></tr>
+            <tr><td>Chart</td><td>Patterns, comparisons and summaries.</td></tr>
+            <tr><td>Dashboard</td><td>Several related views on one screen.</td></tr>
+            <tr><td>Form</td><td>Adding or editing data.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="activity">
+        <h3>View planner</h3>
+        <div class="field"><label for="l14-v1">View 1 and purpose</label><input id="l14-v1" type="text" data-save></div>
+        <div class="field"><label for="l14-v2">View 2 and purpose</label><input id="l14-v2" type="text" data-save></div>
+        <div class="field"><label for="l14-v3">View 3 and purpose</label><input id="l14-v3" type="text" data-save></div>
+        <div class="field"><label for="l14-v4">View 4 and purpose</label><input id="l14-v4" type="text" data-save></div>
+      </div>
+      <div class="callout project"><strong>Minimum requirements:</strong> At least four views, one form, and one search, filter or slice.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 15 -->
+    <section class="panel" data-lesson="15">
+      <span class="eyebrow">Week 5 · Lesson 15</span>
+      <h2>Security, privacy and access in AppSheet</h2>
+      <div class="lesson-meta"><span class="tag">Cybersecurity</span><span class="tag">Access control</span><span class="tag">PII</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: access decisions</h4><p>For each user role, decide whether the user should view, add, edit or delete records. Explain one action that should be restricted.</p><div class="field"><label for="l15-starter">Role permissions</label><textarea id="l15-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Review data minimisation, least privilege, secure sharing and mock data. Security choices should match the sensitivity of the information and the needs of each user role.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Security configuration and documentation</h4><p>Review app sharing, sign-in requirements and who can access the source Google Sheet. Complete the security plan below.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Threat scenario</h4><p>Choose one risk—accidental sharing, weak access control, false data, deleted records or exposed PII—and explain prevention and response.</p><div class="field"><label for="l15-threat">Risk, prevention and response</label><textarea id="l15-threat" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l15-exit">What is the difference between privacy and security?</label><input id="l15-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>Security is not simply “adding a password”. It involves minimising data, controlling access, selecting appropriate sharing settings and explaining how data moves and is protected.</p>
+      <div class="cards">
+        <div class="card"><h4>Data minimisation</h4><p>Collect the least amount of personal information needed.</p></div>
+        <div class="card"><h4>Least privilege</h4><p>Give each user only the access required for their role.</p></div>
+        <div class="card"><h4>Secure sharing</h4><p>Do not make a school app public unless specifically approved.</p></div>
+        <div class="card"><h4>Mock data</h4><p>Use fictional records for assessment testing unless your teacher approves real data collection.</p></div>
+      </div>
+
+      <div class="activity">
+        <h3>Security plan</h3>
+        <div class="field"><label for="l15-data">What data is collected?</label><textarea id="l15-data" data-save></textarea></div>
+        <div class="field"><label for="l15-owner">Who owns the data?</label><textarea id="l15-owner" data-save></textarea></div>
+        <div class="field"><label for="l15-access">Who can view, add, edit or delete data?</label><textarea id="l15-access" data-save></textarea></div>
+        <div class="field"><label for="l15-protect">How will the data be protected?</label><textarea id="l15-protect" data-save></textarea></div>
+      </div>
+      <div class="callout warn"><strong>Important:</strong> Do not enter private student data, passwords, medical information or other sensitive information into your assessment app.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 16 -->
+    <section class="panel" data-lesson="16">
+      <span class="eyebrow">Week 6 · Lesson 16</span>
+      <h2>Visualisation, dashboards and decisions</h2>
+      <div class="lesson-meta"><span class="tag">Charts</span><span class="tag">Trends</span><span class="tag">Outliers</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: chart critique</h4><p>A pie chart contains 18 categories and a line graph is used for unrelated item types. Explain why each choice could mislead or confuse users.</p><div class="field"><label for="l16-starter">Critique</label><textarea id="l16-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided learning</h4><p>Choose visualisations based on the question: comparison, change over time, part-to-whole, distribution or relationship. Use clear titles and labels.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Dashboard build</h4><p>Create a chart, summary or dashboard using your project data. Identify at least one trend and one possible outlier.</p><div class="field"><label for="l16-findings">Trend and outlier findings</label><textarea id="l16-findings" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Decision statement</h4><p>Use the evidence from your visualisation to make one prediction or decision. Explain the limitation of that prediction.</p><div class="field"><label for="l16-limit">Prediction, decision and limitation</label><textarea id="l16-limit" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l16-exit">What makes a dashboard useful rather than decorative?</label><input id="l16-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>Visualisations should help users answer a question. A chart is useful when it reveals a pattern, comparison, trend or unusual value.</p>
+      <div class="dashboard-grid">
+        <div class="metric"><span>Total tasks</span><strong>24</strong></div>
+        <div class="metric"><span>Completed</span><strong>15</strong></div>
+        <div class="metric"><span>Overdue</span><strong>3</strong></div>
+      </div>
+      <div class="bar-chart" aria-label="Example task chart">
+        <div class="bar-row"><span>English</span><div class="bar-track"><div class="bar" data-width="70"></div></div><strong>7</strong></div>
+        <div class="bar-row"><span>Maths</span><div class="bar-track"><div class="bar" data-width="50"></div></div><strong>5</strong></div>
+        <div class="bar-row"><span>Science</span><div class="bar-track"><div class="bar" data-width="90"></div></div><strong>9</strong></div>
+      </div>
+      <div class="activity">
+        <h3>Dashboard decision</h3>
+        <div class="field"><label for="l16-question">What question should your dashboard answer?</label><textarea id="l16-question" data-save></textarea></div>
+        <div class="field"><label for="l16-chart">Which chart or summary is most suitable, and why?</label><textarea id="l16-chart" data-save></textarea></div>
+        <div class="field"><label for="l16-decision">What decision could a user make from this information?</label><textarea id="l16-decision" data-save></textarea></div>
+      </div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 17 -->
+    <section class="panel" data-lesson="17">
+      <span class="eyebrow">Week 6 · Lesson 17</span>
+      <h2>User testing, peer feedback and iteration</h2>
+      <div class="lesson-meta"><span class="tag">Usability</span><span class="tag">Efficiency</span><span class="tag">Iteration</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: testing mindset</h4><p>Why might the app creator miss usability problems that a first-time user notices immediately?</p><div class="field"><label for="l17-starter">Your explanation</label><textarea id="l17-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Prepare the test</h4><p>Select two functional requirements and two non-functional requirements. Turn each into an observable test.</p><div class="field"><label for="l17-tests">Four requirement-based tests</label><textarea id="l17-tests" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Peer testing</h4><p>Run the peer test script below. Do not guide the tester unless safety or account access requires it. Record what the tester does, not just what they say.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Iterate and retest</h4><p>Make one meaningful change based on evidence, then repeat the same task. Compare efficiency, errors and confidence.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l17-exit">What improvement had the clearest evidence behind it?</label><input id="l17-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>Testing is most useful when it leads to improvement. Test against the functional and non-functional requirements you created earlier.</p>
+      <div class="activity">
+        <h3>Peer test script</h3>
+        <div class="field"><label for="l17-task">Task for the tester</label><textarea id="l17-task" data-save placeholder="Example: Add a new task, set priority to High and locate it using a filter."></textarea></div>
+        <div class="field"><label for="l17-observe">What will you observe or measure?</label><textarea id="l17-observe" data-save placeholder="Time, errors, requests for help, successful completion..."></textarea></div>
+        <div class="field"><label for="l17-feedback">Tester feedback</label><textarea id="l17-feedback" data-save></textarea></div>
+        <div class="field"><label for="l17-change">Change made after feedback</label><textarea id="l17-change" data-save></textarea></div>
+        <div class="field"><label for="l17-retest">Retest result</label><textarea id="l17-retest" data-save></textarea></div>
+      </div>
+      <div class="callout success"><strong>Strong evidence:</strong> Before screenshot → feedback or bug → change made → after screenshot → retest result.</div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- LESSON 18 -->
+    <section class="panel" data-lesson="18">
+      <span class="eyebrow">Week 6 · Lesson 18</span>
+      <h2>Evaluation, presentation and careers</h2>
+      <div class="lesson-meta"><span class="tag">Evaluation</span><span class="tag">Reflection</span><span class="tag">Careers</span></div>
+      <div class="lesson-sequence">
+        <div class="sequence-step"><h4><span class="time-chip">5 min</span> Do now: evidence hunt</h4><p>List the evidence you have collected during the project: research, requirements, wireframes, screenshots, tests, feedback, revisions and data summaries.</p><div class="field"><label for="l18-starter">Evidence inventory</label><textarea id="l18-starter" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">10 min</span> Guided evaluation</h4><p>A strong evaluation makes a judgement and supports it with evidence. Replace “the app was good” with specific claims linked to requirements and testing results.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">15 min</span> Final evaluation writing</h4><p>Complete the evaluation scaffold below. Include at least one strength, one limitation and one future improvement for functionality, usability, accessibility and security.</p></div>
+        <div class="sequence-step"><h4><span class="time-chip">7 min</span> Presentation preparation</h4><p>Plan a brief demonstration: problem, users, database structure, key app features, security choices, testing evidence and final evaluation.</p><div class="field"><label for="l18-presentation">Presentation sequence</label><textarea id="l18-presentation" data-save></textarea></div></div>
+        <div class="sequence-step"><h4><span class="time-chip">3 min</span> Exit ticket</h4><div class="field"><label for="l18-exit">Which career from this unit best matches a task you enjoyed, and why?</label><input id="l18-exit" type="text" data-save></div></div>
+      </div>
+
+      <p>An evaluation uses evidence to judge whether the final product met its original requirements. It should identify strengths, limitations and realistic improvements.</p>
+
+      <div class="activity">
+        <h3>Final evaluation scaffold</h3>
+        <div class="field"><label for="l18-goals">How well did the app meet its functional requirements?</label><textarea id="l18-goals" data-save></textarea></div>
+        <div class="field"><label for="l18-quality">How well did it meet usability, accessibility, performance and security requirements?</label><textarea id="l18-quality" data-save></textarea></div>
+        <div class="field"><label for="l18-ethical">Does the solution meet social, ethical and legal responsibilities?</label><textarea id="l18-ethical" data-save></textarea></div>
+        <div class="field"><label for="l18-improve">What would you improve next?</label><textarea id="l18-improve" data-save></textarea></div>
+        <div class="field"><label for="l18-contribution">What did each group member contribute, and how did collaboration affect the result?</label><textarea id="l18-contribution" data-save></textarea></div>
+      </div>
+
+      <h3>Careers connected to this unit</h3>
+      <div class="cards">
+        <div class="card"><h4>UI designer</h4><p>Plans visual interface elements and screen layouts.</p></div>
+        <div class="card"><h4>UX designer or researcher</h4><p>Studies users, tests products and improves the complete experience.</p></div>
+        <div class="card"><h4>Business analyst</h4><p>Defines problems, users and system requirements.</p></div>
+        <div class="card"><h4>Data analyst</h4><p>Uses data, formulas, dashboards and visualisations to support decisions.</p></div>
+        <div class="card"><h4>Database administrator</h4><p>Maintains structured, reliable and secure data systems.</p></div>
+        <div class="card"><h4>Cybersecurity specialist</h4><p>Protects systems, accounts and information.</p></div>
+      </div>
+
+      <div class="callout project">
+        <strong>Final submission checklist:</strong>
+        <div class="checklist">
+          <label><input type="checkbox" data-save> Google Sheets database with named tables and sensible fields</label>
+          <label><input type="checkbox" data-save> Working Google AppSheet app link</label>
+          <label><input type="checkbox" data-save> Project documentation saved as PDF</label>
+          <label><input type="checkbox" data-save> Research comparing at least two existing systems</label>
+          <label><input type="checkbox" data-save> Wireframes for at least three screens</label>
+          <label><input type="checkbox" data-save> Flowchart for one important task</label>
+          <label><input type="checkbox" data-save> Explanation of group roles and timeline</label>
+          <label><input type="checkbox" data-save> Testing table with bugs, fixes and retesting</label>
+          <label><input type="checkbox" data-save> Group contribution log and individual reflection</label>
+        </div>
+      </div>
+      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
+    </section>
+
+    <!-- PROJECT HUB -->
+    <section class="panel" data-lesson="19">
+      <span class="eyebrow">Project Hub</span>
+      <h2>Assessment requirements at a glance</h2>
+      <p>Your app should solve a real problem and provide a simple way to add, search, edit and view data. It should connect a structured Google Sheets database to Google AppSheet.</p>
+      <div class="cards">
+        <div class="card"><h4>Possible scenarios</h4><p>Collector Hub, Canteen Click & Collect, Sport Team Tracker, Study Quest or Entertainment Booking App.</p></div>
+        <div class="card"><h4>Database</h4><p>At least three connected tables, with a unique key field in each table.</p></div>
+        <div class="card"><h4>App interface</h4><p>At least four views, one form and one search, filter or slice.</p></div>
+        <div class="card"><h4>Quality</h4><p>Validation, security choices, accessibility and evidence of improvement after feedback.</p></div>
+      </div>
+      <a class="btn btn-primary" href="9CT_Assessment_Task_3.pdf" target="_blank" rel="noopener">Read the complete assessment task</a>
+      <h3>Project timeline</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Week</th><th>Project focus</th><th>Evidence to produce</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Choose scenario; define problem and users</td><td>Problem statement, roles, initial use case</td></tr>
+            <tr><td>2</td><td>Requirements, testing plan, ethics and security</td><td>Functional/non-functional requirements, test cases, privacy notes</td></tr>
+            <tr><td>3</td><td>Research and inclusive design</td><td>Comparison of two systems, design influences</td></tr>
+            <tr><td>4</td><td>Wireframes, flowchart and data model</td><td>Three wireframes, one flowchart, three-table plan</td></tr>
+            <tr><td>5</td><td>Build Sheets and AppSheet solution</td><td>Working database, app views, validation and security</td></tr>
+            <tr><td>6</td><td>Test, improve, evaluate and present</td><td>Testing log, retesting, evaluation and reflection</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="panel" data-lesson="20">
+      <span class="eyebrow">Reference</span>
+      <h2>Glossary</h2>
+      <dl class="glossary">
+        <dt>Accessibility</dt><dd>Designing a product so people with a range of needs and abilities can use it.</dd>
+        <dt>Attribute</dt><dd>A property or field used to describe an entity.</dd>
+        <dt>Data validation</dt><dd>A rule that checks whether entered data is acceptable.</dd>
+        <dt>Entity</dt><dd>A person, object, place, event or concept about which data is stored.</dd>
+        <dt>Functional requirement</dt><dd>A specific action or capability the system must provide.</dd>
+        <dt>Information architecture</dt><dd>The structure, organisation, labels and navigation used to make information findable.</dd>
+        <dt>Iteration</dt><dd>Repeating design, development, testing and improvement.</dd>
+        <dt>Lossless compression</dt><dd>Compression that preserves all original information.</dd>
+        <dt>Lossy compression</dt><dd>Compression that removes some information to reduce file size.</dd>
+        <dt>Non-functional requirement</dt><dd>A quality requirement such as usability, accessibility, security or performance.</dd>
+        <dt>Personally identifying information (PII)</dt><dd>Information that can identify a particular person.</dd>
+        <dt>Primary key</dt><dd>A field containing a unique value for each record.</dd>
+        <dt>Reference field</dt><dd>A field used to connect a record to a record in another table.</dd>
+        <dt>UI</dt><dd>The controls and visual or interactive elements through which a user operates a product.</dd>
+        <dt>Use case</dt><dd>A description of how a user interacts with a system to achieve a goal.</dd>
+        <dt>UX</dt><dd>The complete experience a user has while using a product or service.</dd>
+        <dt>Wireframe</dt><dd>A low-detail plan showing the layout and functions of a screen.</dd>
+      </dl>
+    </section>
+  </main>
+</div>
+
+<footer class="site-footer">
+  Student work is saved only in this browser using local storage. Clearing browser data or using another device will not transfer responses.
+</footer>
+
+<script>
+(() => {
+  const lessonTitles = [
+    "UI, UX and enterprise systems",
+    "Data flow through a system",
+    "Problem, users and use cases",
+    "Functional and non-functional requirements",
+    "Test cases",
+    "Social, ethical and legal responsibilities",
+    "Inclusive communication and accessibility",
+    "Compression and file formats",
+    "Research and evaluate existing systems",
+    "Information architecture and wireframes",
+    "Entities, attributes and keys",
+    "Data types and validation",
+    "Build the Sheets database",
+    "Create the AppSheet app",
+    "Security, privacy and access",
+    "Visualisation and dashboards",
+    "User testing and iteration",
+    "Evaluation and careers",
+    "Project Hub",
+    "Glossary"
+  ];
+
+  const panels = [...document.querySelectorAll(".panel")];
+  const nav = document.getElementById("lessonNav");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const progressText = document.getElementById("progressText");
+  const progressFill = document.getElementById("progressFill");
+  let current = Number(localStorage.getItem("year9-current-panel") || 1);
+
+  function buildNav() {
+    let currentWeek = 0;
+    lessonTitles.forEach((title, i) => {
+      const num = i + 1;
+      if (num <= 18) {
+        const week = Math.ceil(num / 3);
+        if (week !== currentWeek) {
+          currentWeek = week;
+          const label = document.createElement("div");
+          label.className = "week-label";
+          label.textContent = `Week ${week}`;
+          nav.appendChild(label);
+        }
+      } else if (num === 19) {
+        const label = document.createElement("div");
+        label.className = "week-label";
+        label.textContent = "Assessment";
+        nav.appendChild(label);
+      } else {
+        const label = document.createElement("div");
+        label.className = "week-label";
+        label.textContent = "Reference";
+        nav.appendChild(label);
+      }
+
+      const btn = document.createElement("button");
+      btn.className = "nav-link";
+      btn.dataset.target = num;
+      btn.innerHTML = `<span class="nav-dot"></span><span>${num <= 18 ? "Lesson " + num + ": " : ""}${title}</span>`;
+      btn.addEventListener("click", () => showPanel(num));
+      nav.appendChild(btn);
+    });
+  }
+
+  function showPanel(num) {
+    current = Math.max(1, Math.min(panels.length, Number(num)));
+    panels.forEach(p => p.classList.toggle("active", Number(p.dataset.lesson) === current));
+    document.querySelectorAll(".nav-link").forEach(b => b.classList.toggle("active", Number(b.dataset.target) === current));
+    localStorage.setItem("year9-current-panel", current);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    updateButtons();
+    animateBars();
+  }
+
+  function updateButtons() {
+    prevBtn.disabled = current === 1;
+    nextBtn.disabled = current === panels.length;
+    nextBtn.textContent = current === panels.length ? "Finished" : "Next →";
+  }
+
+  function storageKey(el, index) {
+    return `year9-uiux-${el.id || el.name || "field"}-${index}`;
+  }
+
+  const saveFields = [...document.querySelectorAll("[data-save]")];
+  saveFields.forEach((el, i) => {
+    const key = storageKey(el, i);
+    const saved = localStorage.getItem(key);
+    if (saved !== null) {
+      if (el.type === "checkbox" || el.type === "radio") el.checked = saved === "true";
+      else el.value = saved;
+    }
+    const eventName = (el.type === "checkbox" || el.type === "radio" || el.tagName === "SELECT") ? "change" : "input";
+    el.addEventListener(eventName, () => {
+      localStorage.setItem(key, (el.type === "checkbox" || el.type === "radio") ? el.checked : el.value);
+    });
+  });
+
+  const completeBoxes = [...document.querySelectorAll(".lesson-complete")];
+  completeBoxes.forEach((box, i) => {
+    const key = `year9-lesson-complete-${i + 1}`;
+    box.checked = localStorage.getItem(key) === "true";
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked);
+      updateProgress();
+    });
+  });
+
+  function updateProgress() {
+    const completed = completeBoxes.filter(b => b.checked).length;
+    const percent = Math.round((completed / 18) * 100);
+    progressText.textContent = `${completed} of 18 lessons complete (${percent}%)`;
+    progressFill.style.width = `${percent}%`;
+    document.querySelectorAll(".nav-link").forEach((b, i) => {
+      if (i < 18) b.classList.toggle("done", completeBoxes[i].checked);
+    });
+  }
+
+  document.querySelectorAll(".quiz-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const name = btn.dataset.quiz;
+      const answer = btn.dataset.answer;
+      const selected = document.querySelector(`input[name="${name}"]:checked`);
+      const feedback = btn.nextElementSibling;
+      if (!selected) {
+        feedback.textContent = "Choose an answer first.";
+        feedback.className = "feedback incorrect";
+      } else if (selected.value === answer) {
+        feedback.textContent = "Correct.";
+        feedback.className = "feedback correct";
+      } else {
+        feedback.textContent = "Not quite. Review the explanation above and try again.";
+        feedback.className = "feedback incorrect";
+      }
+    });
+  });
+
+  function animateBars() {
+    document.querySelectorAll(".panel.active .bar").forEach(bar => {
+      requestAnimationFrame(() => bar.style.width = `${bar.dataset.width}%`);
+    });
+  }
+
+  prevBtn.addEventListener("click", () => showPanel(current - 1));
+  nextBtn.addEventListener("click", () => showPanel(current + 1));
+  document.getElementById("printBtn").addEventListener("click", () => window.print());
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    const ok = confirm("Reset all saved lesson responses and progress on this device?");
+    if (!ok) return;
+    Object.keys(localStorage).forEach(key => {
+      if (key.startsWith("year9-")) localStorage.removeItem(key);
+    });
+    location.reload();
+  });
+
+  buildNav();
+  updateProgress();
+  showPanel(current);
+})();
+</script>
+</body>
+</html>
