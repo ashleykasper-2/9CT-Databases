@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Year 9 Computing Technology: Enterprise Information Systems – Designing for User Experience" />
-  <title>Year 9 Enterprise Information Systems | AppSheet Project</title>
+  <title>Year 9 Enterprise Information Systems | AppSheet Project 2026</title>
   <style>
     :root {
       --red: #a6192e;
@@ -555,6 +555,222 @@
       .layout { display: block; margin: 0; padding: 0; }
       .panel { display: block !important; box-shadow: none; border-bottom: 2px solid #aaa; page-break-after: always; }
     }
+  
+
+    /* =====================================================
+       LESSON 1: DEEPER UI/UX ACTIVITIES
+       ===================================================== */
+
+section.
+  2. Replace the current Lesson 1 <section> with the HTML block.
+  3. Add the JavaScript block before the closing </script> tag.
+========================================================= -->
+
+
+<!-- =========================================================
+  1. ADD TO THE END OF THE EXISTING <style> SECTION
+========================================================= -->
+
+<style>
+  .lesson-link-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #d7e8dc;
+    border-left: 5px solid var(--green);
+    border-radius: 12px;
+    padding: 15px 18px;
+    margin: 18px 0;
+    background: var(--green-soft);
+  }
+
+  .lesson-link-panel p {
+    margin: 0;
+    flex: 1 1 340px;
+  }
+
+  .appsheet-link {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 9px 15px;
+    background: var(--green);
+    color: white;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .appsheet-link:hover,
+  .appsheet-link:focus {
+    background: #0b5730;
+  }
+
+  .question-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+
+  .deep-question {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 15px;
+    background: white;
+  }
+
+  .deep-question h4 {
+    margin: 0 0 6px;
+    color: var(--red-dark);
+  }
+
+  .deep-question textarea {
+    min-height: 125px;
+  }
+
+  .drag-activity {
+    border: 2px solid #dfe5e9;
+    border-radius: 14px;
+    padding: 16px;
+    margin: 18px 0;
+    background: #fbfcfd;
+  }
+
+  .drag-activity h4 {
+    margin-top: 0;
+    color: var(--red-dark);
+  }
+
+  .drag-bank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 62px;
+    padding: 12px;
+    border: 2px dashed #aeb8c2;
+    border-radius: 12px;
+    background: white;
+    margin: 12px 0;
+  }
+
+  .drag-item {
+    border: 1px solid #bbc5ce;
+    border-radius: 999px;
+    padding: 8px 12px;
+    background: white;
+    font-weight: 750;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .drag-item:active {
+    cursor: grabbing;
+  }
+
+  .drag-item.selected {
+    outline: 3px solid rgba(166, 25, 46, 0.25);
+    background: var(--red-soft);
+  }
+
+  .drop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+  }
+
+  .drop-zone {
+    min-height: 145px;
+    padding: 12px;
+    border: 2px dashed #aab5bf;
+    border-radius: 12px;
+    background: white;
+  }
+
+  .drop-zone h5 {
+    margin: 0 0 8px;
+    color: var(--green);
+  }
+
+  .drop-zone.drag-over {
+    border-color: var(--red);
+    background: var(--red-soft);
+  }
+
+  .drop-zone.correct-zone {
+    border-color: var(--green);
+    background: var(--green-soft);
+  }
+
+  .drop-zone.incorrect-zone {
+    border-color: #b42318;
+    background: #fff0ee;
+  }
+
+  .activity-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 13px;
+  }
+
+  .drag-feedback {
+    min-height: 28px;
+    margin-top: 10px;
+    font-weight: 800;
+  }
+
+  .scenario-card {
+    border-left: 5px solid var(--red);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    background: var(--red-soft);
+  }
+
+  .analysis-scale {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .analysis-scale label {
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 11px;
+    background: white;
+  }
+
+  .analysis-scale select {
+    margin-top: 6px;
+  }
+
+  .question-number {
+    display: inline-grid;
+    place-items: center;
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    margin-right: 6px;
+    background: var(--red);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 900;
+  }
+
+  @media (max-width: 560px) {
+    .lesson-link-panel {
+      align-items: stretch;
+    }
+
+    .appsheet-link {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
   </style>
 </head>
 <body>
@@ -598,72 +814,798 @@
   </aside>
 
   <main id="main">
-    <!-- LESSON 1 -->
-    <section class="panel active" data-lesson="1">
-      <span class="eyebrow">Week 1 · Lesson 1</span>
-      <h2>UI, UX and enterprise information systems</h2>
-      <div class="lesson-meta"><span class="tag">UI purpose</span><span class="tag">UX impact</span><span class="tag">Project launch</span></div>
-      <div class="syllabus-points">
-        <h3>Relevant syllabus content</h3>
-        <ul>
-          <li>Describe the purpose of user interfaces (UIs) and interactive media and how these affect the user experience (UX).</li>
-          <li>Explore how UIs or interactive media have evolved in response to people's needs and opportunities.</li>
-        </ul>
+    <!-- LESSON 1: UPDATED DEEP UI/UX LESSON -->
+<section class="panel active" data-lesson="1">
+  <span class="eyebrow">Week 1 · Lesson 1</span>
+
+  <h2>UI, UX and enterprise information systems</h2>
+
+  <div class="lesson-meta">
+    <span class="tag">UI purpose</span>
+    <span class="tag">UX impact</span>
+    <span class="tag">Project launch</span>
+    <span class="tag">Critical analysis</span>
+  </div>
+
+  <div class="syllabus-points">
+    <h3>Relevant syllabus content</h3>
+
+    <ul>
+      <li>
+        Describe the purpose of user interfaces and interactive media,
+        and explain how they affect the user experience.
+      </li>
+
+      <li>
+        Explore how user interfaces have evolved in response to
+        people’s needs and opportunities.
+      </li>
+
+      <li>
+        Investigate design principles and issues relevant to user
+        interfaces and interactive media.
+      </li>
+    </ul>
+  </div>
+
+  <div class="key-terms">
+    <h3>Key terminology</h3>
+
+    <dl>
+      <dt>User interface (UI)</dt>
+      <dd>
+        The visible and interactive parts of a digital product,
+        including its screens, buttons, menus, forms, icons and navigation.
+      </dd>
+
+      <dt>User experience (UX)</dt>
+      <dd>
+        The complete experience a person has while using a product,
+        including how clear, efficient, accessible and trustworthy it feels.
+      </dd>
+
+      <dt>Interactive media</dt>
+      <dd>
+        Digital content that responds to a user’s actions or choices.
+      </dd>
+
+      <dt>Enterprise information system</dt>
+      <dd>
+        A system that helps an organisation collect, store, process
+        and communicate information.
+      </dd>
+
+      <dt>Visual hierarchy</dt>
+      <dd>
+        The arrangement of interface elements so users can recognise
+        what is most important.
+      </dd>
+
+      <dt>Affordance</dt>
+      <dd>
+        A visual or physical clue that suggests how an element should be used.
+      </dd>
+    </dl>
+  </div>
+
+  <div class="reading-content">
+    <h3>Read and understand</h3>
+
+    <p>
+      A user interface is the part of a digital product that a person
+      directly sees and controls. It includes buttons, menus, search tools,
+      forms, labels, icons, colours and navigation. Effective interfaces
+      make important actions visible and predictable, allowing users to
+      understand what they can do without relying on lengthy instructions.
+    </p>
+
+    <p>
+      User experience describes the quality of the complete interaction.
+      An interface may look modern but still create poor UX if users cannot
+      find information, understand feedback, recover from mistakes or
+      complete a task efficiently. Strong UX considers clarity,
+      accessibility, consistency, trust and the needs of the intended users.
+    </p>
+
+    <p>
+      During this unit, you will create an enterprise information system
+      using Google Sheets and AppSheet. The app must help users add, search,
+      edit and view structured data. Your interface decisions should not be
+      based only on appearance; every screen and control must help the user
+      complete a meaningful task accurately and confidently.
+    </p>
+  </div>
+
+  <div class="lesson-link-panel">
+    <p>
+      <strong>Explore AppSheet:</strong>
+      Open the official AppSheet website and examine how it presents its
+      purpose, navigation and main actions to a new user.
+    </p>
+
+    <a
+      class="appsheet-link"
+      href="https://about.appsheet.com/home/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Open Google AppSheet
+    </a>
+  </div>
+
+  <div class="lesson-sequence">
+
+    <!-- DO NOW -->
+    <div class="sequence-step">
+      <h4>Do Now: Analyse an interface from memory</h4>
+
+      <p>
+        Choose an app you use regularly. Without opening the app, describe
+        its home screen and the task you complete most often.
+      </p>
+
+      <div class="field">
+        <label for="l1-starter">
+          Which interface elements do you remember most clearly, and what
+          does this reveal about the app’s use of layout, visual hierarchy,
+          labels, icons, colour and consistency?
+        </label>
+
+        <textarea
+          id="l1-starter"
+          data-save
+          placeholder="Write a detailed paragraph using specific examples..."
+        ></textarea>
+      </div>
+    </div>
+
+
+    <!-- GUIDED ANALYSIS -->
+    <div class="sequence-step">
+      <h4>Guided analysis: Is attractive design always effective?</h4>
+
+      <div class="scenario-card">
+        <strong>Scenario:</strong>
+        A school app uses attractive colours, professional images and
+        animated transitions. However, the attendance form is hidden
+        inside three menus, error messages do not explain what went wrong,
+        and users cannot tell whether a submission has been saved.
       </div>
 
-      <div class="key-terms">
-        <h3>Key terminology</h3>
-        <dl><dt>User interface (UI)</dt><dd>The visible and interactive parts of a digital product.</dd><dt>User experience (UX)</dt><dd>The overall experience a person has while using a product.</dd><dt>Interactive media</dt><dd>Digital content that responds to user actions.</dd><dt>Enterprise information system</dt><dd>A system used by an organisation to collect, process, store and communicate information.</dd></dl>
-      </div>
-      <div class="reading-content">
-        <h3>Read and understand</h3>
-        <p>A user interface is the part of a digital product that a person directly interacts with. It includes buttons, menus, forms, icons, labels, colours and navigation. The purpose of a UI is to help users enter information, make choices and understand what the system is doing.</p><p>User experience describes how the entire product feels to use. A product may look attractive but still provide poor UX if users cannot find important controls, understand instructions or recover from errors. Good UX helps users complete tasks accurately, efficiently and confidently.</p><p>In this project, your AppSheet app must support real user tasks such as adding, searching, editing and viewing data. Every screen should have a clear purpose and should help the intended user move through the system without confusion.</p>
-      </div>
+      <div class="question-grid">
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">1</span>
+            UI versus UX
+          </h4>
 
-      <div class="lesson-sequence">
-        <div class="sequence-step"><h4>Do now: interface memory test</h4><p>Without opening an app, sketch or describe the home screen of an app you use often. Label at least five interface elements, such as menu, search, icon, form, navigation bar or feedback message.</p><div class="field"><label for="l1-starter">Which elements were easiest to remember, and why?</label><textarea id="l1-starter" data-save></textarea></div></div>
-        <div class="sequence-step"><h4>Guided learning</h4><p>Read the UI and UX explanations below. For each example, decide whether it is mainly about appearance, interaction, efficiency, accessibility or trust.</p><div class="mini-task"><strong>Think-pair-share:</strong> Can a product have a strong UI but poor UX? Give one example and explain.</div></div>
-        <div class="sequence-step"><h4>Independent activity</h4><p>Complete the “Spot the difference” activity and compare two apps that perform a similar task. Identify one design choice that improves UX and one that makes the task harder.</p><div class="field"><label for="l1-compare">Comparison notes</label><textarea id="l1-compare" data-save></textarea></div></div>
-        <div class="sequence-step"><h4>Assessment connection</h4><p>Choose one possible project scenario and list the three most important tasks a user must be able to complete successfully.</p><div class="field"><label for="l1-projecttasks">Three essential user tasks</label><textarea id="l1-projecttasks" data-save></textarea></div></div>
-        <div class="sequence-step"><h4>Exit ticket</h4><div class="field"><label for="l1-exit">Complete this sentence: “A successful interface is not only attractive; it must also…”</label><input id="l1-exit" type="text" data-save></div></div>
-      </div>
+          <label for="l1-q1">
+            Which parts of the scenario relate to UI, and which relate to UX?
+            Explain the difference using evidence from the scenario.
+          </label>
 
-      <p>A <strong>user interface (UI)</strong> is the part of a digital product that a person sees and uses. It includes screens, menus, buttons, forms, icons, labels and navigation.</p>
-      <p><strong>User experience (UX)</strong> is the overall experience a person has while using the product. A product can look attractive but still deliver poor UX if it is confusing, slow or inaccessible.</p>
-
-      <div class="cards">
-        <div class="card"><h4>UI asks</h4><p>What does the user see, touch, click, type or hear?</p></div>
-        <div class="card"><h4>UX asks</h4><p>Can the user complete the task easily, confidently and efficiently?</p></div>
-        <div class="card"><h4>Enterprise system</h4><p>A system that helps an organisation collect, store, process and communicate information.</p></div>
-      </div>
-
-      <div class="callout project"><strong>Assessment connection:</strong> Your group will create a real database app that lets users add, search, edit and view structured data. You will choose from the project scenarios in the assessment task.</div>
-
-      <div class="activity">
-        <h3>Activity: Spot the difference</h3>
-        <div class="field">
-          <label for="l1-ui">Describe one UI feature in an app you use.</label>
-          <textarea id="l1-ui" data-save placeholder="Example: The search icon is always in the top-right corner."></textarea>
+          <textarea id="l1-q1" data-save></textarea>
         </div>
-        <div class="field">
-          <label for="l1-ux">Explain how that feature affects UX.</label>
-          <textarea id="l1-ux" data-save placeholder="Example: It makes products quicker to find because users know where to look."></textarea>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">2</span>
+            User consequences
+          </h4>
+
+          <label for="l1-q2">
+            What problems could users experience when completing the
+            attendance form? Consider efficiency, accuracy and confidence.
+          </label>
+
+          <textarea id="l1-q2" data-save></textarea>
+        </div>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">3</span>
+            Design priorities
+          </h4>
+
+          <label for="l1-q3">
+            Which problem should the designer fix first? Justify your choice
+            by explaining its impact on the user.
+          </label>
+
+          <textarea id="l1-q3" data-save></textarea>
         </div>
       </div>
+    </div>
 
-      <div class="activity">
-        <h3>Quick check</h3>
-        <fieldset class="quiz-question">
-          <legend>Which statement best describes UX?</legend>
-          <label><input type="radio" name="q1" value="a"> The colours and fonts used on a screen</label>
-          <label><input type="radio" name="q1" value="b"> The complete experience a user has while completing a task</label>
-          <label><input type="radio" name="q1" value="c"> The data stored in a spreadsheet</label>
-        </fieldset>
-        <button class="btn btn-primary quiz-btn" data-quiz="q1" data-answer="b">Check answer</button>
-        <div class="feedback" aria-live="polite"></div>
+
+    <!-- DRAG AND DROP 1 -->
+    <div class="sequence-step">
+      <h4>Drag-and-drop activity 1: UI element or UX outcome?</h4>
+
+      <p>
+        Drag each item into the most appropriate category. You can also
+        select an item and then select a category on touch devices.
+      </p>
+
+      <div
+        class="drag-activity"
+        data-drag-activity="ui-ux"
+      >
+        <div
+          class="drag-bank"
+          data-bank
+          aria-label="Items waiting to be sorted"
+        >
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="ui"
+          >
+            Search icon
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="ux"
+          >
+            Completing a task quickly
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="ui"
+          >
+            Navigation menu
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="ux"
+          >
+            Feeling confident that work was saved
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="ui"
+          >
+            Submit button
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="ux"
+          >
+            Recovering easily from an error
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="ui"
+          >
+            Form label
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="ux"
+          >
+            Finding information without help
+          </button>
+        </div>
+
+        <div class="drop-grid">
+          <div
+            class="drop-zone"
+            data-category="ui"
+            tabindex="0"
+          >
+            <h5>User interface elements</h5>
+          </div>
+
+          <div
+            class="drop-zone"
+            data-category="ux"
+            tabindex="0"
+          >
+            <h5>User experience outcomes</h5>
+          </div>
+        </div>
+
+        <div class="activity-actions">
+          <button
+            type="button"
+            class="btn btn-small btn-primary check-drag"
+          >
+            Check answers
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-small btn-secondary reset-drag"
+          >
+            Reset activity
+          </button>
+        </div>
+
+        <div
+          class="drag-feedback"
+          aria-live="polite"
+        ></div>
       </div>
-      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
-    </section>
+    </div>
+
+
+    <!-- INDEPENDENT UX AUDIT -->
+    <div class="sequence-step">
+      <h4>Independent activity: Complete a UX task audit</h4>
+
+      <p>
+        Open AppSheet or another app you use regularly. Choose one common
+        task, such as searching, adding information, placing an order or
+        changing a setting. Complete the audit below.
+      </p>
+
+      <div class="analysis-scale">
+        <label>
+          Navigation clarity
+          <select id="l1-rating-navigation" data-save>
+            <option value="">Choose a rating</option>
+            <option value="1">1 — Very unclear</option>
+            <option value="2">2 — Unclear</option>
+            <option value="3">3 — Adequate</option>
+            <option value="4">4 — Clear</option>
+            <option value="5">5 — Very clear</option>
+          </select>
+        </label>
+
+        <label>
+          Task efficiency
+          <select id="l1-rating-efficiency" data-save>
+            <option value="">Choose a rating</option>
+            <option value="1">1 — Very inefficient</option>
+            <option value="2">2 — Inefficient</option>
+            <option value="3">3 — Adequate</option>
+            <option value="4">4 — Efficient</option>
+            <option value="5">5 — Very efficient</option>
+          </select>
+        </label>
+
+        <label>
+          Feedback and trust
+          <select id="l1-rating-feedback" data-save>
+            <option value="">Choose a rating</option>
+            <option value="1">1 — Very weak</option>
+            <option value="2">2 — Weak</option>
+            <option value="3">3 — Adequate</option>
+            <option value="4">4 — Strong</option>
+            <option value="5">5 — Very strong</option>
+          </select>
+        </label>
+
+        <label>
+          Accessibility
+          <select id="l1-rating-accessibility" data-save>
+            <option value="">Choose a rating</option>
+            <option value="1">1 — Very inaccessible</option>
+            <option value="2">2 — Some barriers</option>
+            <option value="3">3 — Adequate</option>
+            <option value="4">4 — Accessible</option>
+            <option value="5">5 — Highly accessible</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="question-grid">
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">4</span>
+            Task pathway
+          </h4>
+
+          <label for="l1-q4">
+            Describe the task and list the steps a user must complete from
+            beginning to end.
+          </label>
+
+          <textarea id="l1-q4" data-save></textarea>
+        </div>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">5</span>
+            Strongest design decision
+          </h4>
+
+          <label for="l1-q5">
+            Identify the most effective design decision. Explain how it
+            reduces effort, confusion or errors.
+          </label>
+
+          <textarea id="l1-q5" data-save></textarea>
+        </div>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">6</span>
+            Barrier or weakness
+          </h4>
+
+          <label for="l1-q6">
+            Identify one barrier that could slow down, confuse or exclude a
+            user. Which users may be affected most?
+          </label>
+
+          <textarea id="l1-q6" data-save></textarea>
+        </div>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">7</span>
+            Feedback
+          </h4>
+
+          <label for="l1-q7">
+            How does the app communicate that an action has been completed,
+            saved or rejected? Is this feedback sufficient?
+          </label>
+
+          <textarea id="l1-q7" data-save></textarea>
+        </div>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">8</span>
+            Accessibility
+          </h4>
+
+          <label for="l1-q8">
+            Evaluate whether the task could be completed by a user with
+            limited vision, limited reading confidence or reduced motor
+            control. Support your judgement.
+          </label>
+
+          <textarea id="l1-q8" data-save></textarea>
+        </div>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">9</span>
+            Proposed redesign
+          </h4>
+
+          <label for="l1-q9">
+            Propose one specific redesign. Explain exactly what would change
+            and how it would improve the user experience.
+          </label>
+
+          <textarea id="l1-q9" data-save></textarea>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- DRAG AND DROP 2 -->
+    <div class="sequence-step">
+      <h4>Drag-and-drop activity 2: Match the design principle</h4>
+
+      <p>
+        Sort each example into the design principle it best demonstrates.
+      </p>
+
+      <div
+        class="drag-activity"
+        data-drag-activity="principles"
+      >
+        <div
+          class="drag-bank"
+          data-bank
+          aria-label="Examples waiting to be sorted"
+        >
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="consistency"
+          >
+            The same save icon is used on every screen
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="feedback"
+          >
+            A message confirms that an order was submitted
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="hierarchy"
+          >
+            The main action is larger than secondary actions
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="accessibility"
+          >
+            Meaning is communicated using labels as well as colour
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="consistency"
+          >
+            Navigation remains in the same position
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="feedback"
+          >
+            An error explains how to correct invalid data
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="hierarchy"
+          >
+            Headings guide the user through the page
+          </button>
+
+          <button
+            type="button"
+            class="drag-item"
+            draggable="true"
+            data-answer="accessibility"
+          >
+            Buttons are large enough to select easily
+          </button>
+        </div>
+
+        <div class="drop-grid">
+          <div
+            class="drop-zone"
+            data-category="consistency"
+            tabindex="0"
+          >
+            <h5>Consistency</h5>
+          </div>
+
+          <div
+            class="drop-zone"
+            data-category="feedback"
+            tabindex="0"
+          >
+            <h5>Feedback</h5>
+          </div>
+
+          <div
+            class="drop-zone"
+            data-category="hierarchy"
+            tabindex="0"
+          >
+            <h5>Visual hierarchy</h5>
+          </div>
+
+          <div
+            class="drop-zone"
+            data-category="accessibility"
+            tabindex="0"
+          >
+            <h5>Accessibility</h5>
+          </div>
+        </div>
+
+        <div class="activity-actions">
+          <button
+            type="button"
+            class="btn btn-small btn-primary check-drag"
+          >
+            Check answers
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-small btn-secondary reset-drag"
+          >
+            Reset activity
+          </button>
+        </div>
+
+        <div
+          class="drag-feedback"
+          aria-live="polite"
+        ></div>
+      </div>
+    </div>
+
+
+    <!-- FIVE ADDITIONAL DEEP QUESTIONS -->
+    <div class="sequence-step">
+      <h4>Five deeper-thinking questions</h4>
+
+      <div class="question-grid">
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">10</span>
+            Users and context
+          </h4>
+
+          <label for="l1-q10">
+            Why might the same interface provide a strong experience for one
+            user but a poor experience for another?
+          </label>
+
+          <textarea id="l1-q10" data-save></textarea>
+        </div>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">11</span>
+            Efficiency versus control
+          </h4>
+
+          <label for="l1-q11">
+            When could reducing the number of steps make an app less safe or
+            less trustworthy? Provide an example.
+          </label>
+
+          <textarea id="l1-q11" data-save></textarea>
+        </div>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">12</span>
+            Organisational impact
+          </h4>
+
+          <label for="l1-q12">
+            How could poor interface design affect an organisation, not just
+            an individual user?
+          </label>
+
+          <textarea id="l1-q12" data-save></textarea>
+        </div>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">13</span>
+            Ethical design
+          </h4>
+
+          <label for="l1-q13">
+            Is it ethical to design an interface that encourages users to
+            make a choice they may not otherwise make? Explain your view.
+          </label>
+
+          <textarea id="l1-q13" data-save></textarea>
+        </div>
+
+        <div class="deep-question">
+          <h4>
+            <span class="question-number">14</span>
+            Evidence of success
+          </h4>
+
+          <label for="l1-q14">
+            What evidence could a designer collect to determine whether an
+            interface is genuinely easy to use?
+          </label>
+
+          <textarea id="l1-q14" data-save></textarea>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ASSESSMENT CONNECTION -->
+    <div class="sequence-step">
+      <h4>Assessment connection: Design for a real user</h4>
+
+      <p>
+        Select one possible AppSheet project scenario. Identify its main
+        user and the task that matters most to that user.
+      </p>
+
+      <div class="field">
+        <label for="l1-project-scenario">
+          Project scenario and primary user
+        </label>
+
+        <textarea
+          id="l1-project-scenario"
+          data-save
+          placeholder="Example: A canteen ordering app used by students and canteen staff..."
+        ></textarea>
+      </div>
+
+      <div class="field">
+        <label for="l1-projecttasks">
+          Describe three essential user tasks. For each task, explain what
+          could go wrong if the interface were poorly designed.
+        </label>
+
+        <textarea id="l1-projecttasks" data-save></textarea>
+      </div>
+
+      <div class="field">
+        <label for="l1-design-principle">
+          Which design principle should be the highest priority for this
+          project: consistency, feedback, efficiency, accessibility or
+          visual hierarchy? Justify your choice.
+        </label>
+
+        <textarea id="l1-design-principle" data-save></textarea>
+      </div>
+    </div>
+
+
+    <!-- EXIT TICKET -->
+    <div class="sequence-step">
+      <h4>Exit ticket</h4>
+
+      <div class="field">
+        <label for="l1-exit">
+          Explain why an attractive interface does not automatically create
+          a strong user experience. Include one specific example.
+        </label>
+
+        <textarea id="l1-exit" data-save></textarea>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="lesson-footer">
+    <label class="complete-label">
+      <input
+        class="lesson-complete"
+        type="checkbox"
+        data-lesson="1"
+      />
+
+      Mark Lesson 1 complete
+    </label>
+
+    <button
+      class="btn btn-small btn-primary"
+      data-go="2"
+      type="button"
+    >
+      Continue to Lesson 2 →
+    </button>
+  </div>
+</section>
+
+
 
     <!-- LESSON 2 -->
     <section class="panel" data-lesson="2">
@@ -1799,6 +2741,306 @@
   updateProgress();
   showPanel(current);
 })();
+
+
+  /* =====================================================
+     LESSON 1: DRAG-AND-DROP INTERACTIVITY
+     ===================================================== */
+
+/*
+    Drag-and-drop activity controls.
+
+    This code supports:
+    - mouse drag and drop
+    - selecting an item and then selecting a category
+    - checking answers
+    - resetting each activity
+    - saving each activity in localStorage
+  */
+
+  document
+    .querySelectorAll(".drag-activity")
+    .forEach((activity) => {
+      const activityName =
+        activity.dataset.dragActivity;
+
+      const storageKey =
+        `year9-lesson1-drag-${activityName}`;
+
+      const bank =
+        activity.querySelector("[data-bank]");
+
+      const items = [
+        ...activity.querySelectorAll(".drag-item")
+      ];
+
+      const zones = [
+        ...activity.querySelectorAll(".drop-zone")
+      ];
+
+      const checkButton =
+        activity.querySelector(".check-drag");
+
+      const resetButton =
+        activity.querySelector(".reset-drag");
+
+      const feedback =
+        activity.querySelector(".drag-feedback");
+
+      let selectedItem = null;
+
+
+      function saveActivity() {
+        const savedPositions = {};
+
+        items.forEach((item, index) => {
+          const parentCategory =
+            item.parentElement.dataset.category || "bank";
+
+          savedPositions[index] = parentCategory;
+        });
+
+        localStorage.setItem(
+          storageKey,
+          JSON.stringify(savedPositions)
+        );
+      }
+
+
+      function restoreActivity() {
+        const savedActivity =
+          localStorage.getItem(storageKey);
+
+        if (!savedActivity) {
+          return;
+        }
+
+        try {
+          const savedPositions =
+            JSON.parse(savedActivity);
+
+          items.forEach((item, index) => {
+            const category =
+              savedPositions[index];
+
+            const destination =
+              category === "bank"
+                ? bank
+                : activity.querySelector(
+                    `[data-category="${category}"]`
+                  );
+
+            if (destination) {
+              destination.appendChild(item);
+            }
+          });
+        } catch (error) {
+          localStorage.removeItem(storageKey);
+        }
+      }
+
+
+      function moveItem(item, destination) {
+        destination.appendChild(item);
+
+        item.classList.remove("selected");
+
+        selectedItem = null;
+
+        feedback.textContent = "";
+
+        zones.forEach((zone) => {
+          zone.classList.remove(
+            "correct-zone",
+            "incorrect-zone"
+          );
+        });
+
+        saveActivity();
+      }
+
+
+      items.forEach((item) => {
+        item.addEventListener("dragstart", (event) => {
+          event.dataTransfer.setData(
+            "text/plain",
+            items.indexOf(item)
+          );
+        });
+
+        item.addEventListener("click", () => {
+          items.forEach((otherItem) => {
+            otherItem.classList.remove("selected");
+          });
+
+          if (selectedItem === item) {
+            selectedItem = null;
+            return;
+          }
+
+          selectedItem = item;
+          item.classList.add("selected");
+        });
+      });
+
+
+      zones.forEach((zone) => {
+        zone.addEventListener("dragover", (event) => {
+          event.preventDefault();
+
+          zone.classList.add("drag-over");
+        });
+
+        zone.addEventListener("dragleave", () => {
+          zone.classList.remove("drag-over");
+        });
+
+        zone.addEventListener("drop", (event) => {
+          event.preventDefault();
+
+          zone.classList.remove("drag-over");
+
+          const itemIndex = Number(
+            event.dataTransfer.getData("text/plain")
+          );
+
+          const item = items[itemIndex];
+
+          if (item) {
+            moveItem(item, zone);
+          }
+        });
+
+        zone.addEventListener("click", () => {
+          if (selectedItem) {
+            moveItem(selectedItem, zone);
+          }
+        });
+
+        zone.addEventListener("keydown", (event) => {
+          if (
+            selectedItem &&
+            (event.key === "Enter" || event.key === " ")
+          ) {
+            event.preventDefault();
+            moveItem(selectedItem, zone);
+          }
+        });
+      });
+
+
+      bank.addEventListener("dragover", (event) => {
+        event.preventDefault();
+      });
+
+      bank.addEventListener("drop", (event) => {
+        event.preventDefault();
+
+        const itemIndex = Number(
+          event.dataTransfer.getData("text/plain")
+        );
+
+        const item = items[itemIndex];
+
+        if (item) {
+          moveItem(item, bank);
+        }
+      });
+
+
+      checkButton.addEventListener("click", () => {
+        let correctAnswers = 0;
+        let placedAnswers = 0;
+
+        zones.forEach((zone) => {
+          const placedItems = [
+            ...zone.querySelectorAll(".drag-item")
+          ];
+
+          placedAnswers += placedItems.length;
+
+          const allCorrect =
+            placedItems.length > 0 &&
+            placedItems.every(
+              (item) =>
+                item.dataset.answer ===
+                zone.dataset.category
+            );
+
+          zone.classList.toggle(
+            "correct-zone",
+            allCorrect
+          );
+
+          zone.classList.toggle(
+            "incorrect-zone",
+            placedItems.length > 0 && !allCorrect
+          );
+
+          placedItems.forEach((item) => {
+            if (
+              item.dataset.answer ===
+              zone.dataset.category
+            ) {
+              correctAnswers += 1;
+            }
+          });
+        });
+
+        if (placedAnswers < items.length) {
+          feedback.textContent =
+            "Place every item before checking your final result.";
+
+          feedback.className =
+            "drag-feedback incorrect";
+
+          return;
+        }
+
+        if (correctAnswers === items.length) {
+          feedback.textContent =
+            `Excellent — all ${items.length} answers are correct.`;
+
+          feedback.className =
+            "drag-feedback correct";
+        } else {
+          feedback.textContent =
+            `${correctAnswers} of ${items.length} answers are correct. ` +
+            "Review the highlighted categories and try again.";
+
+          feedback.className =
+            "drag-feedback incorrect";
+        }
+      });
+
+
+      resetButton.addEventListener("click", () => {
+        items.forEach((item) => {
+          bank.appendChild(item);
+
+          item.classList.remove("selected");
+        });
+
+        zones.forEach((zone) => {
+          zone.classList.remove(
+            "correct-zone",
+            "incorrect-zone",
+            "drag-over"
+          );
+        });
+
+        selectedItem = null;
+
+        feedback.textContent = "";
+
+        feedback.className = "drag-feedback";
+
+        localStorage.removeItem(storageKey);
+      });
+
+
+      restoreActivity();
+    });
 </script>
 </body>
 </html>
