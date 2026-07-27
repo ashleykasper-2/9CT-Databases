@@ -1591,62 +1591,1626 @@
   </div>
 </section>
 
+<section class="panel" data-lesson="2">
+  <span class="eyebrow">Week 1 · Lesson 2</span>
+
+  <h2>How data moves through an AppSheet information system</h2>
+
+  <div class="lesson-meta">
+    <span class="tag">Inputs</span>
+    <span class="tag">Processes</span>
+    <span class="tag">Storage</span>
+    <span class="tag">Transmission</span>
+    <span class="tag">Outputs</span>
+    <span class="tag">Begin building</span>
+  </div>
+
+  <div class="syllabus-points">
+    <h3>Relevant syllabus content</h3>
+
+    <ul>
+      <li>
+        Explore inputs, storage, transmission, processes and outputs
+        in user interfaces and interactive media.
+      </li>
+
+      <li>
+        Represent, store and display data to facilitate computation.
+      </li>
+
+      <li>
+        Define a real-world problem or need and begin developing a
+        digital solution for an intended user.
+      </li>
+    </ul>
+  </div>
+
+  <div class="key-terms">
+    <h3>Key terminology</h3>
+
+    <dl>
+      <dt>Input</dt>
+      <dd>
+        Data entered into or collected by a system, such as text,
+        selections, dates, photographs or sensor readings.
+      </dd>
+
+      <dt>Process</dt>
+      <dd>
+        An action performed on data, such as validating, calculating,
+        searching, sorting, filtering or changing a status.
+      </dd>
+
+      <dt>Storage</dt>
+      <dd>
+        The location where data is retained so it can be accessed,
+        edited or analysed later.
+      </dd>
+
+      <dt>Transmission</dt>
+      <dd>
+        The movement of data between users, devices, applications,
+        networks and cloud services.
+      </dd>
+
+      <dt>Output</dt>
+      <dd>
+        Information produced by a system, such as a message, list,
+        chart, report, notification or updated screen.
+      </dd>
+
+      <dt>Data source</dt>
+      <dd>
+        The organised location from which an app reads and writes data.
+        In this project, the main data source is a Google Sheet.
+      </dd>
+
+      <dt>Synchronisation</dt>
+      <dd>
+        The process of updating data between AppSheet and its connected
+        data source.
+      </dd>
+
+      <dt>Validation</dt>
+      <dd>
+        Checking that entered data follows required rules before it is accepted.
+      </dd>
+    </dl>
+  </div>
+
+  <div class="reading-content">
+    <h3>Read and understand</h3>
+
+    <p>
+      An information system can be analysed by tracing how data moves
+      from an input to a useful output. In an AppSheet app, a user may
+      enter text, select an option, choose a date or capture an image.
+      The system can then validate the entry, perform calculations,
+      apply conditions or organise the information before it is saved.
+    </p>
+
+    <p>
+      In this project, Google Sheets acts as the structured storage
+      location and AppSheet provides the app interface. AppSheet connects
+      each table in the app to a worksheet or another supported data
+      source. When a user adds or edits a record, the information is
+      transmitted between the device, AppSheet and the connected data
+      source. Synchronisation keeps the app and spreadsheet consistent.
+    </p>
+
+    <p>
+      Outputs allow users to understand the result of an action. An output
+      may be a confirmation message, a new row in a list, a calculated
+      total, a filtered view or a dashboard. Effective systems make each
+      stage visible enough that users can tell what happened, identify
+      errors and trust that their information has been handled correctly.
+    </p>
+  </div>
 
 
-    <!-- LESSON 2 -->
-    <section class="panel" data-lesson="2">
-      <span class="eyebrow">Week 1 · Lesson 2</span>
-      <h2>Inputs, processes, storage, transmission and outputs</h2>
-      <div class="lesson-meta"><span class="tag">Systems thinking</span><span class="tag">Data flow</span></div>
-      <div class="syllabus-points">
-        <h3>Relevant syllabus content</h3>
-        <ul>
-          <li>Explore inputs, storage, transmission, processes and outputs in UIs or interactive media.</li>
-        </ul>
+  <!-- INTERACTIVE SYSTEM DIAGRAM -->
+  <div class="sequence-step">
+    <h4>Interactive diagram: Follow one record through the system</h4>
+
+    <p>
+      Select each stage to see how it appears in a Google Sheets and
+      AppSheet solution.
+    </p>
+
+    <figure class="system-flow-figure">
+      <svg
+        class="system-flow-diagram"
+        viewBox="0 0 1000 330"
+        role="img"
+        aria-labelledby="l2-flow-title l2-flow-description"
+      >
+        <title id="l2-flow-title">
+          AppSheet information system data flow
+        </title>
+
+        <desc id="l2-flow-description">
+          Five connected stages show input, process, transmission,
+          storage and output.
+        </desc>
+
+        <defs>
+          <marker
+            id="flow-arrowhead"
+            markerWidth="12"
+            markerHeight="12"
+            refX="10"
+            refY="6"
+            orient="auto"
+          >
+            <path
+              d="M0,0 L12,6 L0,12 Z"
+              fill="#a6192e"
+            ></path>
+          </marker>
+        </defs>
+
+        <path
+          class="flow-arrow"
+          d="M180 145 L245 145"
+        ></path>
+
+        <path
+          class="flow-arrow"
+          d="M380 145 L445 145"
+        ></path>
+
+        <path
+          class="flow-arrow"
+          d="M580 145 L645 145"
+        ></path>
+
+        <path
+          class="flow-arrow"
+          d="M780 145 L845 145"
+        ></path>
+
+        <g
+          class="system-stage"
+          data-flow-stage="input"
+          tabindex="0"
+          role="button"
+          aria-label="Input stage"
+          transform="translate(35 80)"
+        >
+          <rect
+            width="145"
+            height="130"
+            rx="18"
+          ></rect>
+
+          <text
+            x="72.5"
+            y="45"
+            text-anchor="middle"
+            font-size="24"
+            font-weight="800"
+          >
+            INPUT
+          </text>
+
+          <text
+            x="72.5"
+            y="77"
+            text-anchor="middle"
+            font-size="16"
+          >
+            App form
+          </text>
+
+          <text
+            x="72.5"
+            y="101"
+            text-anchor="middle"
+            font-size="16"
+          >
+            User entry
+          </text>
+        </g>
+
+        <g
+          class="system-stage"
+          data-flow-stage="process"
+          tabindex="0"
+          role="button"
+          aria-label="Process stage"
+          transform="translate(235 80)"
+        >
+          <rect
+            width="145"
+            height="130"
+            rx="18"
+          ></rect>
+
+          <text
+            x="72.5"
+            y="45"
+            text-anchor="middle"
+            font-size="24"
+            font-weight="800"
+          >
+            PROCESS
+          </text>
+
+          <text
+            x="72.5"
+            y="77"
+            text-anchor="middle"
+            font-size="16"
+          >
+            Validate
+          </text>
+
+          <text
+            x="72.5"
+            y="101"
+            text-anchor="middle"
+            font-size="16"
+          >
+            Calculate
+          </text>
+        </g>
+
+        <g
+          class="system-stage"
+          data-flow-stage="transmission"
+          tabindex="0"
+          role="button"
+          aria-label="Transmission stage"
+          transform="translate(435 80)"
+        >
+          <rect
+            width="145"
+            height="130"
+            rx="18"
+          ></rect>
+
+          <text
+            x="72.5"
+            y="40"
+            text-anchor="middle"
+            font-size="19"
+            font-weight="800"
+          >
+            TRANSMISSION
+          </text>
+
+          <text
+            x="72.5"
+            y="77"
+            text-anchor="middle"
+            font-size="16"
+          >
+            Internet
+          </text>
+
+          <text
+            x="72.5"
+            y="101"
+            text-anchor="middle"
+            font-size="16"
+          >
+            Synchronise
+          </text>
+        </g>
+
+        <g
+          class="system-stage"
+          data-flow-stage="storage"
+          tabindex="0"
+          role="button"
+          aria-label="Storage stage"
+          transform="translate(635 80)"
+        >
+          <rect
+            width="145"
+            height="130"
+            rx="18"
+          ></rect>
+
+          <text
+            x="72.5"
+            y="45"
+            text-anchor="middle"
+            font-size="24"
+            font-weight="800"
+          >
+            STORAGE
+          </text>
+
+          <text
+            x="72.5"
+            y="77"
+            text-anchor="middle"
+            font-size="16"
+          >
+            Google Sheet
+          </text>
+
+          <text
+            x="72.5"
+            y="101"
+            text-anchor="middle"
+            font-size="16"
+          >
+            Row and cells
+          </text>
+        </g>
+
+        <g
+          class="system-stage"
+          data-flow-stage="output"
+          tabindex="0"
+          role="button"
+          aria-label="Output stage"
+          transform="translate(835 80)"
+        >
+          <rect
+            width="130"
+            height="130"
+            rx="18"
+          ></rect>
+
+          <text
+            x="65"
+            y="45"
+            text-anchor="middle"
+            font-size="24"
+            font-weight="800"
+          >
+            OUTPUT
+          </text>
+
+          <text
+            x="65"
+            y="77"
+            text-anchor="middle"
+            font-size="16"
+          >
+            Updated view
+          </text>
+
+          <text
+            x="65"
+            y="101"
+            text-anchor="middle"
+            font-size="16"
+          >
+            Confirmation
+          </text>
+        </g>
+      </svg>
+
+      <figcaption>
+        Select a stage to reveal its role in an AppSheet and Google Sheets system.
+      </figcaption>
+    </figure>
+
+    <div
+      class="flow-detail"
+      id="l2-flow-detail"
+      aria-live="polite"
+    >
+      <h4>Select a system stage</h4>
+
+      <p>
+        Begin with Input and follow the record through the complete system.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- DO NOW -->
+  <div class="sequence-step">
+    <h4>Do Now: Trace a familiar digital transaction</h4>
+
+    <p>
+      Think about ordering food online, booking an appointment or submitting
+      a school form. Select one example and explain how information moves
+      through the system.
+    </p>
+
+    <div class="field">
+      <label for="l2-starter">
+        Identify one input, at least two processes, one storage location,
+        one transmission event and two outputs. Explain how the stages depend
+        on one another.
+      </label>
+
+      <textarea
+        id="l2-starter"
+        data-save
+        placeholder="Use the terms input, process, storage, transmission and output..."
+      ></textarea>
+    </div>
+  </div>
+
+
+  <!-- CLASSIFICATION INTERACTION -->
+  <div class="sequence-step">
+    <h4>Interactive activity: Classify the system events</h4>
+
+    <p>
+      Each event occurs when a student submits a canteen order through an app.
+      Select the stage that best describes each event.
+    </p>
+
+    <div
+      class="system-classifier"
+      id="l2-classifier"
+    >
+      <div
+        class="classifier-row"
+        data-answer="input"
+      >
+        <span>
+          The student selects a lunch item and enters their name.
+        </span>
+
+        <select aria-label="Classify the student selecting a lunch item">
+          <option value="">Choose a stage</option>
+          <option value="input">Input</option>
+          <option value="process">Process</option>
+          <option value="storage">Storage</option>
+          <option value="transmission">Transmission</option>
+          <option value="output">Output</option>
+        </select>
       </div>
 
-      <div class="key-terms">
-        <h3>Key terminology</h3>
-        <dl><dt>Input</dt><dd>Data entered into or collected by a system.</dd><dt>Process</dt><dd>An action performed on data.</dd><dt>Storage</dt><dd>The place where data is kept.</dd><dt>Transmission</dt><dd>The movement of data between devices or services.</dd><dt>Output</dt><dd>Information produced or displayed by a system.</dd></dl>
-      </div>
-      <div class="reading-content">
-        <h3>Read and understand</h3>
-        <p>Information systems can be understood by examining how data moves through them. Users provide inputs through forms, selections, images or sensors. The system then checks, changes, calculates or organises that data.</p><p>Processed data is usually stored so it can be accessed again later. In this unit, Google Sheets acts as the structured data store while AppSheet provides the interface. Data is transmitted between the user, AppSheet and Google services.</p><p>Outputs are the results shown to users, such as a confirmation message, filtered list, chart or dashboard. A well-designed system makes each stage clear and prevents users from wondering whether their information has been saved.</p>
+      <div
+        class="classifier-row"
+        data-answer="process"
+      >
+        <span>
+          The system checks that a name has been entered and calculates
+          the total price.
+        </span>
+
+        <select aria-label="Classify validation and calculation">
+          <option value="">Choose a stage</option>
+          <option value="input">Input</option>
+          <option value="process">Process</option>
+          <option value="storage">Storage</option>
+          <option value="transmission">Transmission</option>
+          <option value="output">Output</option>
+        </select>
       </div>
 
-      <div class="lesson-sequence">
-        <div class="sequence-step"><h4>Do now: system detective</h4><p>Think about ordering food online. Write one example of an input, process, storage location, transmission and output.</p><div class="field"><label for="l2-starter">Your five-part example</label><textarea id="l2-starter" data-save></textarea></div></div>
-        <div class="sequence-step"><h4>Guided learning</h4><p>Study the five system components below. Then trace what happens after a user presses “Submit” on a form. Include validation, transmission to cloud services, storage and confirmation.</p></div>
-        <div class="sequence-step"><h4>Scenario mapping</h4><p>Complete the transaction activity for your chosen project. Add at least two processes, not just one. Examples include checking a required field, calculating a total, sorting records or updating a status.</p></div>
-        <div class="sequence-step"><h4>Challenge</h4><p>Explain what could go wrong at each stage of the data flow and how the system should respond.</p><div class="field"><label for="l2-errors">Possible errors and responses</label><textarea id="l2-errors" data-save></textarea></div></div>
-        <div class="sequence-step"><h4>Exit ticket</h4><div class="field"><label for="l2-exit">Which stage is most important for protecting user data, and why?</label><input id="l2-exit" type="text" data-save></div></div>
+      <div
+        class="classifier-row"
+        data-answer="transmission"
+      >
+        <span>
+          The order data moves from the student’s device to AppSheet
+          using the network.
+        </span>
+
+        <select aria-label="Classify data moving over the network">
+          <option value="">Choose a stage</option>
+          <option value="input">Input</option>
+          <option value="process">Process</option>
+          <option value="storage">Storage</option>
+          <option value="transmission">Transmission</option>
+          <option value="output">Output</option>
+        </select>
       </div>
 
-      <p>Every information system can be examined as a flow of data.</p>
-      <div class="cards">
-        <div class="card"><h4>Input</h4><p>Data entered or collected, such as a form response, image, barcode or date.</p></div>
-        <div class="card"><h4>Process</h4><p>What the system does to the data, such as calculating, validating or filtering.</p></div>
-        <div class="card"><h4>Storage</h4><p>Where data is kept, such as Google Sheets or cloud storage.</p></div>
-        <div class="card"><h4>Transmission</h4><p>How data moves between the user, AppSheet, Google services and other users.</p></div>
-        <div class="card"><h4>Output</h4><p>Information displayed or produced, such as a chart, confirmation or dashboard.</p></div>
+      <div
+        class="classifier-row"
+        data-answer="storage"
+      >
+        <span>
+          A new row containing the order appears in the connected Google Sheet.
+        </span>
+
+        <select aria-label="Classify a row appearing in Google Sheets">
+          <option value="">Choose a stage</option>
+          <option value="input">Input</option>
+          <option value="process">Process</option>
+          <option value="storage">Storage</option>
+          <option value="transmission">Transmission</option>
+          <option value="output">Output</option>
+        </select>
       </div>
 
-      <div class="activity">
-        <h3>Activity: Trace one transaction</h3>
-        <p>Choose one assessment scenario and explain its data flow.</p>
-        <div class="field"><label for="l2-scenario">Scenario</label>
-          <select id="l2-scenario" data-save>
-            <option value="">Select one</option><option>Collector Hub</option><option>Canteen Click & Collect</option><option>Sport Team Tracker</option><option>Study Quest</option><option>Entertainment Booking App</option>
-          </select>
+      <div
+        class="classifier-row"
+        data-answer="output"
+      >
+        <span>
+          The app shows a confirmation and displays the submitted order.
+        </span>
+
+        <select aria-label="Classify the confirmation message">
+          <option value="">Choose a stage</option>
+          <option value="input">Input</option>
+          <option value="process">Process</option>
+          <option value="storage">Storage</option>
+          <option value="transmission">Transmission</option>
+          <option value="output">Output</option>
+        </select>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-small btn-primary"
+      id="l2-check-classifier"
+    >
+      Check classifications
+    </button>
+
+    <div
+      class="system-feedback"
+      id="l2-classifier-feedback"
+      aria-live="polite"
+    ></div>
+  </div>
+
+
+  <!-- ORDERING INTERACTION -->
+  <div class="sequence-step">
+    <h4>Interactive activity: Put the data flow in order</h4>
+
+    <p>
+      Use the arrow buttons to place the events in the order they would
+      normally occur after a user presses Submit.
+    </p>
+
+    <div
+      class="sequence-builder"
+      id="l2-sequence-builder"
+    >
+      <div
+        class="sequence-card"
+        data-sequence-id="validate"
+        data-correct-position="2"
+      >
+        <span class="sequence-position">1</span>
+
+        <span>
+          AppSheet validates the submitted values.
+        </span>
+
+        <div class="sequence-controls">
+          <button
+            type="button"
+            class="move-up"
+            aria-label="Move validation up"
+          >
+            ↑
+          </button>
+
+          <button
+            type="button"
+            class="move-down"
+            aria-label="Move validation down"
+          >
+            ↓
+          </button>
         </div>
-        <div class="field"><label for="l2-input">Input</label><input id="l2-input" type="text" data-save></div>
-        <div class="field"><label for="l2-process">Process</label><input id="l2-process" type="text" data-save></div>
-        <div class="field"><label for="l2-storage">Storage</label><input id="l2-storage" type="text" data-save></div>
-        <div class="field"><label for="l2-output">Output</label><input id="l2-output" type="text" data-save></div>
       </div>
-      <div class="callout project"><strong>Project checkpoint:</strong> Save this data-flow explanation for the “types of data” and “how data is stored, transmitted and managed” section of your documentation.</div>
-      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
-    </section>
+
+      <div
+        class="sequence-card"
+        data-sequence-id="output"
+        data-correct-position="5"
+      >
+        <span class="sequence-position">2</span>
+
+        <span>
+          The app displays the saved record and confirmation.
+        </span>
+
+        <div class="sequence-controls">
+          <button
+            type="button"
+            class="move-up"
+            aria-label="Move output up"
+          >
+            ↑
+          </button>
+
+          <button
+            type="button"
+            class="move-down"
+            aria-label="Move output down"
+          >
+            ↓
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="sequence-card"
+        data-sequence-id="input"
+        data-correct-position="1"
+      >
+        <span class="sequence-position">3</span>
+
+        <span>
+          The user enters values and presses Submit.
+        </span>
+
+        <div class="sequence-controls">
+          <button
+            type="button"
+            class="move-up"
+            aria-label="Move input up"
+          >
+            ↑
+          </button>
+
+          <button
+            type="button"
+            class="move-down"
+            aria-label="Move input down"
+          >
+            ↓
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="sequence-card"
+        data-sequence-id="storage"
+        data-correct-position="4"
+      >
+        <span class="sequence-position">4</span>
+
+        <span>
+          The connected Google Sheet stores the record as a row.
+        </span>
+
+        <div class="sequence-controls">
+          <button
+            type="button"
+            class="move-up"
+            aria-label="Move storage up"
+          >
+            ↑
+          </button>
+
+          <button
+            type="button"
+            class="move-down"
+            aria-label="Move storage down"
+          >
+            ↓
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="sequence-card"
+        data-sequence-id="transmit"
+        data-correct-position="3"
+      >
+        <span class="sequence-position">5</span>
+
+        <span>
+          The data is transmitted and synchronised with the data source.
+        </span>
+
+        <div class="sequence-controls">
+          <button
+            type="button"
+            class="move-up"
+            aria-label="Move transmission up"
+          >
+            ↑
+          </button>
+
+          <button
+            type="button"
+            class="move-down"
+            aria-label="Move transmission down"
+          >
+            ↓
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-actions">
+      <button
+        type="button"
+        class="btn btn-small btn-primary"
+        id="l2-check-sequence"
+      >
+        Check order
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-small btn-secondary"
+        id="l2-reset-sequence"
+      >
+        Reset order
+      </button>
+    </div>
+
+    <div
+      class="system-feedback"
+      id="l2-sequence-feedback"
+      aria-live="polite"
+    ></div>
+  </div>
+
+
+  <!-- APPSHEET SCREENSHOT -->
+  <div class="sequence-step">
+    <h4>What this looks like in the AppSheet editor</h4>
+
+    <p>
+      The AppSheet editor separates navigation and configuration tools
+      from the live app preview. The preview allows a developer to test
+      how users will interact with the connected data.
+    </p>
+
+    <figure class="appsheet-screen-figure">
+      <img
+        src="https://storage.googleapis.com/support-kms-prod/1cBHsscIwSvTQUL8zqKEJQdNw2tDK6MT4Q4m"
+        alt="Official AppSheet editor screenshot showing the editor navigation, learning and customisation area, and app preview"
+        loading="lazy"
+      />
+
+      <figcaption>
+        Official AppSheet Help image showing the editor navigation,
+        customisation workspace and live app preview. The interface may
+        change as AppSheet is updated.
+      </figcaption>
+    </figure>
+
+    <div class="field">
+      <label for="l2-editor-analysis">
+        Analyse the image. Where would a developer change the system,
+        and where would they test the output experienced by the user?
+        Explain how these areas support iterative development.
+      </label>
+
+      <textarea id="l2-editor-analysis" data-save></textarea>
+    </div>
+  </div>
+
+
+  <!-- PRACTICAL BUILD -->
+  <div class="build-checkpoint">
+    <h3>Practical build: Create your first connected AppSheet app</h3>
+
+    <p>
+      Work with your project partner. By the end of this activity, your
+      group should have a Google Sheet, a connected AppSheet app and at
+      least one test record that appears in both locations.
+    </p>
+
+    <div class="resource-buttons">
+      <a
+        class="resource-button"
+        href="https://www.appsheet.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open AppSheet
+      </a>
+
+      <a
+        class="resource-button secondary"
+        href="https://support.google.com/appsheet/answer/10106594?hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Official Google Sheets guide
+      </a>
+
+      <a
+        class="resource-button secondary"
+        href="https://support.google.com/appsheet/answer/11980957?hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Official app creation guide
+      </a>
+    </div>
+
+    <div class="build-steps">
+      <div class="build-step">
+        <h4>Create the Google Sheet</h4>
+
+        <p>
+          Create a spreadsheet named using this format:
+          <code>Class_Project_GroupName</code>.
+        </p>
+
+        <p>
+          Rename the first worksheet so that it clearly describes the
+          main type of record, such as <code>Orders</code>,
+          <code>Awards</code>, <code>Bookings</code> or <code>Resources</code>.
+        </p>
+      </div>
+
+      <div class="build-step">
+        <h4>Create the first table headings</h4>
+
+        <p>
+          Add one heading per column in Row 1. Include a unique ID,
+          at least two text fields and one field that uses another
+          suitable data type.
+        </p>
+
+        <p>
+          Do not merge cells, leave blank heading cells or place a title
+          above the heading row.
+        </p>
+      </div>
+
+      <div class="build-step">
+        <h4>Add realistic sample data</h4>
+
+        <p>
+          Add at least three sample rows. The sample values should help
+          you recognise whether the app has interpreted each column correctly.
+        </p>
+      </div>
+
+      <div class="build-step">
+        <h4>Create the AppSheet app</h4>
+
+        <p>
+          Sign in to AppSheet. Select <strong>Create</strong>,
+          choose to start with existing data, select Google Sheets and
+          connect the spreadsheet created by your group.
+        </p>
+
+        <p>
+          AppSheet should generate an initial app and connect the first
+          worksheet as a table.
+        </p>
+      </div>
+
+      <div class="build-step">
+        <h4>Inspect the generated app</h4>
+
+        <p>
+          Locate the data table, the generated views and the live preview.
+          Check whether each column has been assigned a sensible type.
+        </p>
+      </div>
+
+      <div class="build-step">
+        <h4>Test the complete data flow</h4>
+
+        <p>
+          In the app preview, add one new test record. Save or synchronise
+          the app, then return to the Google Sheet and confirm that a new
+          row has been created.
+        </p>
+      </div>
+    </div>
+
+    <div class="evidence-upload-note">
+      <strong>Evidence requirement:</strong>
+      Take one screenshot of the Google Sheet and one screenshot of the
+      generated AppSheet preview. Save both images in your project folder.
+    </div>
+
+    <div class="checklist">
+      <label>
+        <input
+          type="checkbox"
+          id="l2-build-sheet"
+          data-save
+        />
+        Our group created and correctly named the Google Sheet.
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          id="l2-build-headings"
+          data-save
+        />
+        Row 1 contains clear, unique column headings.
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          id="l2-build-samples"
+          data-save
+        />
+        We added at least three realistic sample records.
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          id="l2-build-connected"
+          data-save
+        />
+        We connected the Google Sheet to a new AppSheet app.
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          id="l2-build-tested"
+          data-save
+        />
+        We added a record through AppSheet and located it in Google Sheets.
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          id="l2-build-evidence"
+          data-save
+        />
+        We saved screenshots showing the Sheet and app preview.
+      </label>
+    </div>
+  </div>
+
+
+  <!-- DEEP QUESTIONS -->
+  <div class="sequence-step">
+    <h4>System analysis questions</h4>
+
+    <div class="question-grid">
+      <div class="deep-question">
+        <h4>
+          <span class="question-number">1</span>
+          Input design
+        </h4>
+
+        <label for="l2-q1">
+          Which inputs will your project collect? For each one, explain
+          why the information is necessary and what data type should be used.
+        </label>
+
+        <textarea id="l2-q1" data-save></textarea>
+      </div>
+
+      <div class="deep-question">
+        <h4>
+          <span class="question-number">2</span>
+          Processing
+        </h4>
+
+        <label for="l2-q2">
+          Identify at least two processes your app should perform. Explain
+          how each process changes, checks or organises the input data.
+        </label>
+
+        <textarea id="l2-q2" data-save></textarea>
+      </div>
+
+      <div class="deep-question">
+        <h4>
+          <span class="question-number">3</span>
+          Storage structure
+        </h4>
+
+        <label for="l2-q3">
+          How does the structure of your Google Sheet affect the quality
+          of the generated AppSheet app?
+        </label>
+
+        <textarea id="l2-q3" data-save></textarea>
+      </div>
+
+      <div class="deep-question">
+        <h4>
+          <span class="question-number">4</span>
+          Transmission
+        </h4>
+
+        <label for="l2-q4">
+          What could happen if a user submits information while their
+          internet connection is slow or unavailable? How should the
+          interface respond?
+        </label>
+
+        <textarea id="l2-q4" data-save></textarea>
+      </div>
+
+      <div class="deep-question">
+        <h4>
+          <span class="question-number">5</span>
+          Output quality
+        </h4>
+
+        <label for="l2-q5">
+          What output would give your user confidence that their action
+          was successful? Explain what information the output should include.
+        </label>
+
+        <textarea id="l2-q5" data-save></textarea>
+      </div>
+
+      <div class="deep-question">
+        <h4>
+          <span class="question-number">6</span>
+          System dependency
+        </h4>
+
+        <label for="l2-q6">
+          Explain why a strong interface cannot compensate for a poorly
+          structured data source.
+        </label>
+
+        <textarea id="l2-q6" data-save></textarea>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FAILURE DETECTIVE -->
+  <div class="sequence-step">
+    <h4>Challenge: System failure detective</h4>
+
+    <p>
+      For each failure, identify the most likely affected stage and propose
+      a response that protects the user’s data and confidence.
+    </p>
+
+    <div class="failure-grid">
+      <div class="failure-card">
+        <h4>Failure A</h4>
+
+        <p>
+          A required field is empty, but the record is accepted.
+        </p>
+
+        <div class="field">
+          <label for="l2-failure-a">
+            Affected stage and recommended response
+          </label>
+
+          <textarea id="l2-failure-a" data-save></textarea>
+        </div>
+      </div>
+
+      <div class="failure-card">
+        <h4>Failure B</h4>
+
+        <p>
+          The user presses Save twice because no confirmation appears.
+        </p>
+
+        <div class="field">
+          <label for="l2-failure-b">
+            Affected stage and recommended response
+          </label>
+
+          <textarea id="l2-failure-b" data-save></textarea>
+        </div>
+      </div>
+
+      <div class="failure-card">
+        <h4>Failure C</h4>
+
+        <p>
+          The app shows a new record, but it does not appear in the Google Sheet.
+        </p>
+
+        <div class="field">
+          <label for="l2-failure-c">
+            Affected stage and investigation steps
+          </label>
+
+          <textarea id="l2-failure-c" data-save></textarea>
+        </div>
+      </div>
+
+      <div class="failure-card">
+        <h4>Failure D</h4>
+
+        <p>
+          A price column has been interpreted as text, so the total is incorrect.
+        </p>
+
+        <div class="field">
+          <label for="l2-failure-d">
+            Affected stage and recommended correction
+          </label>
+
+          <textarea id="l2-failure-d" data-save></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ASSESSMENT CONNECTION -->
+  <div class="sequence-step">
+    <h4>Assessment connection: Map your project’s data flow</h4>
+
+    <div class="field">
+      <label for="l2-project-flow">
+        Describe one complete transaction in your project from the moment
+        the user enters data until they receive a useful output. Include
+        input, at least two processes, transmission, storage and output.
+      </label>
+
+      <textarea
+        id="l2-project-flow"
+        data-save
+        placeholder="Example structure: The user enters... AppSheet checks... The data travels... Google Sheets stores... The app displays..."
+      ></textarea>
+    </div>
+
+    <div class="field">
+      <label for="l2-project-risk">
+        Which stage creates the greatest risk for your project, and what
+        design or testing action will your group use to reduce that risk?
+      </label>
+
+      <textarea id="l2-project-risk" data-save></textarea>
+    </div>
+  </div>
+
+
+  <!-- EXIT TICKET -->
+  <div class="sequence-step">
+    <h4>Exit ticket</h4>
+
+    <div class="field">
+      <label for="l2-exit">
+        Explain how AppSheet and Google Sheets perform different but
+        connected roles in the information system your group began today.
+      </label>
+
+      <textarea id="l2-exit" data-save></textarea>
+    </div>
+  </div>
+
+
+  <div class="lesson-footer">
+    <label class="complete-label">
+      <input
+        type="checkbox"
+        class="lesson-complete"
+        data-lesson="2"
+      />
+      Mark Lesson 2 complete
+    </label>
+
+    <button
+      class="btn btn-small btn-primary"
+      data-go="3"
+      type="button"
+    >
+      Continue to Lesson 3 →
+    </button>
+  </div>
+</section>
+
+
+<!-- =========================================================
+  3. ADD THIS JAVASCRIPT BEFORE THE CLOSING </script> TAG
+========================================================= -->
+
+<script>
+  /*
+    ========================================================
+    LESSON 2 INTERACTIVITY
+    ========================================================
+  */
+
+  (() => {
+    const flowDetails = {
+      input: {
+        title: "Input",
+        description:
+          "In AppSheet, input usually occurs through a generated form. " +
+          "The form may contain text boxes, drop-down lists, dates, " +
+          "numbers, images and other controls. Each form field normally " +
+          "connects to a column in the data source."
+      },
+
+      process: {
+        title: "Process",
+        description:
+          "AppSheet can validate entries, calculate values, apply " +
+          "conditions, search records, filter data and control what " +
+          "happens after an action. Google Sheets may also perform " +
+          "calculations, but the app and spreadsheet must be designed " +
+          "carefully so the result is reliable."
+      },
+
+      transmission: {
+        title: "Transmission",
+        description:
+          "The device transmits data to AppSheet and the connected cloud " +
+          "services. Synchronisation moves updates between the app and " +
+          "the data source. A weak connection can delay this process, " +
+          "so the interface should communicate the current status."
+      },
+
+      storage: {
+        title: "Storage",
+        description:
+          "When Google Sheets is the data source, a worksheet normally " +
+          "represents a table, each row represents a record and each " +
+          "column represents a field. Clear headings and consistent data " +
+          "types help AppSheet interpret the data correctly."
+      },
+
+      output: {
+        title: "Output",
+        description:
+          "Outputs include confirmation messages, lists, details, " +
+          "calculated values, reports, charts and dashboards. A useful " +
+          "output helps the user understand what happened and what they " +
+          "should do next."
+      }
+    };
+
+    const flowStages = [
+      ...document.querySelectorAll(
+        '[data-lesson="2"] [data-flow-stage]'
+      )
+    ];
+
+    const flowDetail =
+      document.getElementById("l2-flow-detail");
+
+    function showFlowStage(stageElement) {
+      const stageName =
+        stageElement.dataset.flowStage;
+
+      const detail =
+        flowDetails[stageName];
+
+      flowStages.forEach((stage) => {
+        stage.classList.toggle(
+          "active",
+          stage === stageElement
+        );
+      });
+
+      flowDetail.innerHTML =
+        `<h4>${detail.title}</h4>` +
+        `<p>${detail.description}</p>`;
+    }
+
+    flowStages.forEach((stage) => {
+      stage.addEventListener("click", () => {
+        showFlowStage(stage);
+      });
+
+      stage.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+          event.preventDefault();
+          showFlowStage(stage);
+        }
+      });
+    });
+
+
+    /*
+      CLASSIFICATION ACTIVITY
+    */
+
+    const classifier =
+      document.getElementById("l2-classifier");
+
+    const classifierRows = classifier
+      ? [...classifier.querySelectorAll(".classifier-row")]
+      : [];
+
+    const classifierButton =
+      document.getElementById("l2-check-classifier");
+
+    const classifierFeedback =
+      document.getElementById(
+        "l2-classifier-feedback"
+      );
+
+    const classifierStorageKey =
+      "year9-lesson2-classifier";
+
+    function saveClassifier() {
+      const answers = classifierRows.map((row) => {
+        return row.querySelector("select").value;
+      });
+
+      localStorage.setItem(
+        classifierStorageKey,
+        JSON.stringify(answers)
+      );
+    }
+
+    function restoreClassifier() {
+      const saved =
+        localStorage.getItem(classifierStorageKey);
+
+      if (!saved) {
+        return;
+      }
+
+      try {
+        const answers = JSON.parse(saved);
+
+        classifierRows.forEach((row, index) => {
+          row.querySelector("select").value =
+            answers[index] || "";
+        });
+      } catch {
+        localStorage.removeItem(
+          classifierStorageKey
+        );
+      }
+    }
+
+    classifierRows.forEach((row) => {
+      row
+        .querySelector("select")
+        .addEventListener("change", () => {
+          row.classList.remove(
+            "correct-row",
+            "incorrect-row"
+          );
+
+          classifierFeedback.textContent = "";
+          saveClassifier();
+        });
+    });
+
+    if (classifierButton) {
+      classifierButton.addEventListener(
+        "click",
+        () => {
+          let correct = 0;
+          let completed = 0;
+
+          classifierRows.forEach((row) => {
+            const selected =
+              row.querySelector("select").value;
+
+            const isCorrect =
+              selected === row.dataset.answer;
+
+            if (selected) {
+              completed += 1;
+            }
+
+            if (isCorrect) {
+              correct += 1;
+            }
+
+            row.classList.toggle(
+              "correct-row",
+              isCorrect
+            );
+
+            row.classList.toggle(
+              "incorrect-row",
+              Boolean(selected) && !isCorrect
+            );
+          });
+
+          if (completed < classifierRows.length) {
+            classifierFeedback.textContent =
+              "Complete every classification before checking.";
+
+            classifierFeedback.className =
+              "system-feedback incorrect";
+
+            return;
+          }
+
+          if (correct === classifierRows.length) {
+            classifierFeedback.textContent =
+              "Excellent — all system events are correctly classified.";
+
+            classifierFeedback.className =
+              "system-feedback correct";
+          } else {
+            classifierFeedback.textContent =
+              `${correct} of ${classifierRows.length} are correct. ` +
+              "Review the highlighted events.";
+
+            classifierFeedback.className =
+              "system-feedback incorrect";
+          }
+        }
+      );
+    }
+
+    restoreClassifier();
+
+
+    /*
+      SEQUENCE ORDERING ACTIVITY
+    */
+
+    const sequenceBuilder =
+      document.getElementById(
+        "l2-sequence-builder"
+      );
+
+    const sequenceFeedback =
+      document.getElementById(
+        "l2-sequence-feedback"
+      );
+
+    const sequenceStorageKey =
+      "year9-lesson2-sequence";
+
+    const originalSequence = [
+      "validate",
+      "output",
+      "input",
+      "storage",
+      "transmit"
+    ];
+
+    function sequenceCards() {
+      return [
+        ...sequenceBuilder.querySelectorAll(
+          ".sequence-card"
+        )
+      ];
+    }
+
+    function updateSequenceNumbers() {
+      sequenceCards().forEach((card, index) => {
+        card.querySelector(
+          ".sequence-position"
+        ).textContent = index + 1;
+      });
+    }
+
+    function saveSequence() {
+      const order = sequenceCards().map((card) => {
+        return card.dataset.sequenceId;
+      });
+
+      localStorage.setItem(
+        sequenceStorageKey,
+        JSON.stringify(order)
+      );
+    }
+
+    function restoreSequence() {
+      const saved =
+        localStorage.getItem(sequenceStorageKey);
+
+      if (!saved) {
+        updateSequenceNumbers();
+        return;
+      }
+
+      try {
+        const order = JSON.parse(saved);
+
+        order.forEach((id) => {
+          const card =
+            sequenceBuilder.querySelector(
+              `[data-sequence-id="${id}"]`
+            );
+
+          if (card) {
+            sequenceBuilder.appendChild(card);
+          }
+        });
+
+        updateSequenceNumbers();
+      } catch {
+        localStorage.removeItem(
+          sequenceStorageKey
+        );
+
+        updateSequenceNumbers();
+      }
+    }
+
+    sequenceBuilder
+      .addEventListener("click", (event) => {
+        const card =
+          event.target.closest(".sequence-card");
+
+        if (!card) {
+          return;
+        }
+
+        if (
+          event.target.classList.contains("move-up")
+        ) {
+          const previous =
+            card.previousElementSibling;
+
+          if (previous) {
+            sequenceBuilder.insertBefore(
+              card,
+              previous
+            );
+          }
+        }
+
+        if (
+          event.target.classList.contains("move-down")
+        ) {
+          const next =
+            card.nextElementSibling;
+
+          if (next) {
+            sequenceBuilder.insertBefore(
+              next,
+              card
+            );
+          }
+        }
+
+        updateSequenceNumbers();
+        saveSequence();
+
+        sequenceFeedback.textContent = "";
+      });
+
+    document
+      .getElementById("l2-check-sequence")
+      .addEventListener("click", () => {
+        const cards = sequenceCards();
+
+        const correct = cards.every(
+          (card, index) =>
+            Number(card.dataset.correctPosition) ===
+            index + 1
+        );
+
+        if (correct) {
+          sequenceFeedback.textContent =
+            "Correct — the record has been traced from input to output.";
+
+          sequenceFeedback.className =
+            "system-feedback correct";
+        } else {
+          sequenceFeedback.textContent =
+            "The order is not correct yet. Consider what must happen " +
+            "before the data can be stored and displayed.";
+
+          sequenceFeedback.className =
+            "system-feedback incorrect";
+        }
+      });
+
+    document
+      .getElementById("l2-reset-sequence")
+      .addEventListener("click", () => {
+        originalSequence.forEach((id) => {
+          const card =
+            sequenceBuilder.querySelector(
+              `[data-sequence-id="${id}"]`
+            );
+
+          sequenceBuilder.appendChild(card);
+        });
+
+        updateSequenceNumbers();
+
+        sequenceFeedback.textContent = "";
+        sequenceFeedback.className =
+          "system-feedback";
+
+        localStorage.removeItem(
+          sequenceStorageKey
+        );
+      });
+
+    restoreSequence();
+  })();
+</script>
+
 
     <!-- LESSON 3 -->
     <section class="panel" data-lesson="3">
