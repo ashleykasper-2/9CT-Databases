@@ -756,6 +756,30 @@
       text-align: center;
     }
   }
+    /* Fix Lesson 2 interactive diagram */
+
+.system-flow-diagram .system-stage rect {
+  fill: #ffffff !important;
+  stroke: #aeb8c2 !important;
+  stroke-width: 2px !important;
+}
+
+.system-flow-diagram .system-stage text {
+  fill: #1f2937 !important;
+  font-family: Inter, Arial, sans-serif !important;
+}
+
+.system-flow-diagram .system-stage.active rect {
+  fill: var(--green-soft) !important;
+  stroke: var(--green) !important;
+  stroke-width: 4px !important;
+}
+
+.system-flow-diagram .flow-arrow {
+  fill: none !important;
+  stroke: var(--red) !important;
+  stroke-width: 4px !important;
+}
 
   </style>
 </head>
@@ -1606,7 +1630,7 @@
   </div>
 
   <div class="syllabus-points">
-    <h3>Relevant syllabus content</h3>
+    <h3>Syllabus content</h3>
 
     <ul>
       <li>
