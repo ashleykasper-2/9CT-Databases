@@ -780,7 +780,261 @@
   stroke: var(--red) !important;
   stroke-width: 4px !important;
 }
+  .problem-builder,
+  .persona-builder,
+  .use-case-builder,
+  .evidence-planner {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    margin: 18px 0;
+    background: #fbfcfd;
+  }
 
+  .problem-formula {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    overflow-x: auto;
+    padding: 8px;
+  }
+
+  .formula-block {
+    min-width: 135px;
+    padding: 14px;
+    border: 2px solid #ccd4dc;
+    border-radius: 13px;
+    background: white;
+    text-align: center;
+    font-weight: 850;
+    color: var(--red-dark);
+  }
+
+  .formula-symbol {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--green);
+  }
+
+  .statement-sorter {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .statement-row {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) minmax(170px, 240px);
+    gap: 12px;
+    align-items: center;
+    padding: 13px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+  }
+
+  .statement-row.correct-row {
+    border-color: var(--green);
+    background: var(--green-soft);
+  }
+
+  .statement-row.incorrect-row {
+    border-color: #b42318;
+    background: #fff0ee;
+  }
+
+  .persona-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 13px;
+    margin: 15px 0;
+  }
+
+  .persona-card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 15px;
+    background: white;
+  }
+
+  .persona-card h4 {
+    margin-top: 0;
+    color: var(--red-dark);
+  }
+
+  .persona-avatar {
+    display: grid;
+    place-items: center;
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: var(--green-soft);
+    border: 3px solid var(--green);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--green);
+  }
+
+  .persona-summary {
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 5px solid var(--green);
+    border-radius: 10px;
+    background: var(--green-soft);
+  }
+
+  .permission-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+  }
+
+  .permission-grid th,
+  .permission-grid td {
+    border: 1px solid var(--line);
+    padding: 10px;
+    text-align: center;
+  }
+
+  .permission-grid th:first-child,
+  .permission-grid td:first-child {
+    text-align: left;
+  }
+
+  .permission-grid select {
+    min-width: 115px;
+  }
+
+  .use-case-preview {
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 5px solid var(--red);
+    border-radius: 10px;
+    background: var(--red-soft);
+  }
+
+  .use-case-preview h4 {
+    margin-top: 0;
+    color: var(--red-dark);
+  }
+
+  .use-case-quality {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .quality-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    background: white;
+  }
+
+  .quality-card strong {
+    display: block;
+    color: var(--green);
+    margin-bottom: 5px;
+  }
+
+  .scenario-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+  }
+
+  .scenario-tab {
+    border: 1px solid #bac3cb;
+    border-radius: 999px;
+    padding: 8px 13px;
+    background: white;
+    font-weight: 800;
+  }
+
+  .scenario-tab.active {
+    background: var(--red);
+    color: white;
+    border-color: var(--red);
+  }
+
+  .scenario-panel {
+    display: none;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: white;
+  }
+
+  .scenario-panel.active {
+    display: block;
+  }
+
+  .scenario-panel h4 {
+    margin-top: 0;
+    color: var(--red-dark);
+  }
+
+  .evidence-scale,
+  .problem-score {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .evidence-scale label,
+  .score-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 11px;
+    background: white;
+  }
+
+  .stakeholder-map {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .stakeholder-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.7fr) minmax(220px, 1.3fr);
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+  }
+
+  .lesson3-feedback {
+    min-height: 28px;
+    margin-top: 10px;
+    font-weight: 800;
+  }
+
+  @media (max-width: 700px) {
+    .problem-formula {
+      grid-template-columns: 1fr;
+      justify-items: stretch;
+    }
+
+    .formula-symbol {
+      text-align: center;
+      transform: rotate(90deg);
+    }
+
+    .statement-row,
+    .stakeholder-row {
+      grid-template-columns: 1fr;
+    }
+  }
   </style>
 </head>
 <body>
@@ -3135,60 +3389,334 @@
     restoreSequence();
   })();
 </script>
+<!-- =========================================================
+  2. REPLACE THE CURRENT LESSON 3 SECTION WITH THIS CODE
+========================================================= -->
 
+<section class="panel" data-lesson="3">
+  <span class="eyebrow">Week 1 · Lesson 3</span>
+  <h2>Defining the problem, users and use cases</h2>
 
-    <!-- LESSON 3 -->
-    <section class="panel" data-lesson="3">
-      <span class="eyebrow">Week 1 · Lesson 3</span>
-      <h2>Defining the problem, users and use cases</h2>
-      <div class="lesson-meta"><span class="tag">Problem definition</span><span class="tag">User roles</span><span class="tag">Use cases</span></div>
-      <div class="syllabus-points">
-        <h3>Relevant syllabus content</h3>
-        <ul>
-          <li>Define a real-world problem or need that can be solved by UIs or interactive media, including breaking it down into manageable parts and describing the users of the solution.</li>
-          <li>Specify the functional requirements of a UI or interactive media product, including stating the purpose of a solution and describing use cases.</li>
-        </ul>
+  <div class="lesson-meta">
+    <span class="tag">Problem definition</span>
+    <span class="tag">Stakeholders</span>
+    <span class="tag">User roles</span>
+    <span class="tag">Personas</span>
+    <span class="tag">Use cases</span>
+    <span class="tag">Success evidence</span>
+  </div>
+
+  <div class="syllabus-points">
+    <h3>Relevant syllabus content</h3>
+    <ul>
+      <li>Define a real-world problem or need that can be solved by a user interface or interactive media product.</li>
+      <li>Break a problem into manageable parts and describe the users of the proposed solution.</li>
+      <li>Specify the functional requirements of a solution, including its purpose and use cases.</li>
+      <li>Investigate the needs and perspectives of different users, including people with varied experience and accessibility needs.</li>
+    </ul>
+  </div>
+
+  <div class="key-terms">
+    <h3>Key terminology</h3>
+    <dl>
+      <dt>Problem statement</dt><dd>A clear explanation of the current difficulty, who experiences it and why it matters.</dd>
+      <dt>Stakeholder</dt><dd>A person or group affected by, responsible for or interested in the system.</dd>
+      <dt>User role</dt><dd>A category of user with particular responsibilities, goals or permissions.</dd>
+      <dt>Persona</dt><dd>A realistic profile representing an important type of user.</dd>
+      <dt>User need</dt><dd>A task, difficulty or requirement experienced by a user.</dd>
+      <dt>Use case</dt><dd>A description of how a particular user completes a goal using the system.</dd>
+      <dt>Success condition</dt><dd>A measurable result showing that a user has completed a task successfully.</dd>
+      <dt>Assumption</dt><dd>A belief about users or the problem that has not yet been confirmed through evidence.</dd>
+    </dl>
+  </div>
+
+  <div class="reading-content">
+    <h3>Read and understand</h3>
+    <p>Strong digital projects begin with a problem rather than a preferred feature. A useful problem statement identifies who is affected, what they currently find difficult and why the difficulty matters. Beginning with “build an app” does not explain the need. The app is only one possible response to the problem.</p>
+    <p>Different stakeholders may experience the same system in different ways. A student may need to submit information quickly, while a teacher may need to review and correct records. An administrator may require reports and control over permissions. Defining user roles prevents the design from treating every user as though they have identical goals.</p>
+    <p>Use cases connect users to meaningful goals. A strong use case identifies the user, the action they need to complete, the reason the action matters and the condition that proves success. These use cases later guide the interface, database structure, permissions, testing and evaluation.</p>
+  </div>
+
+  <div class="sequence-step">
+    <h4>Visual model: Build a strong problem statement</h4>
+    <div class="problem-formula" role="img" aria-label="Problem statement formula combining user, difficulty, cause and impact">
+      <div class="formula-block">A specific user</div><div class="formula-symbol">+</div>
+      <div class="formula-block">A current difficulty</div><div class="formula-symbol">+</div>
+      <div class="formula-block">Why it happens</div><div class="formula-symbol">+</div>
+      <div class="formula-block">The impact</div>
+    </div>
+    <div class="callout success"><strong>Example:</strong> Canteen staff cannot quickly identify unpaid orders because payment information is stored separately, causing delays and duplicated work.</div>
+  </div>
+
+  <div class="sequence-step">
+    <h4>Do Now: Problem, solution, feature or evidence?</h4>
+    <p>Classify each statement. A problem describes a current difficulty. A solution describes the proposed product. A feature describes something the product will do. Evidence shows whether the solution works.</p>
+    <div class="statement-sorter" id="l3-statement-sorter">
+      <div class="statement-row" data-answer="problem"><span>Students frequently miss assessment deadlines because information is spread across several platforms.</span><select><option value="">Choose a category</option><option value="problem">Problem</option><option value="solution">Solution</option><option value="feature">Feature</option><option value="evidence">Evidence</option></select></div>
+      <div class="statement-row" data-answer="solution"><span>Create an AppSheet study-planning system connected to Google Sheets.</span><select><option value="">Choose a category</option><option value="problem">Problem</option><option value="solution">Solution</option><option value="feature">Feature</option><option value="evidence">Evidence</option></select></div>
+      <div class="statement-row" data-answer="feature"><span>The app displays tasks that are due within the next seven days.</span><select><option value="">Choose a category</option><option value="problem">Problem</option><option value="solution">Solution</option><option value="feature">Feature</option><option value="evidence">Evidence</option></select></div>
+      <div class="statement-row" data-answer="evidence"><span>Eight out of ten test users complete the task without assistance.</span><select><option value="">Choose a category</option><option value="problem">Problem</option><option value="solution">Solution</option><option value="feature">Feature</option><option value="evidence">Evidence</option></select></div>
+      <div class="statement-row" data-answer="problem"><span>Staff cannot determine whether a booking has been approved without contacting the organiser.</span><select><option value="">Choose a category</option><option value="problem">Problem</option><option value="solution">Solution</option><option value="feature">Feature</option><option value="evidence">Evidence</option></select></div>
+      <div class="statement-row" data-answer="feature"><span>Add a status field and colour-coded dashboard.</span><select><option value="">Choose a category</option><option value="problem">Problem</option><option value="solution">Solution</option><option value="feature">Feature</option><option value="evidence">Evidence</option></select></div>
+    </div>
+    <button type="button" class="btn btn-small btn-primary" id="l3-check-sorter">Check classifications</button>
+    <div class="lesson3-feedback" id="l3-sorter-feedback" aria-live="polite"></div>
+    <div class="field"><label for="l3-starter">What makes a problem statement more useful than beginning with a feature idea? Explain how confusing the two could weaken a project.</label><textarea id="l3-starter" data-save></textarea></div>
+  </div>
+
+  <div class="sequence-step">
+    <h4>Interactive scenario analysis</h4>
+    <p>Select a scenario and identify the underlying problem, users and possible assumptions.</p>
+    <div class="scenario-tabs" role="tablist" aria-label="Project scenarios">
+      <button type="button" class="scenario-tab active" data-scenario-target="canteen">Canteen orders</button>
+      <button type="button" class="scenario-tab" data-scenario-target="awards">Student awards</button>
+      <button type="button" class="scenario-tab" data-scenario-target="bookings">Event bookings</button>
+    </div>
+    <div class="scenario-panel active" data-scenario-panel="canteen"><h4>Canteen ordering scenario</h4><p>Students currently write orders on paper. Canteen staff re-enter the information into a spreadsheet, handwriting is sometimes unclear, and students do not know when orders are ready.</p></div>
+    <div class="scenario-panel" data-scenario-panel="awards"><h4>Student awards scenario</h4><p>Teachers nominate students using email. Nominations are difficult to track, some information is missing, and coordinators cannot easily compare nominations across year groups.</p></div>
+    <div class="scenario-panel" data-scenario-panel="bookings"><h4>Event booking scenario</h4><p>Staff request rooms using messages and paper forms. Double bookings occur, approval status is unclear, and organisers spend time checking information manually.</p></div>
+    <div class="question-grid">
+      <div class="deep-question"><h4><span class="question-number">1</span> Define the problem</h4><label for="l3-scenario-problem">Write a problem statement for the selected scenario using a specific user, difficulty, cause and impact.</label><textarea id="l3-scenario-problem" data-save></textarea></div>
+      <div class="deep-question"><h4><span class="question-number">2</span> Identify assumptions</h4><label for="l3-scenario-assumptions">What assumptions might a designer be making about the users, devices, internet access or existing process?</label><textarea id="l3-scenario-assumptions" data-save></textarea></div>
+      <div class="deep-question"><h4><span class="question-number">3</span> Gather evidence</h4><label for="l3-scenario-evidence">What information should be collected before deciding that an AppSheet app is the best solution?</label><textarea id="l3-scenario-evidence" data-save></textarea></div>
+    </div>
+  </div>
+
+  <div class="sequence-step">
+    <h4>Interactive persona builder</h4>
+    <p>Create a realistic primary-user persona. Every detail should help the group make a decision about the interface or system.</p>
+    <div class="persona-builder">
+      <div class="persona-avatar" id="l3-persona-avatar">U</div>
+      <div class="persona-grid">
+        <div class="persona-card"><h4>Identity</h4><div class="field"><label for="l3-persona-name">Persona name or role</label><input id="l3-persona-name" type="text" data-save placeholder="Example: Busy canteen manager"></div><div class="field"><label for="l3-persona-age">Age group or experience level</label><select id="l3-persona-age" data-save><option value="">Choose one</option><option>Young student</option><option>Teenage student</option><option>Adult beginner</option><option>Adult experienced user</option><option>Older adult</option></select></div></div>
+        <div class="persona-card"><h4>Goal and context</h4><div class="field"><label for="l3-persona-goal">Main goal</label><input id="l3-persona-goal" type="text" data-save></div><div class="field"><label for="l3-persona-device">Main device</label><select id="l3-persona-device" data-save><option value="">Choose one</option><option>Phone</option><option>Tablet</option><option>Laptop</option><option>Shared desktop computer</option><option>More than one device</option></select></div></div>
+        <div class="persona-card"><h4>Needs and barriers</h4><div class="field"><label for="l3-persona-frustration">Biggest frustration</label><input id="l3-persona-frustration" type="text" data-save></div><div class="field"><label for="l3-persona-accessibility">Accessibility or support need</label><input id="l3-persona-accessibility" type="text" data-save></div></div>
       </div>
+      <button type="button" class="btn btn-small btn-primary" id="l3-generate-persona">Generate persona summary</button>
+      <div class="persona-summary" id="l3-persona-summary" aria-live="polite">Complete the fields and generate your persona summary.</div>
+    </div>
+    <div class="field"><label for="l3-persona-analysis">Which two interface decisions should change because of this persona? Explain the connection between the user need and the design decision.</label><textarea id="l3-persona-analysis" data-save></textarea></div>
+  </div>
 
-      <div class="key-terms">
-        <h3>Key terminology</h3>
-        <dl><dt>Problem statement</dt><dd>A clear explanation of the issue a solution will address.</dd><dt>User role</dt><dd>A type of user with particular responsibilities or permissions.</dd><dt>Use case</dt><dd>A description of how a user completes a goal using the system.</dd><dt>User need</dt><dd>A task, difficulty or requirement experienced by a user.</dd></dl>
-      </div>
-      <div class="reading-content">
-        <h3>Read and understand</h3>
-        <p>Strong digital projects begin with a clearly defined problem. The problem should describe who is affected, what difficulty they currently experience and why the difficulty matters. Beginning with a solution idea alone can lead to features that do not address a real need.</p><p>Different users may interact with the same system in different ways. For example, a student may add data while a teacher reviews summaries. Identifying user roles helps designers decide what each person should be able to view, add, edit or delete.</p><p>A use case connects a user to a goal. It explains what the user wants to do and why. These use cases later become a guide for interface design, database structure and testing.</p>
-      </div>
+  <div class="sequence-step">
+    <h4>Stakeholder map: Different people, different needs</h4>
+    <p>Identify at least three stakeholders. Include the primary user, another direct user and one person responsible for the system or data.</p>
+    <div class="stakeholder-map">
+      <div class="stakeholder-row"><div class="field"><label for="l3-stakeholder-1">Stakeholder 1</label><input id="l3-stakeholder-1" type="text" data-save></div><div class="field"><label for="l3-stakeholder-1-need">Goal, concern and information needed</label><textarea id="l3-stakeholder-1-need" data-save></textarea></div></div>
+      <div class="stakeholder-row"><div class="field"><label for="l3-stakeholder-2">Stakeholder 2</label><input id="l3-stakeholder-2" type="text" data-save></div><div class="field"><label for="l3-stakeholder-2-need">Goal, concern and information needed</label><textarea id="l3-stakeholder-2-need" data-save></textarea></div></div>
+      <div class="stakeholder-row"><div class="field"><label for="l3-stakeholder-3">Stakeholder 3</label><input id="l3-stakeholder-3" type="text" data-save></div><div class="field"><label for="l3-stakeholder-3-need">Goal, concern and information needed</label><textarea id="l3-stakeholder-3-need" data-save></textarea></div></div>
+    </div>
+    <div class="field"><label for="l3-stakeholder-conflict">Where could stakeholder needs conflict? Explain how the design team could balance these competing needs.</label><textarea id="l3-stakeholder-conflict" data-save></textarea></div>
+  </div>
 
-      <div class="lesson-sequence">
-        <div class="sequence-step"><h4>Do now: problem or solution?</h4><p>Classify each statement as a problem or a solution: “Students forget due dates”; “Create a study planner”; “Canteen staff cannot see order status”; “Add a dashboard.”</p><div class="field"><label for="l3-starter">What makes a problem statement different from a feature idea?</label><textarea id="l3-starter" data-save></textarea></div></div>
-        <div class="sequence-step"><h4>Guided learning</h4><p>Use the problem statement formula below. Strong problem definitions identify a real user, a current difficulty and the effect of that difficulty.</p></div>
-        <div class="sequence-step"><h4>User-role workshop</h4><p>Create a mini persona for one primary user. Include their goal, experience level, device, accessibility needs and biggest frustration.</p><div class="field"><label for="l3-persona">Primary user persona</label><textarea id="l3-persona" data-save></textarea></div></div>
-        <div class="sequence-step"><h4>Use-case refinement</h4><p>Rewrite your use case so it includes a clear user, action and reason. Add one success condition.</p><div class="field"><label for="l3-success">Success condition</label><input id="l3-success" type="text" data-save></div></div>
-        <div class="sequence-step"><h4>Exit ticket</h4><div class="field"><label for="l3-exit">What evidence would prove your app solves the problem?</label><input id="l3-exit" type="text" data-save></div></div>
-      </div>
+  <div class="sequence-step">
+    <h4>User-role and permission workshop</h4>
+    <p>Decide what each role should be able to do. Use the matrix to avoid giving every user unnecessary access.</p>
+    <div class="table-wrap"><table class="permission-grid"><thead><tr><th>System action</th><th>Primary user</th><th>Staff or reviewer</th><th>Administrator</th></tr></thead><tbody>
+      <tr><td>View records</td><td><select data-save><option value="">Choose</option><option>Own records only</option><option>All records</option><option>No access</option></select></td><td><select data-save><option value="">Choose</option><option>Own records only</option><option>All records</option><option>No access</option></select></td><td><select data-save><option value="">Choose</option><option>Own records only</option><option>All records</option><option>No access</option></select></td></tr>
+      <tr><td>Add records</td><td><select data-save><option value="">Choose</option><option>Allowed</option><option>Not allowed</option><option>Approval required</option></select></td><td><select data-save><option value="">Choose</option><option>Allowed</option><option>Not allowed</option><option>Approval required</option></select></td><td><select data-save><option value="">Choose</option><option>Allowed</option><option>Not allowed</option><option>Approval required</option></select></td></tr>
+      <tr><td>Edit records</td><td><select data-save><option value="">Choose</option><option>Own records only</option><option>All records</option><option>No access</option></select></td><td><select data-save><option value="">Choose</option><option>Own records only</option><option>All records</option><option>No access</option></select></td><td><select data-save><option value="">Choose</option><option>Own records only</option><option>All records</option><option>No access</option></select></td></tr>
+      <tr><td>Delete records</td><td><select data-save><option value="">Choose</option><option>Allowed</option><option>Not allowed</option><option>Approval required</option></select></td><td><select data-save><option value="">Choose</option><option>Allowed</option><option>Not allowed</option><option>Approval required</option></select></td><td><select data-save><option value="">Choose</option><option>Allowed</option><option>Not allowed</option><option>Approval required</option></select></td></tr>
+    </tbody></table></div>
+    <div class="field"><label for="l3-permission-reason">Justify two permission decisions. Explain how they protect data while still allowing users to complete their goals.</label><textarea id="l3-permission-reason" data-save></textarea></div>
+  </div>
 
-      <p>A strong project starts with a specific problem, not simply an app idea. Your problem statement should identify the users, their need and the improvement the proposed system will create.</p>
-      <div class="callout"><strong>Problem statement formula:</strong> [User group] needs a way to [complete a task] because [current problem]. Our system will [proposed improvement].</div>
-      <p>A <strong>use case</strong> is a short description of how a particular user interacts with a system to achieve a goal.</p>
-
-      <div class="activity">
-        <h3>Assessment builder: define your project</h3>
-        <div class="field"><label for="l3-problem">Problem statement</label><textarea id="l3-problem" data-save></textarea></div>
-        <div class="field"><label for="l3-users">Key user roles and responsibilities</label><textarea id="l3-users" data-save placeholder="Example: Student — creates and updates study tasks. Teacher — views progress summaries."></textarea></div>
-        <div class="field"><label for="l3-usecase">One important use case</label><textarea id="l3-usecase" data-save placeholder="As a..., I want to..., so that..."></textarea></div>
+  <div class="sequence-step">
+    <h4>Interactive use-case builder</h4>
+    <p>Build one use case for the primary user. Use a specific action and measurable success condition.</p>
+    <div class="use-case-builder">
+      <div class="persona-grid">
+        <div class="persona-card"><h4>User</h4><label for="l3-usecase-user">Who is completing the task?</label><input id="l3-usecase-user" type="text" data-save></div>
+        <div class="persona-card"><h4>Action</h4><label for="l3-usecase-action">What do they need to do?</label><input id="l3-usecase-action" type="text" data-save></div>
+        <div class="persona-card"><h4>Reason</h4><label for="l3-usecase-reason">Why does this matter?</label><input id="l3-usecase-reason" type="text" data-save></div>
+        <div class="persona-card"><h4>Success condition</h4><label for="l3-usecase-success">What proves completion?</label><input id="l3-usecase-success" type="text" data-save></div>
       </div>
+      <button type="button" class="btn btn-small btn-primary" id="l3-generate-usecase">Generate use case</button>
+      <div class="use-case-preview" id="l3-usecase-preview" aria-live="polite"><h4>Your use case</h4><p>Complete the fields and select Generate use case.</p></div>
+      <div class="use-case-quality"><div class="quality-card"><strong>Specific user</strong>Identifies one role rather than “everyone”.</div><div class="quality-card"><strong>Clear action</strong>Uses an observable verb.</div><div class="quality-card"><strong>Meaningful reason</strong>Explains why the task matters.</div><div class="quality-card"><strong>Measurable success</strong>States what proves completion.</div></div>
+    </div>
+    <div class="field"><label for="l3-usecase-risk">What could prevent this use case from being completed successfully? Identify one interface risk, one data risk and one user-related risk.</label><textarea id="l3-usecase-risk" data-save></textarea></div>
+  </div>
 
-      <div class="activity">
-        <h3>Quality check</h3>
-        <div class="checklist">
-          <label><input type="checkbox" data-save> My problem is specific and real.</label>
-          <label><input type="checkbox" data-save> I identified more than one user role where appropriate.</label>
-          <label><input type="checkbox" data-save> Each role has clear responsibilities.</label>
-          <label><input type="checkbox" data-save> My proposed system connects directly to the problem.</label>
-        </div>
+  <div class="sequence-step">
+    <h4>Project task: Write and test your problem statement</h4>
+    <div class="problem-builder">
+      <div class="field"><label for="l3-problem-user">Who experiences the problem?</label><input id="l3-problem-user" type="text" data-save></div>
+      <div class="field"><label for="l3-problem-difficulty">What difficulty do they currently experience?</label><textarea id="l3-problem-difficulty" data-save></textarea></div>
+      <div class="field"><label for="l3-problem-cause">Why does the difficulty occur?</label><textarea id="l3-problem-cause" data-save></textarea></div>
+      <div class="field"><label for="l3-problem-impact">What is the impact of the problem?</label><textarea id="l3-problem-impact" data-save></textarea></div>
+      <button type="button" class="btn btn-small btn-primary" id="l3-generate-problem">Generate problem statement</button>
+      <div class="use-case-preview" id="l3-problem-preview" aria-live="polite"><h4>Generated problem statement</h4><p>Complete all four sections and generate your statement.</p></div>
+      <div class="problem-score">
+        <div class="score-card"><label>Specific user</label><select data-save><option value="">Rate 1–5</option><option>1 — unclear</option><option>2</option><option>3 — adequate</option><option>4</option><option>5 — precise</option></select></div>
+        <div class="score-card"><label>Clear difficulty</label><select data-save><option value="">Rate 1–5</option><option>1 — unclear</option><option>2</option><option>3 — adequate</option><option>4</option><option>5 — precise</option></select></div>
+        <div class="score-card"><label>Meaningful impact</label><select data-save><option value="">Rate 1–5</option><option>1 — unclear</option><option>2</option><option>3 — adequate</option><option>4</option><option>5 — precise</option></select></div>
+        <div class="score-card"><label>Evidence-based</label><select data-save><option value="">Rate 1–5</option><option>1 — assumption only</option><option>2</option><option>3 — some evidence</option><option>4</option><option>5 — well supported</option></select></div>
       </div>
-      <div class="lesson-footer"><label class="complete-label"><input type="checkbox" class="lesson-complete"> Mark lesson complete</label></div>
-    </section>
+    </div>
+  </div>
+
+  <div class="sequence-step">
+    <h4>Evidence planner: How will you prove the app solves the problem?</h4>
+    <p>A successful project requires evidence. Choose measures that connect directly to the identified user need.</p>
+    <div class="evidence-planner">
+      <div class="evidence-scale">
+        <label>Task completion<select data-save><option value="">Choose a measure</option><option>Percentage completing without help</option><option>Number completing successfully</option><option>Pass or fail against criteria</option></select></label>
+        <label>Efficiency<select data-save><option value="">Choose a measure</option><option>Time taken</option><option>Number of steps</option><option>Number of repeated actions</option></select></label>
+        <label>Accuracy<select data-save><option value="">Choose a measure</option><option>Number of errors</option><option>Percentage of valid records</option><option>Difference from expected output</option></select></label>
+        <label>User experience<select data-save><option value="">Choose a measure</option><option>User rating</option><option>Observation notes</option><option>Interview feedback</option></select></label>
+      </div>
+      <div class="field"><label for="l3-evidence-plan">Write two measurable success criteria. Explain what data will be collected and how it will demonstrate whether the problem was solved.</label><textarea id="l3-evidence-plan" data-save></textarea></div>
+    </div>
+  </div>
+
+  <div class="sequence-step">
+    <h4>Deeper-thinking questions</h4>
+    <div class="question-grid">
+      <div class="deep-question"><h4><span class="question-number">4</span> Problem framing</h4><label for="l3-q4">How can the way a problem is framed influence the solution that designers create?</label><textarea id="l3-q4" data-save></textarea></div>
+      <div class="deep-question"><h4><span class="question-number">5</span> Conflicting needs</h4><label for="l3-q5">When should the needs of one stakeholder be prioritised over another? Provide a justified example.</label><textarea id="l3-q5" data-save></textarea></div>
+      <div class="deep-question"><h4><span class="question-number">6</span> Assumptions</h4><label for="l3-q6">What is the risk of designing from assumptions instead of user evidence?</label><textarea id="l3-q6" data-save></textarea></div>
+      <div class="deep-question"><h4><span class="question-number">7</span> Permissions</h4><label for="l3-q7">Why can giving users too many permissions create both usability and security problems?</label><textarea id="l3-q7" data-save></textarea></div>
+      <div class="deep-question"><h4><span class="question-number">8</span> Scope</h4><label for="l3-q8">How can a team tell whether a problem is too large for the project? Explain how it could be broken into manageable parts.</label><textarea id="l3-q8" data-save></textarea></div>
+      <div class="deep-question"><h4><span class="question-number">9</span> Use-case quality</h4><label for="l3-q9">Why is “the user opens the app” a weak use case? Rewrite it as a meaningful user goal.</label><textarea id="l3-q9" data-save></textarea></div>
+    </div>
+  </div>
+
+  <div class="sequence-step">
+    <h4>Assessment connection</h4>
+    <div class="field"><label for="l3-assessment-summary">Produce a concise project definition containing the problem statement, primary user, two additional stakeholders, three user needs and two use cases.</label><textarea id="l3-assessment-summary" data-save></textarea></div>
+    <div class="callout project"><strong>Project checkpoint:</strong> Save this work for the problem definition, user analysis, functional requirements and use-case sections of your assessment documentation.</div>
+  </div>
+
+  <div class="sequence-step">
+    <h4>Exit ticket</h4>
+    <div class="field"><label for="l3-exit">What evidence would prove that your app solves the user’s problem rather than simply functioning as programmed?</label><textarea id="l3-exit" data-save></textarea></div>
+  </div>
+
+  <div class="lesson-footer">
+    <label class="complete-label"><input type="checkbox" class="lesson-complete" data-lesson="3"> Mark Lesson 3 complete</label>
+    <button class="btn btn-small btn-primary" data-go="4" type="button">Continue to Lesson 4 →</button>
+  </div>
+</section>
+
+<!-- Lesson 3 -->
+
+<script>
+  (() => {
+    const sorter = document.getElementById("l3-statement-sorter");
+    const sorterRows = sorter ? [...sorter.querySelectorAll(".statement-row")] : [];
+    const sorterFeedback = document.getElementById("l3-sorter-feedback");
+    const sorterStorageKey = "year9-lesson3-statement-sorter";
+
+    function saveSorter() {
+      localStorage.setItem(sorterStorageKey, JSON.stringify(sorterRows.map(row => row.querySelector("select").value)));
+    }
+
+    function restoreSorter() {
+      const saved = localStorage.getItem(sorterStorageKey);
+      if (!saved) return;
+      try {
+        const values = JSON.parse(saved);
+        sorterRows.forEach((row, index) => row.querySelector("select").value = values[index] || "");
+      } catch {
+        localStorage.removeItem(sorterStorageKey);
+      }
+    }
+
+    sorterRows.forEach(row => {
+      row.querySelector("select").addEventListener("change", () => {
+        row.classList.remove("correct-row", "incorrect-row");
+        sorterFeedback.textContent = "";
+        saveSorter();
+      });
+    });
+
+    document.getElementById("l3-check-sorter").addEventListener("click", () => {
+      let correct = 0;
+      let completed = 0;
+      sorterRows.forEach(row => {
+        const selected = row.querySelector("select").value;
+        const isCorrect = selected === row.dataset.answer;
+        if (selected) completed += 1;
+        if (isCorrect) correct += 1;
+        row.classList.toggle("correct-row", isCorrect);
+        row.classList.toggle("incorrect-row", Boolean(selected) && !isCorrect);
+      });
+      if (completed < sorterRows.length) {
+        sorterFeedback.textContent = "Complete every classification before checking.";
+        sorterFeedback.className = "lesson3-feedback incorrect";
+      } else if (correct === sorterRows.length) {
+        sorterFeedback.textContent = "Excellent — all statements are correctly classified.";
+        sorterFeedback.className = "lesson3-feedback correct";
+      } else {
+        sorterFeedback.textContent = `${correct} of ${sorterRows.length} are correct. Review the highlighted statements.`;
+        sorterFeedback.className = "lesson3-feedback incorrect";
+      }
+    });
+
+    restoreSorter();
+
+    const scenarioTabs = [...document.querySelectorAll('[data-lesson="3"] .scenario-tab')];
+    const scenarioPanels = [...document.querySelectorAll('[data-lesson="3"] .scenario-panel')];
+    scenarioTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.scenarioTarget;
+        scenarioTabs.forEach(other => other.classList.toggle("active", other === tab));
+        scenarioPanels.forEach(panel => panel.classList.toggle("active", panel.dataset.scenarioPanel === target));
+      });
+    });
+
+    const personaName = document.getElementById("l3-persona-name");
+    const personaAvatar = document.getElementById("l3-persona-avatar");
+    personaName.addEventListener("input", () => {
+      const value = personaName.value.trim();
+      personaAvatar.textContent = value ? value.charAt(0).toUpperCase() : "U";
+    });
+
+    document.getElementById("l3-generate-persona").addEventListener("click", () => {
+      const values = {
+        name: personaName.value.trim(),
+        age: document.getElementById("l3-persona-age").value,
+        goal: document.getElementById("l3-persona-goal").value.trim(),
+        device: document.getElementById("l3-persona-device").value,
+        frustration: document.getElementById("l3-persona-frustration").value.trim(),
+        accessibility: document.getElementById("l3-persona-accessibility").value.trim()
+      };
+      const summary = document.getElementById("l3-persona-summary");
+      if (Object.values(values).some(value => !value)) {
+        summary.innerHTML = "<strong>Complete all persona fields before generating the summary.</strong>";
+        return;
+      }
+      summary.innerHTML = `<strong>${values.name}</strong> is a ${values.age.toLowerCase()} who mainly uses a ${values.device.toLowerCase()}. Their main goal is to ${values.goal}. Their biggest frustration is ${values.frustration}. The interface should support ${values.accessibility}.`;
+    });
+
+    document.getElementById("l3-generate-usecase").addEventListener("click", () => {
+      const user = document.getElementById("l3-usecase-user").value.trim();
+      const action = document.getElementById("l3-usecase-action").value.trim();
+      const reason = document.getElementById("l3-usecase-reason").value.trim();
+      const success = document.getElementById("l3-usecase-success").value.trim();
+      const preview = document.getElementById("l3-usecase-preview");
+      if (!user || !action || !reason || !success) {
+        preview.innerHTML = "<h4>Your use case</h4><p>Complete all four fields before generating the use case.</p>";
+        return;
+      }
+      preview.innerHTML = `<h4>Your use case</h4><p><strong>As a ${user}, I need to ${action} so that ${reason}. The use case is successful when ${success}.</strong></p>`;
+    });
+
+    document.getElementById("l3-generate-problem").addEventListener("click", () => {
+      const user = document.getElementById("l3-problem-user").value.trim();
+      const difficulty = document.getElementById("l3-problem-difficulty").value.trim();
+      const cause = document.getElementById("l3-problem-cause").value.trim();
+      const impact = document.getElementById("l3-problem-impact").value.trim();
+      const preview = document.getElementById("l3-problem-preview");
+      if (!user || !difficulty || !cause || !impact) {
+        preview.innerHTML = "<h4>Generated problem statement</h4><p>Complete all four sections before generating the statement.</p>";
+        return;
+      }
+      preview.innerHTML = `<h4>Generated problem statement</h4><p><strong>${user} currently experience ${difficulty}. This occurs because ${cause}, resulting in ${impact}.</strong></p>`;
+    });
+  })();
+</script>
 
     <!-- LESSON 4 -->
     <section class="panel" data-lesson="4">
