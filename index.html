@@ -5,7 +5,630 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Year 9 Computing Technology AppSheet project unit">
 <title>Year 9 AppSheet Project | Mrs Kasper 2026</title>
+<style><style>
+  .problem-builder,
+  .persona-builder,
+  .use-case-builder,
+  .evidence-planner {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    margin: 18px 0;
+    background: #fbfcfd;
+  }
+
+  .problem-formula {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    overflow-x: auto;
+    padding: 8px;
+  }
+
+  .formula-block {
+    min-width: 135px;
+    padding: 14px;
+    border: 2px solid #ccd4dc;
+    border-radius: 13px;
+    background: white;
+    text-align: center;
+    font-weight: 850;
+    color: var(--red-dark);
+  }
+
+  .formula-symbol {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--green);
+  }
+
+  .statement-sorter {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .statement-row {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) minmax(170px, 240px);
+    gap: 12px;
+    align-items: center;
+    padding: 13px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+  }
+
+  .statement-row.correct-row {
+    border-color: var(--green);
+    background: var(--green-soft);
+  }
+
+  .statement-row.incorrect-row {
+    border-color: #b42318;
+    background: #fff0ee;
+  }
+
+  .persona-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 13px;
+    margin: 15px 0;
+  }
+
+  .persona-card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 15px;
+    background: white;
+  }
+
+  .persona-card h4 {
+    margin-top: 0;
+    color: var(--red-dark);
+  }
+
+  .persona-avatar {
+    display: grid;
+    place-items: center;
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: var(--green-soft);
+    border: 3px solid var(--green);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--green);
+  }
+
+  .persona-summary {
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 5px solid var(--green);
+    border-radius: 10px;
+    background: var(--green-soft);
+  }
+
+  .permission-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+  }
+
+  .permission-grid th,
+  .permission-grid td {
+    border: 1px solid var(--line);
+    padding: 10px;
+    text-align: center;
+  }
+
+  .permission-grid th:first-child,
+  .permission-grid td:first-child {
+    text-align: left;
+  }
+
+  .permission-grid select {
+    min-width: 115px;
+  }
+
+  .use-case-preview {
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 5px solid var(--red);
+    border-radius: 10px;
+    background: var(--red-soft);
+  }
+
+  .use-case-preview h4 {
+    margin-top: 0;
+    color: var(--red-dark);
+  }
+
+  .use-case-quality {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .quality-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    background: white;
+  }
+
+  .quality-card strong {
+    display: block;
+    color: var(--green);
+    margin-bottom: 5px;
+  }
+
+  .scenario-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+  }
+
+  .scenario-tab {
+    border: 1px solid #bac3cb;
+    border-radius: 999px;
+    padding: 8px 13px;
+    background: white;
+    font-weight: 800;
+  }
+
+  .scenario-tab.active {
+    background: var(--red);
+    color: white;
+    border-color: var(--red);
+  }
+
+  .scenario-panel {
+    display: none;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: white;
+  }
+
+  .scenario-panel.active {
+    display: block;
+  }
+
+  .scenario-panel h4 {
+    margin-top: 0;
+    color: var(--red-dark);
+  }
+
+  .evidence-scale,
+  .problem-score {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .evidence-scale label,
+  .score-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 11px;
+    background: white;
+  }
+
+  .stakeholder-map {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .stakeholder-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.7fr) minmax(220px, 1.3fr);
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+  }
+
+  .lesson3-feedback {
+    min-height: 28px;
+    margin-top: 10px;
+    font-weight: 800;
+  }
+
+  @media (max-width: 700px) {
+    .problem-formula {
+      grid-template-columns: 1fr;
+      justify-items: stretch;
+    }
+
+    .formula-symbol {
+      text-align: center;
+      transform: rotate(90deg);
+    }
+
+    .statement-row,
+    .stakeholder-row {
+      grid-template-columns: 1fr;
+    }
+  }
 <style>
+  .problem-builder,
+  .persona-builder,
+  .use-case-builder,
+  .evidence-planner {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    margin: 18px 0;
+    background: #fbfcfd;
+  }
+
+  .problem-formula {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    overflow-x: auto;
+    padding: 8px;
+  }
+
+  .formula-block {
+    min-width: 135px;
+    padding: 14px;
+    border: 2px solid #ccd4dc;
+    border-radius: 13px;
+    background: white;
+    text-align: center;
+    font-weight: 850;
+    color: var(--red-dark);
+  }
+
+  .formula-symbol {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--green);
+  }
+
+  .statement-sorter {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .statement-row {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) minmax(170px, 240px);
+    gap: 12px;
+    align-items: center;
+    padding: 13px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+  }
+
+  .statement-row.correct-row {
+    border-color: var(--green);
+    background: var(--green-soft);
+  }
+
+  .statement-row.incorrect-row {
+    border-color: #b42318;
+    background: #fff0ee;
+  }
+
+  .persona-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 13px;
+    margin: 15px 0;
+  }
+
+  .persona-card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 15px;
+    background: white;
+  }
+
+  .persona-card h4 {
+    margin-top: 0;
+    color: var(--red-dark);
+  }
+
+  .persona-avatar {
+    display: grid;
+    place-items: center;
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: var(--green-soft);
+    border: 3px solid var(--green);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--green);
+  }
+
+  .persona-summary {
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 5px solid var(--green);
+    border-radius: 10px;
+    background: var(--green-soft);
+  }
+
+  .permission-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+  }
+
+  .permission-grid th,
+  .permission-grid td {
+    border: 1px solid var(--line);
+    padding: 10px;
+    text-align: center;
+  }
+
+  .permission-grid th:first-child,
+  .permission-grid td:first-child {
+    text-align: left;
+  }
+
+  .permission-grid select {
+    min-width: 115px;
+  }
+
+  .use-case-preview {
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 5px solid var(--red);
+    border-radius: 10px;
+    background: var(--red-soft);
+  }
+
+  .use-case-preview h4 {
+    margin-top: 0;
+    color: var(--red-dark);
+  }
+
+  .use-case-quality {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .quality-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    background: white;
+  }
+
+  .quality-card strong {
+    display: block;
+    color: var(--green);
+    margin-bottom: 5px;
+  }
+
+  .scenario-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+  }
+
+  .scenario-tab {
+    border: 1px solid #bac3cb;
+    border-radius: 999px;
+    padding: 8px 13px;
+    background: white;
+    font-weight: 800;
+  }
+
+  .scenario-tab.active {
+    background: var(--red);
+    color: white;
+    border-color: var(--red);
+  }
+
+  .scenario-panel {
+    display: none;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: white;
+  }
+
+  .scenario-panel.active {
+    display: block;
+  }
+
+  .scenario-panel h4 {
+    margin-top: 0;
+    color: var(--red-dark);
+  }
+
+  .evidence-scale,
+  .problem-score {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .evidence-scale label,
+  .score-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 11px;
+    background: white;
+  }
+
+  .stakeholder-map {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .stakeholder-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.7fr) minmax(220px, 1.3fr);
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+  }
+
+  .lesson3-feedback {
+    min-height: 28px;
+    margin-top: 10px;
+    font-weight: 800;
+  }
+
+  @media (max-width: 700px) {
+    .problem-formula {
+      grid-template-columns: 1fr;
+      justify-items: stretch;
+    }
+
+    .formula-symbol {
+      text-align: center;
+      transform: rotate(90deg);
+    }
+
+    .statement-row,
+    .stakeholder-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* LESSON 3: clearer activity boxes */
+  [data-lesson="3"] .syllabus-points {
+    margin: 20px 0;
+    padding: 18px 20px;
+    border: 3px solid #2563a6;
+    border-radius: 16px;
+    background: #eef6ff;
+  }
+
+  [data-lesson="3"] .syllabus-points h3 {
+    margin-top: 0;
+    color: #174f86;
+  }
+
+  [data-lesson="3"] .sequence-step {
+    margin: 22px 0;
+    padding: 20px;
+    border: 2px solid #d6dce3;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(31, 41, 55, 0.06);
+  }
+
+  [data-lesson="3"] .sequence-step > h4:first-child {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--red-soft);
+    color: var(--red-dark);
+  }
+
+  [data-lesson="3"] .lesson-visual {
+    margin: 20px 0;
+    padding: 16px;
+    border: 2px solid #d7e8dc;
+    border-radius: 16px;
+    background: #f8fcf9;
+  }
+
+  [data-lesson="3"] .lesson-visual svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  [data-lesson="3"] .lesson-visual figcaption {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  [data-lesson="3"] .assessment-link-box {
+    margin: 26px 0;
+    padding: 22px;
+    border: 3px solid #7a0015;
+    border-radius: 18px;
+    background: #fff3f6;
+  }
+
+  [data-lesson="3"] .assessment-link-box h3 {
+    margin-top: 0;
+    color: #7a0015;
+  }
+
+  [data-lesson="3"] .assessment-link-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  [data-lesson="3"] .assessment-link-button {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #7a0015;
+    color: #ffffff;
+    font-weight: 850;
+    text-decoration: none;
+  }
+
+  [data-lesson="3"] .assessment-link-button.secondary {
+    border: 2px solid #7a0015;
+    background: #ffffff;
+    color: #7a0015;
+  }
+
+  [data-lesson="3"] .copy-doc-box {
+    margin-top: 16px;
+    padding: 15px;
+    border-left: 5px solid #2563a6;
+    border-radius: 10px;
+    background: #eef6ff;
+  }
+
+  @media (max-width: 650px) {
+    [data-lesson="3"] .sequence-step {
+      padding: 15px;
+    }
+
+    [data-lesson="3"] .assessment-link-buttons {
+      flex-direction: column;
+    }
+
+    [data-lesson="3"] .assessment-link-button {
+      text-align: center;
+    }
+  }
+
+</style>
+
+
 :root {
   --red:#a6192e; --red-dark:#741020; --red-soft:#f8e8ec;
   --green:#0f6f3d; --green-soft:#eaf6ee;
@@ -2831,8 +3454,8 @@ section.
   </div>
 </section>
     
-    <!-- LESSON 3: RESTORED ORIGINAL DEEP VERSION -->
-    <section class="panel lesson" data-panel="3" id="lesson-3">
+    <!-- LESSON 3 -->
+  <section class="panel" data-lesson="3">
   <span class="eyebrow">Week 1 · Lesson 3</span>
   <h2>Defining the problem, users and use cases</h2>
 
@@ -2876,8 +3499,97 @@ section.
     <p>Use cases connect users to meaningful goals. A strong use case identifies the user, the action they need to complete, the reason the action matters and the condition that proves success. These use cases later guide the interface, database structure, permissions, testing and evaluation.</p>
   </div>
 
+
+  <figure class="lesson-visual">
+    <svg viewBox="0 0 1000 300" role="img"
+      aria-labelledby="l3-visual-title l3-visual-description">
+      <title id="l3-visual-title">
+        How a user problem guides an AppSheet project
+      </title>
+      <desc id="l3-visual-description">
+        A user leads to a problem, user needs, use cases and an app solution.
+      </desc>
+
+      <defs>
+        <marker id="l3-arrow" markerWidth="11" markerHeight="11"
+          refX="9" refY="5.5" orient="auto">
+          <path d="M0,0 L11,5.5 L0,11 Z" fill="#a6192e"></path>
+        </marker>
+      </defs>
+
+      <rect x="20" y="70" width="160" height="150" rx="20"
+        fill="#eef6ff" stroke="#2563a6" stroke-width="4"></rect>
+      <circle cx="100" cy="112" r="25" fill="#2563a6"></circle>
+      <path d="M62 183 C68 140,132 140,138 183" fill="#2563a6"></path>
+      <text x="100" y="205" text-anchor="middle"
+        font-family="Arial" font-size="22" font-weight="700"
+        fill="#174f86">USER</text>
+
+      <line x1="180" y1="145" x2="230" y2="145"
+        stroke="#a6192e" stroke-width="5"
+        marker-end="url(#l3-arrow)"></line>
+
+      <rect x="235" y="70" width="160" height="150" rx="20"
+        fill="#f8e8ec" stroke="#a6192e" stroke-width="4"></rect>
+      <text x="315" y="120" text-anchor="middle"
+        font-family="Arial" font-size="23" font-weight="700"
+        fill="#741020">PROBLEM</text>
+      <text x="315" y="153" text-anchor="middle"
+        font-family="Arial" font-size="17" fill="#1f2937">difficulty</text>
+      <text x="315" y="180" text-anchor="middle"
+        font-family="Arial" font-size="17" fill="#1f2937">cause + impact</text>
+
+      <line x1="395" y1="145" x2="445" y2="145"
+        stroke="#a6192e" stroke-width="5"
+        marker-end="url(#l3-arrow)"></line>
+
+      <rect x="450" y="70" width="160" height="150" rx="20"
+        fill="#eaf6ee" stroke="#0f6f3d" stroke-width="4"></rect>
+      <text x="530" y="120" text-anchor="middle"
+        font-family="Arial" font-size="23" font-weight="700"
+        fill="#0f6f3d">NEEDS</text>
+      <text x="530" y="153" text-anchor="middle"
+        font-family="Arial" font-size="17" fill="#1f2937">goals</text>
+      <text x="530" y="180" text-anchor="middle"
+        font-family="Arial" font-size="17" fill="#1f2937">permissions</text>
+
+      <line x1="610" y1="145" x2="660" y2="145"
+        stroke="#a6192e" stroke-width="5"
+        marker-end="url(#l3-arrow)"></line>
+
+      <rect x="665" y="70" width="140" height="150" rx="20"
+        fill="#fff4d6" stroke="#9a6500" stroke-width="4"></rect>
+      <text x="735" y="120" text-anchor="middle"
+        font-family="Arial" font-size="22" font-weight="700"
+        fill="#7b5100">USE</text>
+      <text x="735" y="148" text-anchor="middle"
+        font-family="Arial" font-size="22" font-weight="700"
+        fill="#7b5100">CASES</text>
+      <text x="735" y="183" text-anchor="middle"
+        font-family="Arial" font-size="17" fill="#1f2937">user tasks</text>
+
+      <line x1="805" y1="145" x2="855" y2="145"
+        stroke="#a6192e" stroke-width="5"
+        marker-end="url(#l3-arrow)"></line>
+
+      <rect x="860" y="70" width="120" height="150" rx="20"
+        fill="#ffffff" stroke="#0f6f3d" stroke-width="4"></rect>
+      <rect x="890" y="95" width="60" height="95" rx="8"
+        fill="#eaf6ee" stroke="#0f6f3d" stroke-width="3"></rect>
+      <circle cx="920" cy="178" r="5" fill="#0f6f3d"></circle>
+      <text x="920" y="210" text-anchor="middle"
+        font-family="Arial" font-size="18" font-weight="700"
+        fill="#0f6f3d">APP</text>
+    </svg>
+
+    <figcaption>
+      A strong AppSheet solution starts with a real user problem.
+      The problem guides user needs, use cases, data and interface decisions.
+    </figcaption>
+  </figure>
+
   <div class="sequence-step">
-    <h4>Visual model: Build a strong problem statement</h4>
+    <h4>Build a strong problem statement</h4>
     <div class="problem-formula" role="img" aria-label="Problem statement formula combining user, difficulty, cause and impact">
       <div class="formula-block">A specific user</div><div class="formula-symbol">+</div>
       <div class="formula-block">A current difficulty</div><div class="formula-symbol">+</div>
@@ -2888,7 +3600,7 @@ section.
   </div>
 
   <div class="sequence-step">
-    <h4>Do Now: Problem, solution, feature or evidence?</h4>
+    <h4>Do Problem, solution, feature or evidence?</h4>
     <p>Classify each statement. A problem describes a current difficulty. A solution describes the proposed product. A feature describes something the product will do. Evidence shows whether the solution works.</p>
     <div class="statement-sorter" id="l3-statement-sorter">
       <div class="statement-row" data-answer="problem"><span>Students frequently miss assessment deadlines because information is spread across several platforms.</span><select><option value="">Choose a category</option><option value="problem">Problem</option><option value="solution">Solution</option><option value="feature">Feature</option><option value="evidence">Evidence</option></select></div>
@@ -3027,10 +3739,178 @@ section.
     <div class="callout project"><strong>Project checkpoint:</strong> Save this work for the problem definition, user analysis, functional requirements and use-case sections of your assessment documentation.</div>
   </div>
 
+
+  <div class="assessment-link-box">
+    <h3>Assessment Task 3 connection</h3>
+
+    <p>
+      Today’s work contributes directly to the
+      <strong>Identifying and Defining</strong> section of the
+      AppSheet Database App Challenge.
+    </p>
+
+    <p>Add this evidence to your group’s separate Google Doc:</p>
+
+    <ul>
+      <li>Your final problem statement.</li>
+      <li>Your chosen scenario and app idea.</li>
+      <li>Your primary-user persona.</li>
+      <li>At least two additional stakeholders and their needs.</li>
+      <li>At least two use cases with measurable success conditions.</li>
+      <li>Your proposed user roles and permissions.</li>
+    </ul>
+
+    <div class="copy-doc-box">
+      <strong>Suggested Google Doc heading:</strong>
+      <p>Identifying and Defining — Problem, Users and Use Cases</p>
+    </div>
+
+    <div class="assessment-link-buttons">
+      <a class="assessment-link-button"
+        href="9CT_Assessment_Task_3.pdf"
+        target="_blank" rel="noopener">
+        Open assessment task
+      </a>
+
+      <a class="assessment-link-button secondary"
+        href="https://classroom.google.com/c/ODQyNDI5MzI1MDI1/a/ODQyNDI5MzI1MDQ4/details"
+        target="_blank" rel="noopener">
+        Open Classroom submission
+      </a>
+    </div>
+  </div>
+
   <div class="sequence-step">
     <h4>Exit ticket</h4>
     <div class="field"><label for="l3-exit">What evidence would prove that your app solves the user’s problem rather than simply functioning as programmed?</label><textarea id="l3-exit" data-save></textarea></div>
   </div>
+
+  <div class="lesson-footer">
+    <label class="complete-label"><input type="checkbox" class="lesson-complete" data-lesson="3"> Mark Lesson 3 complete</label>
+    <button class="btn btn-small btn-primary" data-go="4" type="button">Continue to Lesson 4 →</button>
+  </div>
+</section>
+
+<!-- =========================================================
+  3. ADD THIS JAVASCRIPT BEFORE THE CLOSING </script> TAG
+========================================================= -->
+
+<script>
+  (() => {
+    const sorter = document.getElementById("l3-statement-sorter");
+    const sorterRows = sorter ? [...sorter.querySelectorAll(".statement-row")] : [];
+    const sorterFeedback = document.getElementById("l3-sorter-feedback");
+    const sorterStorageKey = "year9-lesson3-statement-sorter";
+
+    function saveSorter() {
+      localStorage.setItem(sorterStorageKey, JSON.stringify(sorterRows.map(row => row.querySelector("select").value)));
+    }
+
+    function restoreSorter() {
+      const saved = localStorage.getItem(sorterStorageKey);
+      if (!saved) return;
+      try {
+        const values = JSON.parse(saved);
+        sorterRows.forEach((row, index) => row.querySelector("select").value = values[index] || "");
+      } catch {
+        localStorage.removeItem(sorterStorageKey);
+      }
+    }
+
+    sorterRows.forEach(row => {
+      row.querySelector("select").addEventListener("change", () => {
+        row.classList.remove("correct-row", "incorrect-row");
+        sorterFeedback.textContent = "";
+        saveSorter();
+      });
+    });
+
+    document.getElementById("l3-check-sorter").addEventListener("click", () => {
+      let correct = 0;
+      let completed = 0;
+      sorterRows.forEach(row => {
+        const selected = row.querySelector("select").value;
+        const isCorrect = selected === row.dataset.answer;
+        if (selected) completed += 1;
+        if (isCorrect) correct += 1;
+        row.classList.toggle("correct-row", isCorrect);
+        row.classList.toggle("incorrect-row", Boolean(selected) && !isCorrect);
+      });
+      if (completed < sorterRows.length) {
+        sorterFeedback.textContent = "Complete every classification before checking.";
+        sorterFeedback.className = "lesson3-feedback incorrect";
+      } else if (correct === sorterRows.length) {
+        sorterFeedback.textContent = "Excellent — all statements are correctly classified.";
+        sorterFeedback.className = "lesson3-feedback correct";
+      } else {
+        sorterFeedback.textContent = `${correct} of ${sorterRows.length} are correct. Review the highlighted statements.`;
+        sorterFeedback.className = "lesson3-feedback incorrect";
+      }
+    });
+
+    restoreSorter();
+
+    const scenarioTabs = [...document.querySelectorAll('[data-lesson="3"] .scenario-tab')];
+    const scenarioPanels = [...document.querySelectorAll('[data-lesson="3"] .scenario-panel')];
+    scenarioTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.scenarioTarget;
+        scenarioTabs.forEach(other => other.classList.toggle("active", other === tab));
+        scenarioPanels.forEach(panel => panel.classList.toggle("active", panel.dataset.scenarioPanel === target));
+      });
+    });
+
+    const personaName = document.getElementById("l3-persona-name");
+    const personaAvatar = document.getElementById("l3-persona-avatar");
+    personaName.addEventListener("input", () => {
+      const value = personaName.value.trim();
+      personaAvatar.textContent = value ? value.charAt(0).toUpperCase() : "U";
+    });
+
+    document.getElementById("l3-generate-persona").addEventListener("click", () => {
+      const values = {
+        name: personaName.value.trim(),
+        age: document.getElementById("l3-persona-age").value,
+        goal: document.getElementById("l3-persona-goal").value.trim(),
+        device: document.getElementById("l3-persona-device").value,
+        frustration: document.getElementById("l3-persona-frustration").value.trim(),
+        accessibility: document.getElementById("l3-persona-accessibility").value.trim()
+      };
+      const summary = document.getElementById("l3-persona-summary");
+      if (Object.values(values).some(value => !value)) {
+        summary.innerHTML = "<strong>Complete all persona fields before generating the summary.</strong>";
+        return;
+      }
+      summary.innerHTML = `<strong>${values.name}</strong> is a ${values.age.toLowerCase()} who mainly uses a ${values.device.toLowerCase()}. Their main goal is to ${values.goal}. Their biggest frustration is ${values.frustration}. The interface should support ${values.accessibility}.`;
+    });
+
+    document.getElementById("l3-generate-usecase").addEventListener("click", () => {
+      const user = document.getElementById("l3-usecase-user").value.trim();
+      const action = document.getElementById("l3-usecase-action").value.trim();
+      const reason = document.getElementById("l3-usecase-reason").value.trim();
+      const success = document.getElementById("l3-usecase-success").value.trim();
+      const preview = document.getElementById("l3-usecase-preview");
+      if (!user || !action || !reason || !success) {
+        preview.innerHTML = "<h4>Your use case</h4><p>Complete all four fields before generating the use case.</p>";
+        return;
+      }
+      preview.innerHTML = `<h4>Your use case</h4><p><strong>As a ${user}, I need to ${action} so that ${reason}. The use case is successful when ${success}.</strong></p>`;
+    });
+
+    document.getElementById("l3-generate-problem").addEventListener("click", () => {
+      const user = document.getElementById("l3-problem-user").value.trim();
+      const difficulty = document.getElementById("l3-problem-difficulty").value.trim();
+      const cause = document.getElementById("l3-problem-cause").value.trim();
+      const impact = document.getElementById("l3-problem-impact").value.trim();
+      const preview = document.getElementById("l3-problem-preview");
+      if (!user || !difficulty || !cause || !impact) {
+        preview.innerHTML = "<h4>Generated problem statement</h4><p>Complete all four sections before generating the statement.</p>";
+        return;
+      }
+      preview.innerHTML = `<h4>Generated problem statement</h4><p><strong>${user} currently experience ${difficulty}. This occurs because ${cause}, resulting in ${impact}.</strong></p>`;
+    });
+  })();
+</script>
 
   <div class="lesson-footer">
     <label class="complete-label"><input type="checkbox" class="lesson-complete" data-lesson="3"> Mark Lesson 3 complete</label>
