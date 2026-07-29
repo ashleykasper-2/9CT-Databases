@@ -491,20 +491,7 @@ section.
     }
   }
 
-/* RESTORED LESSON 2 STYLES */
-section.
-  2. Replace the current Lesson 2 <section> with the HTML block.
-  3. Add the JavaScript block before the closing </script> tag.
-
-  IMAGE NOTE
-  The AppSheet editor screenshot is loaded from an official Google
-  Help image URL and therefore requires an internet connection.
-========================================================= -->
-
-
-<!-- =========================================================
-  1. ADD TO THE END OF THE EXISTING <style> SECTION
-========================================================= -->
+/* LESSON 2 STYLES */
 
 <style>
   .system-flow-figure,
@@ -1061,9 +1048,7 @@ section.
   }
 
 /* ==========================================================
-   LESSON 2 DATA FLOW — STABLE HTML VERSION
-   Replaces the SVG diagram to prevent rendering glitches.
-   ========================================================== */
+   LESSON 2 DATA FLOW — STABLE HTML VERSION= */
 
 .lesson2-flow-figure {
   padding: 18px;
@@ -2003,7 +1988,7 @@ section.
   </div>
 </section>
     
-    <!-- LESSON 2: RESTORED ORIGINAL DEEP VERSION -->
+    <!-- LESSON 2 -->
     <section class="panel lesson" data-panel="2" id="lesson-2">
   <span class="eyebrow">Week 1 · Lesson 2</span>
 
@@ -2221,18 +2206,16 @@ section.
 
   <!-- DO NOW -->
   <div class="sequence-step">
-    <h4>Do Now: Trace a familiar digital transaction</h4>
+    <h4>Trace a familiar digital transaction</h4>
 
     <p>
-      Think about ordering food online, booking an appointment or submitting
-      a school form. Select one example and explain how information moves
+      Think about ordering food online. Select one example and explain how information moves
       through the system.
     </p>
 
     <div class="field">
       <label for="l2-starter">
-        Identify one input, at least two processes, one storage location,
-        one transmission event and two outputs. Explain how the stages depend
+        Identify the input, processes, storage location, transmission event and outputs. Explain how the stages depend
         on one another.
       </label>
 
@@ -2247,7 +2230,7 @@ section.
 
   <!-- CLASSIFICATION INTERACTION -->
   <div class="sequence-step">
-    <h4>Interactive activity: Classify the system events</h4>
+    <h4>Classify the system events</h4>
 
     <p>
       Each event occurs when a student submits a canteen order through an app.
@@ -2369,7 +2352,7 @@ section.
 
   <!-- ORDERING INTERACTION -->
   <div class="sequence-step">
-    <h4>Interactive activity: Put the data flow in order</h4>
+    <h4>Put the data flow in order</h4>
 
     <p>
       Use the arrow buttons to place the events in the order they would
@@ -2557,45 +2540,10 @@ section.
   </div>
 
 
-  <!-- APPSHEET SCREENSHOT -->
-  <div class="sequence-step">
-    <h4>What this looks like in the AppSheet editor</h4>
-
-    <p>
-      The AppSheet editor separates navigation and configuration tools
-      from the live app preview. The preview allows a developer to test
-      how users will interact with the connected data.
-    </p>
-
-    <figure class="appsheet-screen-figure">
-      <img
-        src="https://storage.googleapis.com/support-kms-prod/1cBHsscIwSvTQUL8zqKEJQdNw2tDK6MT4Q4m"
-        alt="Official AppSheet editor screenshot showing the editor navigation, learning and customisation area, and app preview"
-        loading="lazy"
-      />
-
-      <figcaption>
-        Official AppSheet Help image showing the editor navigation,
-        customisation workspace and live app preview. The interface may
-        change as AppSheet is updated.
-      </figcaption>
-    </figure>
-
-    <div class="field">
-      <label for="l2-editor-analysis">
-        Analyse the image. Where would a developer change the system,
-        and where would they test the output experienced by the user?
-        Explain how these areas support iterative development.
-      </label>
-
-      <textarea id="l2-editor-analysis" data-save></textarea>
-    </div>
-  </div>
-
 
   <!-- PRACTICAL BUILD -->
   <div class="build-checkpoint">
-    <h3>Practical build: Create your first connected AppSheet app</h3>
+    <h3>Create your first connected AppSheet app</h3>
 
     <p>
       Work with your project partner. By the end of this activity, your
@@ -2862,128 +2810,6 @@ section.
       </div>
     </div>
   </div>
-
-
-  <!-- FAILURE DETECTIVE -->
-  <div class="sequence-step">
-    <h4>Challenge: System failure detective</h4>
-
-    <p>
-      For each failure, identify the most likely affected stage and propose
-      a response that protects the user’s data and confidence.
-    </p>
-
-    <div class="failure-grid">
-      <div class="failure-card">
-        <h4>Failure A</h4>
-
-        <p>
-          A required field is empty, but the record is accepted.
-        </p>
-
-        <div class="field">
-          <label for="l2-failure-a">
-            Affected stage and recommended response
-          </label>
-
-          <textarea id="l2-failure-a" data-save></textarea>
-        </div>
-      </div>
-
-      <div class="failure-card">
-        <h4>Failure B</h4>
-
-        <p>
-          The user presses Save twice because no confirmation appears.
-        </p>
-
-        <div class="field">
-          <label for="l2-failure-b">
-            Affected stage and recommended response
-          </label>
-
-          <textarea id="l2-failure-b" data-save></textarea>
-        </div>
-      </div>
-
-      <div class="failure-card">
-        <h4>Failure C</h4>
-
-        <p>
-          The app shows a new record, but it does not appear in the Google Sheet.
-        </p>
-
-        <div class="field">
-          <label for="l2-failure-c">
-            Affected stage and investigation steps
-          </label>
-
-          <textarea id="l2-failure-c" data-save></textarea>
-        </div>
-      </div>
-
-      <div class="failure-card">
-        <h4>Failure D</h4>
-
-        <p>
-          A price column has been interpreted as text, so the total is incorrect.
-        </p>
-
-        <div class="field">
-          <label for="l2-failure-d">
-            Affected stage and recommended correction
-          </label>
-
-          <textarea id="l2-failure-d" data-save></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ASSESSMENT CONNECTION -->
-  <div class="sequence-step">
-    <h4>Assessment connection: Map your project’s data flow</h4>
-
-    <div class="field">
-      <label for="l2-project-flow">
-        Describe one complete transaction in your project from the moment
-        the user enters data until they receive a useful output. Include
-        input, at least two processes, transmission, storage and output.
-      </label>
-
-      <textarea
-        id="l2-project-flow"
-        data-save
-        placeholder="Example structure: The user enters... AppSheet checks... The data travels... Google Sheets stores... The app displays..."
-      ></textarea>
-    </div>
-
-    <div class="field">
-      <label for="l2-project-risk">
-        Which stage creates the greatest risk for your project, and what
-        design or testing action will your group use to reduce that risk?
-      </label>
-
-      <textarea id="l2-project-risk" data-save></textarea>
-    </div>
-  </div>
-
-
-  <!-- EXIT TICKET -->
-  <div class="sequence-step">
-    <h4>Exit ticket</h4>
-
-    <div class="field">
-      <label for="l2-exit">
-        Explain how AppSheet and Google Sheets perform different but
-        connected roles in the information system your group began today.
-      </label>
-
-      <textarea id="l2-exit" data-save></textarea>
-    </div>
-  </div>
-
 
   <div class="lesson-footer">
     <label class="complete-label">
